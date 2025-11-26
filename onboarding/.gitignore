@@ -1,0 +1,9 @@
+.htaccess
+.idea
+<<<<<<< HEAD
+/vendor
+/yui
+/vendor
+=======
+/vendor
+>>>>>>> 1ce5e4f07ea2595f49f1740e28c61ce596a49746
