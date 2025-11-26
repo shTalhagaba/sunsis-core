@@ -1,0 +1,74 @@
+body {
+	padding-top: 80px;
+}
+
+.navbar-fixed-top {
+	min-height: 80px;
+}
+
+@media (min-width: 768px) {
+	.navbar-custom {
+		padding: 15px 0;
+		-webkit-transition: padding 0.3s;
+		-moz-transition: padding 0.3s;
+		transition: padding 0.3s;
+	}
+	.navbar-custom.affix {
+		padding: 0;
+	}
+}
+
+.jumbotron {
+	background: center center;
+	width: 100%;
+	height: 70%;
+	/*background-image: url('/images/logos/barnsley.png');background-repeat: no-repeat; background-attachment: fixed;*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.nts-secondary-teaser-gradient {
+	padding: 0.5px;
+	background: #50bebe;
+	background: -moz-linear-gradient(left, #50bebe 0, #41aaaa 50%, #0099cb 100%);
+	background: -webkit-linear-gradient(left, #50bebe 0, #41aaaa 50%, #0099cb 100%);
+	background: linear-gradient(to right, #50bebe 0, #41aaaa 50%, #0099cb 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#50bebe', endColorstr = '#0099cb', GradientType = 1);
+	color: white;
+}
+
+
+.cw-table-list{
+	margin:0px !important;
+	table-layout:fixed;
+}
+.cw-table-list td{
+	padding-bottom: 0px !important;
+	overflow:hidden;
+}.cw-table-list th{
+	 padding-bottom: 0px !important;
+	 overflow:hidden;
+ }
+
+.ui-datepicker .ui-datepicker-title select {
+	color: #000;
+}
+
+.sigbox {
+	border-radius: 15px;
+	border: 1px solid #EEE;
+	cursor: pointer;
+}
+.sigboxselected {
+	border-radius: 25px;
+	border: 2px solid #EEE;
+	cursor: pointer;
+	background-color: #d3d3d3;
+}
+
+
+.disabledStyle{
+	cursor: not-allowed;
+	opacity:0.4;
+}

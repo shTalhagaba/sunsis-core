@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Sunesis - Perspective</title>
+    <style type="text/css">
+
+    </style>
+</head>
+
+
+<frameset cols="174, *" border="0" frameborder="0" framespacing="0" id="sunesis-frameset">
+    <frame name="left" src="do.php?_action=left_hand_menu" border="0" framespacing="0" frameborder="0" marginwidth="0" marginheight="0" noresize="noresize"/>
+    <frame name="right" src="do.php?_action=home_page" border="0" framespacing="0" frameborder="0" marginwidth="0" marginheight="0"/>
+</frameset>
+
+<!--<body style="margin:0px;padding:0px;overflow:hidden">
+	<iframe src="do.php?_action=left_hand_menu" frameborder="0"
+	        width="10%" style="position: absolute; height: 100%; border: none" align="left"></iframe>
+
+	<iframe name="rightSide" src="do.php?_action=home_page" frameborder="0"
+	        width="90%" style="position: absolute; margin-left: 10%; height: 100%; border: none" align="right">
+	</iframe>
+
+
+</body>
+</html>-->

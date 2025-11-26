@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="ExternalServiceProxy" targetNamespace="http://api.lrs.qcf.gov.uk/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://api.lrs.qcf.gov.uk/services" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsp:Policy wsu:Id="BasicHttpBinding_IExternalService_policy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:TransportToken>
+							<wsp:Policy>
+								<sp:HttpsToken RequireClientCertificate="false"/>
+							</wsp:Policy>
+						</sp:TransportToken>
+						<sp:AlgorithmSuite>
+							<wsp:Policy>
+								<sp:Basic256/>
+							</wsp:Policy>
+						</sp:AlgorithmSuite>
+						<sp:Layout>
+							<wsp:Policy>
+								<sp:Strict/>
+							</wsp:Policy>
+						</sp:Layout>
+					</wsp:Policy>
+				</sp:TransportBinding>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+	<wsdl:types>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.qcf.gov.uk/services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:import namespace="http://api.lrs.qcf.gov.uk/model"/>
+			<xs:element name="SubmitAchievementBatchJob">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="invokingUser" nillable="true" type="q1:User" xmlns:q1="http://api.lrs.qcf.gov.uk/model"/>
+						<xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="0" name="submissionType" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="0" name="achievements" nillable="true" type="tns:ArrayOfAchievement"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:complexType name="ArrayOfAchievement">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="Achievement" nillable="true" type="tns:Achievement"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfAchievement" nillable="true" type="tns:ArrayOfAchievement"/>
+			<xs:complexType name="Achievement">
+				<xs:sequence>
+					<xs:element name="AchievementAwardDate" type="xs:dateTime"/>
+					<xs:element name="Action" type="xs:int"/>
+					<xs:element name="ActionDate" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="ActionReason" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="DateofBirth" nillable="true" type="xs:dateTime"/>
+					<xs:element name="FamilyName" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Gender" nillable="true" type="xs:int"/>
+					<xs:element name="GivenName" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LanguageForAssessment" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="LearnerPostcode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="MisIdentifier" nillable="true" type="xs:string"/>
+					<xs:element name="ProviderUkprn" nillable="true" type="xs:string"/>
+					<xs:element name="Uln" nillable="true" type="xs:string"/>
+					<xs:element name="UnitOrQualificationReferenceNumber" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="Achievement" nillable="true" type="tns:Achievement"/>
+			<xs:element name="SubmitAchievementBatchJobResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="SubmitAchievementBatchJobResult" nillable="true" type="q2:SubmitAchievementBatchJobResponse" xmlns:q2="http://api.lrs.qcf.gov.uk/model"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetAchievementBatchJob">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="invokingUser" nillable="true" type="q3:User" xmlns:q3="http://api.lrs.qcf.gov.uk/model"/>
+						<xs:element minOccurs="0" name="jobId" nillable="true" type="xs:int"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetAchievementBatchJobResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="GetAchievementBatchJobResult" nillable="true" type="q4:AchievementBatchJobResponse" xmlns:q4="http://api.lrs.qcf.gov.uk/model"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+		<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+			<xs:element name="anyType" nillable="true" type="xs:anyType"/>
+			<xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+			<xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+			<xs:element name="boolean" nillable="true" type="xs:boolean"/>
+			<xs:element name="byte" nillable="true" type="xs:byte"/>
+			<xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+			<xs:element name="decimal" nillable="true" type="xs:decimal"/>
+			<xs:element name="double" nillable="true" type="xs:double"/>
+			<xs:element name="float" nillable="true" type="xs:float"/>
+			<xs:element name="int" nillable="true" type="xs:int"/>
+			<xs:element name="long" nillable="true" type="xs:long"/>
+			<xs:element name="QName" nillable="true" type="xs:QName"/>
+			<xs:element name="short" nillable="true" type="xs:short"/>
+			<xs:element name="string" nillable="true" type="xs:string"/>
+			<xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+			<xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+			<xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+			<xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+			<xs:element name="char" nillable="true" type="tns:char"/>
+			<xs:simpleType name="char">
+				<xs:restriction base="xs:int"/>
+			</xs:simpleType>
+			<xs:element name="duration" nillable="true" type="tns:duration"/>
+			<xs:simpleType name="duration">
+				<xs:restriction base="xs:duration">
+					<xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+					<xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+					<xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="guid" nillable="true" type="tns:guid"/>
+			<xs:simpleType name="guid">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:attribute name="FactoryType" type="xs:QName"/>
+			<xs:attribute name="Id" type="xs:ID"/>
+			<xs:attribute name="Ref" type="xs:IDREF"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.qcf.gov.uk/model" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.qcf.gov.uk/model">
+			<xs:complexType name="User">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BusinessObject">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="OrgPassword" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OrganisationRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="User" nillable="true" type="tns:User"/>
+			<xs:complexType name="BusinessObject">
+				<xs:sequence/>
+			</xs:complexType>
+			<xs:element name="BusinessObject" nillable="true" type="tns:BusinessObject"/>
+			<xs:complexType name="SubmitAchievementBatchJobResponse">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ServiceResponseR9">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="JobId" type="xs:int"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="SubmitAchievementBatchJobResponse" nillable="true" type="tns:SubmitAchievementBatchJobResponse"/>
+			<xs:complexType name="ServiceResponseR9">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ServiceResponseR9" nillable="true" type="tns:ServiceResponseR9"/>
+			<xs:complexType name="AchievementBatchJobResponse">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ServiceResponseR9">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AchievementBatchErrorFile" nillable="true" type="xs:string">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="AchievementsCreated" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="AchievementsPromotedToFinal" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="AchievementsReinstated" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="AchievementsUpdated" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="AchievementsWithdrawn" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="BusinessRuleErrors" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="Duration" nillable="true" type="xs:string">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="FieldDataErrors" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="Filename" nillable="true" type="xs:string">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="JobID" type="xs:int"/>
+							<xs:element minOccurs="0" name="LearnerDataErrors" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="NumberOfRecords" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="PercentageSuccessfulRecords" nillable="true" type="xs:float">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="RejectionReason" nillable="true" type="xs:string">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="Status" type="tns:AchievementBatchJobStatus"/>
+							<xs:element minOccurs="0" name="SubmittedDate" nillable="true" type="xs:dateTime">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="SuccessfulFinalAchievements" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="SuccessfulProvisionalAchievements" nillable="true" type="xs:int">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="Type" nillable="true" type="xs:string">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="User" nillable="true" type="xs:string">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="AchievementBatchJobResponse" nillable="true" type="tns:AchievementBatchJobResponse"/>
+			<xs:simpleType name="AchievementBatchJobStatus">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Failed"/>
+					<xs:enumeration value="Successful"/>
+					<xs:enumeration value="Waiting"/>
+					<xs:enumeration value="InProgress"/>
+					<xs:enumeration value="Cancelled"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="AchievementBatchJobStatus" nillable="true" type="tns:AchievementBatchJobStatus"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.qcf.gov.uk/faults" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.qcf.gov.uk/faults">
+			<xs:complexType name="DomainFault">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorDetail" nillable="true" type="xs:base64Binary"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="DomainFault" nillable="true" type="tns:DomainFault"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="IExternalService_SubmitAchievementBatchJob_InputMessage">
+		<wsdl:part name="parameters" element="tns:SubmitAchievementBatchJob"/>
+	</wsdl:message>
+	<wsdl:message name="IExternalService_SubmitAchievementBatchJob_OutputMessage">
+		<wsdl:part name="parameters" element="tns:SubmitAchievementBatchJobResponse"/>
+	</wsdl:message>
+	<wsdl:message name="IExternalService_SubmitAchievementBatchJob_DomainFaultFault_FaultMessage">
+		<wsdl:part name="detail" element="q1:DomainFault" xmlns:q1="http://api.lrs.qcf.gov.uk/faults"/>
+	</wsdl:message>
+	<wsdl:message name="IExternalService_GetAchievementBatchJob_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetAchievementBatchJob"/>
+	</wsdl:message>
+	<wsdl:message name="IExternalService_GetAchievementBatchJob_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetAchievementBatchJobResponse"/>
+	</wsdl:message>
+	<wsdl:message name="IExternalService_GetAchievementBatchJob_DomainFaultFault_FaultMessage">
+		<wsdl:part name="detail" element="q2:DomainFault" xmlns:q2="http://api.lrs.qcf.gov.uk/faults"/>
+	</wsdl:message>
+	<wsdl:portType name="IExternalService">
+		<wsdl:operation name="SubmitAchievementBatchJob">
+			<wsdl:input wsaw:Action="http://api.lrs.qcf.gov.uk/services/IExternalService/SubmitAchievementBatchJob" message="tns:IExternalService_SubmitAchievementBatchJob_InputMessage"/>
+			<wsdl:output wsaw:Action="http://api.lrs.qcf.gov.uk/services/IExternalService/SubmitAchievementBatchJobResponse" message="tns:IExternalService_SubmitAchievementBatchJob_OutputMessage"/>
+			<wsdl:fault wsaw:Action="http://api.lrs.qcf.gov.uk/services/IExternalService/SubmitAchievementBatchJobDomainFaultFault" name="DomainFaultFault" message="tns:IExternalService_SubmitAchievementBatchJob_DomainFaultFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetAchievementBatchJob">
+			<wsdl:input wsaw:Action="http://api.lrs.qcf.gov.uk/services/IExternalService/GetAchievementBatchJob" message="tns:IExternalService_GetAchievementBatchJob_InputMessage"/>
+			<wsdl:output wsaw:Action="http://api.lrs.qcf.gov.uk/services/IExternalService/GetAchievementBatchJobResponse" message="tns:IExternalService_GetAchievementBatchJob_OutputMessage"/>
+			<wsdl:fault wsaw:Action="http://api.lrs.qcf.gov.uk/services/IExternalService/GetAchievementBatchJobDomainFaultFault" name="DomainFaultFault" message="tns:IExternalService_GetAchievementBatchJob_DomainFaultFault_FaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BasicHttpBinding_IExternalService" type="tns:IExternalService">
+		<wsp:PolicyReference URI="#BasicHttpBinding_IExternalService_policy"/>
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="SubmitAchievementBatchJob">
+			<soap:operation soapAction="http://api.lrs.qcf.gov.uk/services/IExternalService/SubmitAchievementBatchJob" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DomainFaultFault">
+				<soap:fault use="literal" name="DomainFaultFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetAchievementBatchJob">
+			<soap:operation soapAction="http://api.lrs.qcf.gov.uk/services/IExternalService/GetAchievementBatchJob" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DomainFaultFault">
+				<soap:fault use="literal" name="DomainFaultFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ExternalServiceProxy">
+		<wsdl:port name="BasicHttpBinding_IExternalService" binding="tns:BasicHttpBinding_IExternalService">
+			<soap:address location="https://ws.lrs.education.gov.uk/ExternalService.svc?singleWsdl"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
