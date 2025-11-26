@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:lrnr="http://api.lrs.miap.gov.uk/learner" targetNamespace="http://api.lrs.miap.gov.uk/learner">
+
+	<simpleType name="MIAPOrganisationRef">
+		<restriction base="string">
+			<pattern value="[0-9a-zA-Z]{6}"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPUKPRN">
+		<restriction base="string">
+			<pattern value="[0-9a-zA-Z]{8}"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPULN">
+		<restriction base="string">
+			<maxLength value="10"/>
+			<minLength value="10"/>
+			<pattern value="[1-9][0-9]{9}"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPULNNillable">
+		<restriction base="string">
+			<maxLength value="10"/>
+			<pattern value="[1-9][0-9]{9}"/>
+			<pattern value=""/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPNameNonEmpty">
+		<restriction base="string">
+			<maxLength value="35"/>
+			<minLength value="1"/>
+			<pattern value="[\s]*[\S][\s\S]*"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPOrgPassword">
+		<restriction base="string">
+			<maxLength value="16"/>
+			<minLength value="16"/>
+			<pattern value="[\s]*[\S][\s\S]*"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPName">
+		<restriction base="string">
+			<maxLength value="35"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPDate">
+		<restriction base="string">
+			<pattern value="(((18|19|20)[0-9]{2})-(((01|03|05|07|08|10|12)-(0[1-9]|[1-2][0-9]|3[0-1]))|((04|06|09|11)-(0[1-9]|[1-2][0-9]|30))|(02-(0[1-9]|1[0-9]|2[0-8]))))|(((18|19|20)([02468][048]|[13579][26]))-02-29)"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPDateNillable">
+		<restriction base="string">
+			<pattern value="(((18|19|20)[0-9]{2})-(((01|03|05|07|08|10|12)-(0[1-9]|[1-2][0-9]|3[0-1]))|((04|06|09|11)-(0[1-9]|[1-2][0-9]|30))|(02-(0[1-9]|1[0-9]|2[0-8]))))|(((18|19|20)([02468][048]|[13579][26]))-02-29)"/>
+			<pattern value=""/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPDateTime">
+		<restriction base="string">
+			<pattern value="(((18|19|20)[0-9]{2})-(((01|03|05|07|08|10|12)-(0[1-9]|[1-2][0-9]|3[0-1]))|((04|06|09|11)-(0[1-9]|[1-2][0-9]|30))|(02-(0[1-9]|1[0-9]|2[0-8]))))|(((18|19|20)([02468][048]|[13579][26]))-02-29) ([0-1][0-9]|[2][0-3]):[0-5][0-9]:[0-5][0-9]"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="MIAPFindDate">
+		<restriction base="string">
+			<pattern value="(((18|19|20)[0-9]{2})-(((01|03|05|07|08|10|12)-(0[1-9]|[1-2][0-9]|3[0-1]))|((04|06|09|11)-(0[1-9]|[1-2][0-9]|30))|(02-(0[1-9]|1[0-9]|2[0-8]))))|(((18|19|20)([02468][048]|[13579][26]))-02-29)"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPGender">
+		<restriction base="string">
+			<maxLength value="1"/>
+			<pattern value="0|1|2|9"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPGenderNillable">
+		<restriction base="string">
+			<maxLength value="1"/>
+			<pattern value="0|1|2|9"/>
+			<pattern value=""/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPSchoolName">
+		<restriction base="string">
+			<maxLength value="254"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPAddress">
+		<restriction base="string">
+			<maxLength value="50"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPPostCode">
+		<restriction base="string">
+			<maxLength value="9"/>
+			<pattern value="[a-zA-Z]{1,2}[0-9rR][0-9a-zA-Z]? ?[0-9][abdefghjlnpqrstuwxyzABDEFGHJLNPQRSTUWXYZ]{2} ? ? ? ?"/>
+			<pattern value="[bB][fF][pP][oO] ?[0-9]{1,4} ? ? ? ?"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPPostCodeNillable">
+		<restriction base="string">
+			<maxLength value="9"/>
+			<pattern value="[a-zA-Z]{1,2}[0-9rR][0-9a-zA-Z]? ?[0-9][abdefghjlnpqrstuwxyzABDEFGHJLNPQRSTUWXYZ]{2} ? ? ? ?"/>
+			<pattern value="[bB][fF][pP][oO] ?[0-9]{1,4} ? ? ? ?"/>
+			<pattern value=""/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPEmail">
+		<restriction base="string">
+			<maxLength value="254"/>
+			<pattern value="[a-zA-Z0-9!#$%'\*\+\-/=\?\^_`\{\|\}~]+(\.[a-zA-Z0-9!#$%'\*\+\-/=\?\^_`\{\|\}~]+)*@[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9](\.[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])*\.[a-zA-Z]{2,6}"/>
+			<pattern value=""/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPNationality">
+		<restriction base="string">
+			<maxLength value="3"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPScottishCandidateNumber">
+		<restriction base="string">
+			<maxLength value="9"/>
+			<pattern value="[0-9]{9}"/>
+			<pattern value=""/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPVerificationType">
+		<restriction base="string">
+			<maxLength value="3"/>
+			<pattern value="0|1|2|3|4|5|6|7|999"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPAbilityToShare">
+		<restriction base="string">
+			<maxLength value="1"/>
+			<minLength value="1"/>
+			<pattern value="0|1|2"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPTierLevel">
+		<restriction base="string">
+			<maxLength value="1"/>
+			<minLength value="1"/>
+			<pattern value="0|1|2"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPOtherVerificationDescription">
+		<restriction base="string">
+			<maxLength value="255"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPNotes">
+		<restriction base="string">
+			<maxLength value="4000"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPLearnerStatus">
+		<restriction base="string">
+			<maxLength value="1"/>
+			<minLength value="1"/>
+			<pattern value="0|1|2"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="MIAPLinkedULN">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="ULN" type="lrnr:MIAPULN"/>
+		</sequence>
+	</complexType>
+
+	<simpleType name="MIAPMISIdentifier">
+		<restriction base="string">
+			<maxLength value="128"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPLearnerRecordCount">
+		<restriction base="int">
+			<minInclusive value="1"/>
+			<maxInclusive value="200"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="MIAPBatchJobType">
+		<restriction base="string">
+			<pattern value="FUL|CHK"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="Learner">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="CreatedDate" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="1" name="LastUpdatedDate" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="1" name="ULN" type="lrnr:MIAPULN"/>
+			<element maxOccurs="1" minOccurs="0" name="MasterSubstituted" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="Title" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="GivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="MiddleOtherName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="FamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="PreferredGivenName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="PreviousFamilyName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="FamilyNameAtAge16" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="SchoolAtAge16" type="lrnr:MIAPSchoolName"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressLine1" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressLine2" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressTown" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressCountyOrCity" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="1" name="LastKnownPostCode" type="lrnr:MIAPPostCode"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfAddressCapture" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="1" name="DateOfBirth" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="0" name="PlaceOfBirth" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="Gender" type="lrnr:MIAPGender"/>
+			<element maxOccurs="1" minOccurs="0" name="EmailAddress" type="lrnr:MIAPEmail"/>
+			<element maxOccurs="1" minOccurs="0" name="Nationality" type="lrnr:MIAPNationality"/>
+			<element maxOccurs="1" minOccurs="0" name="ScottishCandidateNumber" type="lrnr:MIAPScottishCandidateNumber"/>
+			<element maxOccurs="1" minOccurs="0" name="VerificationType" type="lrnr:MIAPVerificationType"/>
+			<element maxOccurs="1" minOccurs="0" name="OtherVerificationDescription" type="lrnr:MIAPOtherVerificationDescription"/>
+			<element maxOccurs="1" minOccurs="0" name="TierLevel" type="lrnr:MIAPTierLevel"/>
+			<element maxOccurs="1" minOccurs="1" name="AbilityToShare" type="lrnr:MIAPAbilityToShare"/>
+			<element maxOccurs="1" minOccurs="1" name="LearnerStatus" type="lrnr:MIAPLearnerStatus"/>
+			<element maxOccurs="1" minOccurs="0" name="LinkedULNs" type="lrnr:MIAPLinkedULN"/>
+			<element maxOccurs="1" minOccurs="0" name="Notes" type="lrnr:MIAPNotes"/>
+			<element maxOccurs="1" minOccurs="1" name="VersionNumber" type="int"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="LearnerToRegister">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="Title" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="GivenName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="MiddleOtherName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="FamilyName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="PreferredGivenName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="PreviousFamilyName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="FamilyNameAtAge16" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="SchoolAtAge16" type="lrnr:MIAPSchoolName"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressLine1" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressLine2" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressTown" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressCountyOrCity" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="1" name="LastKnownPostCode" nillable="false" type="lrnr:MIAPPostCode"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfAddressCapture" type="lrnr:MIAPDateNillable"/>
+			<element maxOccurs="1" minOccurs="1" name="DateOfBirth" nillable="false" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="0" name="PlaceOfBirth" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="Gender" nillable="false" type="lrnr:MIAPGender"/>
+			<element maxOccurs="1" minOccurs="0" name="EmailAddress" type="lrnr:MIAPEmail"/>
+			<element maxOccurs="1" minOccurs="0" name="Nationality" type="lrnr:MIAPNationality"/>
+			<element maxOccurs="1" minOccurs="0" name="ScottishCandidateNumber" type="lrnr:MIAPScottishCandidateNumber"/>
+			<element maxOccurs="1" minOccurs="1" name="VerificationType" nillable="false" type="lrnr:MIAPVerificationType"/>
+			<element maxOccurs="1" minOccurs="0" name="OtherVerificationDescription" type="lrnr:MIAPOtherVerificationDescription"/>
+			<element maxOccurs="1" minOccurs="1" name="AbilityToShare" nillable="false" type="lrnr:MIAPAbilityToShare"/>
+			<element maxOccurs="1" minOccurs="0" name="Notes" type="lrnr:MIAPNotes"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="LearnerToUpdate">
+		<complexContent>
+			<extension base="lrnr:LearnerToRegister">
+				<sequence>
+					<element maxOccurs="1" minOccurs="1" name="ULN" nillable="false" type="lrnr:MIAPULN"/>
+					<element maxOccurs="1" minOccurs="1" name="VersionNumber" nillable="false" type="int"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="BatchLearner">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="ULN" type="lrnr:MIAPULNNillable"/>
+			<element maxOccurs="1" minOccurs="0" name="MISIdentifier" type="lrnr:MIAPMISIdentifier"/>
+			<element maxOccurs="1" minOccurs="0" name="Title" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="GivenName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="PreferredGivenName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="MiddleOtherName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="1" name="FamilyName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="PreviousFamilyName" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="FamilyNameAtAge16" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="SchoolAtAge16" type="lrnr:MIAPSchoolName"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressLine1" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressLine2" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressTown" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownAddressCountyOrCity" type="lrnr:MIAPAddress"/>
+			<element maxOccurs="1" minOccurs="0" name="LastKnownPostCode" type="lrnr:MIAPPostCodeNillable"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfAddressCapture" type="lrnr:MIAPDateNillable"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfBirth" type="lrnr:MIAPDateNillable"/>
+			<element maxOccurs="1" minOccurs="0" name="PlaceOfBirth" type="lrnr:MIAPName"/>
+			<element maxOccurs="1" minOccurs="0" name="EmailAddress" type="lrnr:MIAPEmail"/>
+			<element maxOccurs="1" minOccurs="0" name="Gender" type="lrnr:MIAPGenderNillable"/>
+			<element maxOccurs="1" minOccurs="0" name="Nationality" type="lrnr:MIAPNationality"/>
+			<element maxOccurs="1" minOccurs="0" name="ScottishCandidateNumber" type="lrnr:MIAPScottishCandidateNumber"/>
+			<element maxOccurs="1" minOccurs="0" name="AbilityToShare" nillable="false" type="lrnr:MIAPAbilityToShare"/>
+			<element maxOccurs="1" minOccurs="0" name="VerificationType" type="lrnr:MIAPVerificationType"/>
+			<element maxOccurs="1" minOccurs="0" name="OtherVerificationDescription" type="lrnr:MIAPOtherVerificationDescription"/>
+			<element maxOccurs="1" minOccurs="0" name="Notes" type="lrnr:MIAPNotes"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="OutputBatchLearner">
+		<complexContent>
+			<extension base="lrnr:BatchLearner">
+				<sequence>
+					<element maxOccurs="1" minOccurs="1" name="ReturnCode" type="string"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+    <complexType name="MIAPMergedLearner">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="MasterULN" type="lrnr:MIAPULN"/>
+            <element maxOccurs="1" minOccurs="1" name="MasterFamilyName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="MasterGivenName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="MasterDateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="1" name="MergedULN" type="lrnr:MIAPULN"/>
+            <element maxOccurs="1" minOccurs="1" name="MergedFamilyName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="MergedGivenName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="MergedDateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="1" name="MergedDate" type="lrnr:MIAPDate"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="MIAPUnmergedLearner">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="MasterULN" type="lrnr:MIAPULN"/>
+            <element maxOccurs="1" minOccurs="1" name="MasterFamilyName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="MasterGivenName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="MasterDateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="1" name="UnmergedULN" type="lrnr:MIAPULN"/>
+            <element maxOccurs="1" minOccurs="1" name="UnmergedFamilyName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="UnmergedGivenName" type="lrnr:MIAPName"/>
+            <element maxOccurs="1" minOccurs="1" name="UnmergedDateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="1" name="UnmergedDate" type="lrnr:MIAPDate"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="MIAPDeletedLearner">
+        <sequence>
+            <element maxOccurs="1" minOccurs="1" name="ULN" type="lrnr:MIAPULN"/>
+            <element maxOccurs="1" minOccurs="1" name="DeletedDate" type="lrnr:MIAPDate"/>
+        </sequence>
+    </complexType>
+
+	<complexType name="MIAPMergedLearners">
+		<sequence>
+             <element maxOccurs="unbounded" minOccurs="0" name="MergedLearner" type="lrnr:MIAPMergedLearner"/>
+		</sequence>
+	</complexType>    
+
+	<complexType name="MIAPUnmergedLearners">
+		<sequence>
+             <element maxOccurs="unbounded" minOccurs="0" name="UnmergedLearner" type="lrnr:MIAPUnmergedLearner"/>
+		</sequence>
+	</complexType>    
+
+	<complexType name="MIAPDeletedLearners">
+		<sequence>
+             <element maxOccurs="unbounded" minOccurs="0" name="DeletedLearner" type="lrnr:MIAPDeletedLearner"/>
+		</sequence>
+	</complexType>
+	    
+    <complexType name="MIAPULNReport">
+         <sequence>
+             <element maxOccurs="1" minOccurs="0" name="MergedLearners" type="lrnr:MIAPMergedLearners"/>
+             <element maxOccurs="1" minOccurs="0" name="UnmergedLearners" type="lrnr:MIAPUnmergedLearners"/>
+             <element maxOccurs="1" minOccurs="0" name="DeletedLearners" type="lrnr:MIAPDeletedLearners"/>
+		</sequence>
+    </complexType>
+
+    <complexType name="MIAPULNsToRetrieve">
+         <sequence>
+             <element maxOccurs="200" minOccurs="1" name="ULN" type="lrnr:MIAPULN"/>
+		</sequence>
+    </complexType>
+    
+
+    <complexType name="MIAPRetrievedULN">
+         <sequence>
+             <element maxOccurs="1" minOccurs="1" name="ULN" type="lrnr:MIAPULN"/>
+             <element maxOccurs="1" minOccurs="0" name="MasterULN" type="lrnr:MIAPULN"/>
+             <element maxOccurs="1" minOccurs="0" name="ResponseCode" type="string"/>
+             <element maxOccurs="1" minOccurs="0" name="FamilyName" type="lrnr:MIAPName"/>
+             <element maxOccurs="1" minOccurs="0" name="GivenName" type="lrnr:MIAPName"/>
+             <element maxOccurs="1" minOccurs="0" name="DateOfBirth" type="lrnr:MIAPDate"/>
+             <element maxOccurs="1" minOccurs="0" name="Gender" type="lrnr:MIAPGender"/>
+		</sequence>
+    </complexType>
+    
+    <complexType name="MIAPRetrievedULNs">
+    	<sequence>
+    		<element maxOccurs="200" minOccurs="1" name="VerifiedULN" type="lrnr:MIAPRetrievedULN"/>
+    	</sequence>
+    </complexType>
+
+	<complexType name="MIAPLearnerToVerify">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="ULN" type="lrnr:MIAPULN"/>
+			<element maxOccurs="1" minOccurs="1" name="FamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="GivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfBirth" nillable="true" type="lrnr:MIAPDateNillable"/>
+            <element maxOccurs="1" minOccurs="0" name="Gender" nillable="true" type="lrnr:MIAPGenderNillable"/>
+		</sequence>
+	</complexType>
+	
+	<simpleType name="MIAPFailureFlag">
+		<restriction base="string"/>
+	</simpleType>
+	
+	<complexType name="MIAPVerifiedLearner">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="SearchedULN" type="lrnr:MIAPULN"/>
+			<element maxOccurs="1" minOccurs="1" name="SearchedFamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="SearchedGivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="SearchedDateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="0" name="SearchedGender" type="lrnr:MIAPGender"/>
+            <element maxOccurs="1" minOccurs="1" name="ResponseCode" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="ULN" type="lrnr:MIAPULN"/>
+			<element maxOccurs="1" minOccurs="0" name="FamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="GivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="0" name="Gender" type="lrnr:MIAPGender"/>
+			<element maxOccurs="8" minOccurs="0" name="FailureFlag" type="lrnr:MIAPFailureFlag"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="MIAPBatchLearnerToVerify">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="MISIdentifier" type="lrnr:MIAPMISIdentifier"/>
+			<element maxOccurs="1" minOccurs="1" name="ULN" type="lrnr:MIAPULN"/>
+			<element maxOccurs="1" minOccurs="1" name="FamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="GivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfBirth" nillable="true" type="lrnr:MIAPDateNillable"/>
+            <element maxOccurs="1" minOccurs="0" name="Gender" nillable="true" type="lrnr:MIAPGenderNillable"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="MIAPVerifiedBatchLearner">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="MISIdentifier" type="lrnr:MIAPMISIdentifier"/>
+			<element maxOccurs="1" minOccurs="1" name="SearchedULN" type="lrnr:MIAPULN"/>
+			<element maxOccurs="1" minOccurs="1" name="SearchedFamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="SearchedGivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="SearchedDateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="0" name="SearchedGender" type="lrnr:MIAPGender"/>
+            <element maxOccurs="1" minOccurs="1" name="ResponseCode" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="ULN" type="lrnr:MIAPULN"/>
+			<element maxOccurs="1" minOccurs="0" name="FamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="GivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="0" name="DateOfBirth" type="lrnr:MIAPDate"/>
+            <element maxOccurs="1" minOccurs="0" name="Gender" type="lrnr:MIAPGender"/>
+			<element maxOccurs="8" minOccurs="0" name="FailureFlag" type="lrnr:MIAPFailureFlag"/>
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,881 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="LearnerServiceProxy" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsp:Policy wsu:Id="BasicHttpBinding_LearnerPortType_policy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:TransportToken>
+							<wsp:Policy>
+								<sp:HttpsToken RequireClientCertificate="false"/>
+							</wsp:Policy>
+						</sp:TransportToken>
+						<sp:AlgorithmSuite>
+							<wsp:Policy>
+								<sp:Basic256/>
+							</wsp:Policy>
+						</sp:AlgorithmSuite>
+						<sp:Layout>
+							<wsp:Policy>
+								<sp:Strict/>
+							</wsp:Policy>
+						</sp:Layout>
+					</wsp:Policy>
+				</sp:TransportBinding>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+	<wsdl:types>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.miap.gov.uk/findmsg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.miap.gov.uk/findmsg">
+			<xs:import namespace="http://api.lrs.miap.gov.uk/learner"/>
+			<xs:element name="FindLearnerByULN" type="tns:LearnerByULNRqst"/>
+			<xs:complexType name="LearnerByULNRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseFindLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseFindLearnerServiceRqst" abstract="true">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FindType" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="OrganisationRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="UKPRN" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OrgPassword" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="UserName" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRequestPart" abstract="true"/>
+			<xs:element name="FindLearnerResponse" type="tns:FindLearnerResp"/>
+			<xs:complexType name="FindLearnerResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownPostCode" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PreviousFamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SchoolAtAge16" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PlaceOfBirth" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="EmailAddress" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Learner" type="q1:Learner" xmlns:q1="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="LearnerServiceWrappedResponse" abstract="true"/>
+			<xs:element name="FindLearnerByDemographics" type="tns:LearnerByDemographicsRqst"/>
+			<xs:complexType name="LearnerByDemographicsRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseFindLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownPostCode" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="PreviousFamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="SchoolAtAge16" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="PlaceOfBirth" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="EmailAddress" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.miap.gov.uk/learner" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.miap.gov.uk/learner">
+			<xs:complexType name="Learner">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="CreatedDate" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastUpdatedDate" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MasterSubstituted" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Title" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MiddleOtherName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PreferredGivenName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PreviousFamilyName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyNameAtAge16" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SchoolAtAge16" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressLine1" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressLine2" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressTown" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressCountyOrCity" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownPostCode" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfAddressCapture" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PlaceOfBirth" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="EmailAddress" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Nationality" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ScottishCandidateNumber" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="VerificationType" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OtherVerificationDescription" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="TierLevel" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="AbilityToShare" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LearnerStatus" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" name="LinkedULNs" type="tns:ArrayOfString"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Notes" type="xs:string"/>
+					<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="VersionNumber" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="ArrayOfString">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="ULN" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="LearnerToRegister">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Title" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MiddleOtherName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PreferredGivenName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PreviousFamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyNameAtAge16" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SchoolAtAge16" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressLine1" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressLine2" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressTown" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressCountyOrCity" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownPostCode" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfAddressCapture" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PlaceOfBirth" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="EmailAddress" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Nationality" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ScottishCandidateNumber" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="VerificationType" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OtherVerificationDescription" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="AbilityToShare" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Notes" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRequestPart" abstract="true"/>
+			<xs:complexType name="LearnerToUpdate">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerToRegister">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="VersionNumber" type="xs:int"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BatchLearner">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MISIdentifier" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Title" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PreferredGivenName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MiddleOtherName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PreviousFamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyNameAtAge16" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SchoolAtAge16" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressLine1" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressLine2" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressTown" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownAddressCountyOrCity" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LastKnownPostCode" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfAddressCapture" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PlaceOfBirth" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="EmailAddress" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Nationality" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ScottishCandidateNumber" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="AbilityToShare" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="VerificationType" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OtherVerificationDescription" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Notes" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="OutputBatchLearner">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BatchLearner">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ReturnCode" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="MIAPBatchLearnerToVerify">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MISIdentifier" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="DateOfBirth" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Gender" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="MIAPVerifiedBatchLearner">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MISIdentifier" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedULN" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedFamilyName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedGivenName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedDateOfBirth" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedGender" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="FailureFlag" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MIAPRetrievedULN">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="MasterULN" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:complexType name="MIAPLearnerToVerify">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="DateOfBirth" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="Gender" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="MIAPVerifiedLearner">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedULN" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedFamilyName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedGivenName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedDateOfBirth" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="SearchedGender" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="FamilyName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="GivenName" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="DateOfBirth" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Gender" type="xs:string"/>
+					<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="FailureFlag" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+			<xs:element name="anyType" nillable="true" type="xs:anyType"/>
+			<xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+			<xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+			<xs:element name="boolean" nillable="true" type="xs:boolean"/>
+			<xs:element name="byte" nillable="true" type="xs:byte"/>
+			<xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+			<xs:element name="decimal" nillable="true" type="xs:decimal"/>
+			<xs:element name="double" nillable="true" type="xs:double"/>
+			<xs:element name="float" nillable="true" type="xs:float"/>
+			<xs:element name="int" nillable="true" type="xs:int"/>
+			<xs:element name="long" nillable="true" type="xs:long"/>
+			<xs:element name="QName" nillable="true" type="xs:QName"/>
+			<xs:element name="short" nillable="true" type="xs:short"/>
+			<xs:element name="string" nillable="true" type="xs:string"/>
+			<xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+			<xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+			<xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+			<xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+			<xs:element name="char" nillable="true" type="tns:char"/>
+			<xs:simpleType name="char">
+				<xs:restriction base="xs:int"/>
+			</xs:simpleType>
+			<xs:element name="duration" nillable="true" type="tns:duration"/>
+			<xs:simpleType name="duration">
+				<xs:restriction base="xs:duration">
+					<xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+					<xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+					<xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="guid" nillable="true" type="tns:guid"/>
+			<xs:simpleType name="guid">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:attribute name="FactoryType" type="xs:QName"/>
+			<xs:attribute name="Id" type="xs:ID"/>
+			<xs:attribute name="Ref" type="xs:IDREF"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.miap.gov.uk/exceptions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.miap.gov.uk/exceptions">
+			<xs:complexType name="MIAPAPIException">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorActor" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="FurtherDetails" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorTimestamp" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="MIAPAPIException" nillable="true" type="tns:MIAPAPIException"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.miap.gov.uk/regmsg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.miap.gov.uk/regmsg">
+			<xs:import namespace="http://api.lrs.miap.gov.uk/learner"/>
+			<xs:element name="RegisterLearner" type="tns:RegisterSingleLearnerRqst"/>
+			<xs:complexType name="RegisterSingleLearnerRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Learner" type="q1:LearnerToRegister" xmlns:q1="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRqst" abstract="true">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="OrganisationRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="UKPRN" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OrgPassword" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="UserName" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRequestPart" abstract="true"/>
+			<xs:element name="RegisterLearnerResponse" type="tns:RegisterSingleLearnerResp"/>
+			<xs:complexType name="RegisterSingleLearnerResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULN" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="LearnerServiceWrappedResponse" abstract="true"/>
+			<xs:element name="UpdateLearner" type="tns:UpdateLearnerRqst"/>
+			<xs:complexType name="UpdateLearnerRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="Learner" type="q2:LearnerToUpdate" xmlns:q2="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="UpdateLearnerResponse" type="tns:UpdateLearnerResp"/>
+			<xs:complexType name="UpdateLearnerResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.miap.gov.uk/batchmsg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.miap.gov.uk/batchmsg">
+			<xs:import namespace="http://api.lrs.miap.gov.uk/learner"/>
+			<xs:element name="SubmitBatch" type="tns:BatchRegistrationRqst"/>
+			<xs:complexType name="BatchRegistrationRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="JobType" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="LearnerRecordCount" type="xs:int"/>
+							<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Learner" type="q1:BatchLearner" xmlns:q1="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRqst" abstract="true">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="OrganisationRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="UKPRN" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OrgPassword" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="UserName" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRequestPart" abstract="true"/>
+			<xs:element name="SubmitBatchResponse" type="tns:BatchRegistrationResp"/>
+			<xs:complexType name="BatchRegistrationResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="JobID" type="xs:long"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="LearnerServiceWrappedResponse" abstract="true"/>
+			<xs:element name="GetSubmitBatchOutput" type="tns:BatchOutputRqst"/>
+			<xs:complexType name="BatchOutputRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="JobID" type="xs:long"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="GetSubmitBatchOutputResponse" type="tns:BatchOutputResp"/>
+			<xs:complexType name="BatchOutputResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="JobStatus" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="NewLearnersCount" type="xs:int"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ExistsUpdatedLearnersCount" type="xs:int"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="PossibleMatchLearnersCount" type="xs:int"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LearnersNotFoundCount" type="xs:int"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="RejectedLearnersCount" type="xs:int"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="JobStartedDateTime" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="JobFinishedDateTime" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Learner" type="q2:OutputBatchLearner" xmlns:q2="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.miap.gov.uk/vldmsg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.miap.gov.uk/vldmsg">
+			<xs:import namespace="http://api.lrs.miap.gov.uk/learner"/>
+			<xs:element name="SubmitVerifyBatch" type="tns:VerifyBatchRqst"/>
+			<xs:complexType name="VerifyBatchRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="LearnerRecordCount" type="xs:int"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="OrgEmail" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="Learner" type="q1:MIAPBatchLearnerToVerify" xmlns:q1="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRqst" abstract="true">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="OrganisationRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="UKPRN" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OrgPassword" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="UserName" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRequestPart" abstract="true"/>
+			<xs:element name="SubmitVerifyBatchResponse" type="tns:VerifyBatchResp"/>
+			<xs:complexType name="VerifyBatchResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="JobID" type="xs:long"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="LearnerServiceWrappedResponse" abstract="true"/>
+			<xs:element name="GetVerifyBatchOutput" type="tns:VerifyBatchOutputRqst"/>
+			<xs:complexType name="VerifyBatchOutputRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="JobID" type="xs:long"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="GetVerifyBatchOutputResponse" type="tns:VerifyBatchOutputResp"/>
+			<xs:complexType name="VerifyBatchOutputResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ResponseCode" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="JobStatus" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="JobStartedDateTime" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="JobFinishedDateTime" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="VerifiedLearner" type="q2:MIAPVerifiedBatchLearner" xmlns:q2="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.miap.gov.uk/reportmsg" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.miap.gov.uk/reportmsg">
+			<xs:import namespace="http://api.lrs.miap.gov.uk/learner"/>
+			<xs:element name="RetrieveULNs" type="tns:RetrieveULNsRqst"/>
+			<xs:complexType name="RetrieveULNsRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="ULNsToRetrieve" type="tns:ArrayOfString"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRqst" abstract="true">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRequestPart">
+						<xs:sequence>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="OrganisationRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="1" maxOccurs="1" form="unqualified" name="UKPRN" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="OrgPassword" type="xs:string"/>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="UserName" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="BaseLearnerServiceRequestPart" abstract="true"/>
+			<xs:complexType name="ArrayOfString">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="ULN" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="RetrieveULNsResponse" type="tns:RetrieveULNsResp"/>
+			<xs:complexType name="RetrieveULNsResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="RetrievedULNs" type="tns:ArrayOfMIAPRetrievedULN"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:complexType name="LearnerServiceWrappedResponse" abstract="true"/>
+			<xs:complexType name="ArrayOfMIAPRetrievedULN">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="VerifiedULN" type="q1:MIAPRetrievedULN" xmlns:q1="http://api.lrs.miap.gov.uk/learner"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="VerifyLearner" type="tns:VerifyLearnerRqst"/>
+			<xs:complexType name="VerifyLearnerRqst">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:BaseLearnerServiceRqst">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="LearnerToVerify" type="q2:MIAPLearnerToVerify" xmlns:q2="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="VerifyLearnerResponse" type="tns:VerifyLearnerResp"/>
+			<xs:complexType name="VerifyLearnerResp">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:LearnerServiceWrappedResponse">
+						<xs:sequence>
+							<xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="VerifiedLearner" type="q3:MIAPVerifiedLearner" xmlns:q3="http://api.lrs.miap.gov.uk/learner"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="learnerByULNRequest">
+		<wsdl:part name="FindLearnerByULN" element="q1:FindLearnerByULN" xmlns:q1="http://api.lrs.miap.gov.uk/findmsg"/>
+	</wsdl:message>
+	<wsdl:message name="findLearnerByULNResponse">
+		<wsdl:part name="FindLearnerResponse" element="q2:FindLearnerResponse" xmlns:q2="http://api.lrs.miap.gov.uk/findmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_learnerByULN_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q3:MIAPAPIException" xmlns:q3="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="learnerByDemographicsRequest">
+		<wsdl:part name="FindLearnerByDemographics" element="q4:FindLearnerByDemographics" xmlns:q4="http://api.lrs.miap.gov.uk/findmsg"/>
+	</wsdl:message>
+	<wsdl:message name="findLearnerByDemographicsResponse">
+		<wsdl:part name="FindLearnerResponse" element="q5:FindLearnerResponse" xmlns:q5="http://api.lrs.miap.gov.uk/findmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_learnerByDemographics_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q6:MIAPAPIException" xmlns:q6="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="registerSingleLearnerRequest">
+		<wsdl:part name="RegisterLearner" element="q7:RegisterLearner" xmlns:q7="http://api.lrs.miap.gov.uk/regmsg"/>
+	</wsdl:message>
+	<wsdl:message name="registerSingleLearnerResponse">
+		<wsdl:part name="RegisterLearnerResponse" element="q8:RegisterLearnerResponse" xmlns:q8="http://api.lrs.miap.gov.uk/regmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_registerSingleLearner_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q9:MIAPAPIException" xmlns:q9="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="updateLearnerRequest">
+		<wsdl:part name="UpdateLearner" element="q10:UpdateLearner" xmlns:q10="http://api.lrs.miap.gov.uk/regmsg"/>
+	</wsdl:message>
+	<wsdl:message name="updateLearnerResponse">
+		<wsdl:part name="UpdateLearnerResponse" element="q11:UpdateLearnerResponse" xmlns:q11="http://api.lrs.miap.gov.uk/regmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_updateSingleLearner_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q12:MIAPAPIException" xmlns:q12="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="submitBatchRequest">
+		<wsdl:part name="SubmitBatch" element="q13:SubmitBatch" xmlns:q13="http://api.lrs.miap.gov.uk/batchmsg"/>
+	</wsdl:message>
+	<wsdl:message name="submitBatchResponse">
+		<wsdl:part name="SubmitBatchResponse" element="q14:SubmitBatchResponse" xmlns:q14="http://api.lrs.miap.gov.uk/batchmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_submitBatchRegistration_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q15:MIAPAPIException" xmlns:q15="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="batchOutputRequest">
+		<wsdl:part name="GetSubmitBatchOutput" element="q16:GetSubmitBatchOutput" xmlns:q16="http://api.lrs.miap.gov.uk/batchmsg"/>
+	</wsdl:message>
+	<wsdl:message name="batchOutputResponse">
+		<wsdl:part name="GetSubmitBatchOutputResponse" element="q17:GetSubmitBatchOutputResponse" xmlns:q17="http://api.lrs.miap.gov.uk/batchmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_getBatchRegistrationOutput_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q18:MIAPAPIException" xmlns:q18="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="submitVerifyBatchRequest">
+		<wsdl:part name="SubmitVerifyBatch" element="q19:SubmitVerifyBatch" xmlns:q19="http://api.lrs.miap.gov.uk/vldmsg"/>
+	</wsdl:message>
+	<wsdl:message name="submitVerifyBatchResponse">
+		<wsdl:part name="SubmitVerifyBatchResponse" element="q20:SubmitVerifyBatchResponse" xmlns:q20="http://api.lrs.miap.gov.uk/vldmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_submitVerifyBatch_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q21:MIAPAPIException" xmlns:q21="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="verifyBatchOutputRequest">
+		<wsdl:part name="GetVerifyBatchOutput" element="q22:GetVerifyBatchOutput" xmlns:q22="http://api.lrs.miap.gov.uk/vldmsg"/>
+	</wsdl:message>
+	<wsdl:message name="verifyBatchOutputResponse">
+		<wsdl:part name="GetVerifyBatchOutputResponse" element="q23:GetVerifyBatchOutputResponse" xmlns:q23="http://api.lrs.miap.gov.uk/vldmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_getVerifyBatchOutput_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q24:MIAPAPIException" xmlns:q24="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="retrieveULNsRequest">
+		<wsdl:part name="RetrieveULNs" element="q25:RetrieveULNs" xmlns:q25="http://api.lrs.miap.gov.uk/reportmsg"/>
+	</wsdl:message>
+	<wsdl:message name="retrieveULNsResponse">
+		<wsdl:part name="RetrieveULNsResponse" element="q26:RetrieveULNsResponse" xmlns:q26="http://api.lrs.miap.gov.uk/reportmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_retrieveULNs_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q27:MIAPAPIException" xmlns:q27="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:message name="verifyLearnerRequest">
+		<wsdl:part name="VerifyLearner" element="q28:VerifyLearner" xmlns:q28="http://api.lrs.miap.gov.uk/reportmsg"/>
+	</wsdl:message>
+	<wsdl:message name="verifyLearnerResponse">
+		<wsdl:part name="VerifyLearnerResponse" element="q29:VerifyLearnerResponse" xmlns:q29="http://api.lrs.miap.gov.uk/reportmsg"/>
+	</wsdl:message>
+	<wsdl:message name="LearnerPortType_verifyLearner_MIAPAPIExceptionFault_FaultMessage">
+		<wsdl:part name="detail" element="q30:MIAPAPIException" xmlns:q30="http://api.lrs.miap.gov.uk/exceptions"/>
+	</wsdl:message>
+	<wsdl:portType name="LearnerPortType">
+		<wsdl:operation name="learnerByULN">
+			<wsdl:input wsaw:Action="" name="learnerByULNRequest" message="tns:learnerByULNRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/learnerByULNResponse" name="findLearnerByULNResponse" message="tns:findLearnerByULNResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/learnerByULNMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_learnerByULN_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="learnerByDemographics">
+			<wsdl:input wsaw:Action="" name="learnerByDemographicsRequest" message="tns:learnerByDemographicsRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/learnerByDemographicsResponse" name="findLearnerByDemographicsResponse" message="tns:findLearnerByDemographicsResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/learnerByDemographicsMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_learnerByDemographics_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="registerSingleLearner">
+			<wsdl:input wsaw:Action="" name="registerSingleLearnerRequest" message="tns:registerSingleLearnerRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/registerSingleLearnerResponse" name="registerSingleLearnerResponse" message="tns:registerSingleLearnerResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/registerSingleLearnerMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_registerSingleLearner_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateSingleLearner">
+			<wsdl:input wsaw:Action="" name="updateLearnerRequest" message="tns:updateLearnerRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/updateSingleLearnerResponse" name="updateLearnerResponse" message="tns:updateLearnerResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/updateSingleLearnerMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_updateSingleLearner_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="submitBatchRegistration">
+			<wsdl:input wsaw:Action="" name="submitBatchRequest" message="tns:submitBatchRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/submitBatchRegistrationResponse" name="submitBatchResponse" message="tns:submitBatchResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/submitBatchRegistrationMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_submitBatchRegistration_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getBatchRegistrationOutput">
+			<wsdl:input wsaw:Action="" name="batchOutputRequest" message="tns:batchOutputRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/getBatchRegistrationOutputResponse" name="batchOutputResponse" message="tns:batchOutputResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/getBatchRegistrationOutputMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_getBatchRegistrationOutput_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="submitVerifyBatch">
+			<wsdl:input wsaw:Action="" name="submitVerifyBatchRequest" message="tns:submitVerifyBatchRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/submitVerifyBatchResponse" name="submitVerifyBatchResponse" message="tns:submitVerifyBatchResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/submitVerifyBatchMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_submitVerifyBatch_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="getVerifyBatchOutput">
+			<wsdl:input wsaw:Action="" name="verifyBatchOutputRequest" message="tns:verifyBatchOutputRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/getVerifyBatchOutputResponse" name="verifyBatchOutputResponse" message="tns:verifyBatchOutputResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/getVerifyBatchOutputMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_getVerifyBatchOutput_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveULNs">
+			<wsdl:input wsaw:Action="" name="retrieveULNsRequest" message="tns:retrieveULNsRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/retrieveULNsResponse" name="retrieveULNsResponse" message="tns:retrieveULNsResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/retrieveULNsMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_retrieveULNs_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="verifyLearner">
+			<wsdl:input wsaw:Action="http://tempuri.org/LearnerPortType/verifyLearner" name="verifyLearnerRequest" message="tns:verifyLearnerRequest"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/LearnerPortType/verifyLearnerResponse" name="verifyLearnerResponse" message="tns:verifyLearnerResponse"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/LearnerPortType/verifyLearnerMIAPAPIExceptionFault" name="MIAPAPIExceptionFault" message="tns:LearnerPortType_verifyLearner_MIAPAPIExceptionFault_FaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BasicHttpBinding_LearnerPortType" type="tns:LearnerPortType">
+		<wsp:PolicyReference URI="#BasicHttpBinding_LearnerPortType_policy"/>
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="learnerByULN">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="learnerByULNRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findLearnerByULNResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="learnerByDemographics">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="learnerByDemographicsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findLearnerByDemographicsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="registerSingleLearner">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="registerSingleLearnerRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="registerSingleLearnerResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSingleLearner">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="updateLearnerRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="updateLearnerResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="submitBatchRegistration">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="submitBatchRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="submitBatchResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBatchRegistrationOutput">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="batchOutputRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="batchOutputResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="submitVerifyBatch">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="submitVerifyBatchRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="submitVerifyBatchResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getVerifyBatchOutput">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="verifyBatchOutputRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="verifyBatchOutputResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveULNs">
+			<soap:operation soapAction="" style="document"/>
+			<wsdl:input name="retrieveULNsRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="retrieveULNsResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="verifyLearner">
+			<soap:operation soapAction="http://tempuri.org/LearnerPortType/verifyLearner" style="document"/>
+			<wsdl:input name="verifyLearnerRequest">
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="verifyLearnerResponse">
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="MIAPAPIExceptionFault">
+				<soap:fault use="literal" name="MIAPAPIExceptionFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="LearnerServiceProxy">
+		<wsdl:port name="BasicHttpBinding_LearnerPortType" binding="tns:BasicHttpBinding_LearnerPortType">
+			<soap:address location="https://ws.lrs.education.gov.uk/LearnerService.svc?singlewsdl"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

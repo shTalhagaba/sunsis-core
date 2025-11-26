@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:lrnr="http://api.lrs.miap.gov.uk/learner" xmlns:lrnrrec="http://api.lrs.miap.gov.uk/learnerrec" targetNamespace="http://api.lrs.miap.gov.uk/learnerrec">
+	<import namespace="http://api.lrs.miap.gov.uk/learner" schemaLocation="./learner.xsd"/>
+	<simpleType name="MIAPUserType">
+		<restriction base="string">
+			<pattern value="LNR|ORG|SER"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="MIAPContactType">
+		<restriction base="string">
+			<pattern value="FTF|TEL|PST|WEB|EML|NKN"/>
+		</restriction>
+	</simpleType>
+	<complexType name="MIAPLearningEvent">
+		<sequence>
+			<element name="AchievementProviderUKPRN" type="lrnr:MIAPUKPRN"/>
+			<element name="AchievementProviderName" type="string"/>
+			<element name="AwardingOrganisationCode" type="string" minOccurs="0"/>
+			<element name="AwardingOrganisationName" type="string"/>
+			<element name="FrameworkCode" type="string"/>
+			<element name="FrameworkDesc" type="string"/>
+			<element name="ProgrammeCode" type="string"/>
+			<element name="ProgrammeDesc" type="string"/>
+			<element name="QualificationTypeCode" type="string"/>
+			<element name="QualificationTypeTitle" type="string"/>
+			<element name="SubjectCode" type="string"/>
+			<element name="SubjectTitle" type="string"/>
+			<element name="QualificationTitle" type="string"/>
+			<element name="LearningOutcomeGradeCode" type="string"/>
+			<element name="LearningOutcomeGradeDesc" type="string"/>
+			<element name="RetakeIndicator" type="string"/>
+			<element name="SectorSubjectAreaCode" type="string"/>
+			<element name="SectorSubjectAreaTitle" type="string"/>
+			<element name="AcademicYear" type="string"/>
+			<element name="DateLoaded" type="lrnr:MIAPDateNillable"/>
+			<element name="CollectionType" type="string"/>
+			<element name="ReturnNumber" type="string"/>
+			<element name="IncrementNumber" type="long"/>
+			<element name="DataChallengeIndicator" type="string"/>
+			<element name="AchievementAwardDate" type="lrnr:MIAPDateNillable" minOccurs="0"/>
+			<element name="AssessmentDate" type="lrnr:MIAPDateNillable" minOccurs="0"/>
+			<element name="CreditsAchieved" type="long" minOccurs="0"/>
+			<element name="ParticipationStartDate" type="lrnr:MIAPDateNillable" minOccurs="0"/>
+			<element name="ParticipationEndDate" type="lrnr:MIAPDateNillable" minOccurs="0"/>
+			<element name="LastUpdatedDateTime" type="lrnr:MIAPDateTime"/>
+			<element name="BinCode" type="string" />
+			<element name="RestrictedUseIndicator" type="string" minOccurs="0"/>
+			<element name="RestrictionFlag" type="string" minOccurs="0"/>
+			<element name="Restriction" type="string" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="MIAPLearningEvents">
+		<sequence>
+			<element name="LearningEvent" type="lrnrrec:MIAPLearningEvent" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<complexType name="MIAPLearnerRecord">
+		<sequence>
+			<element name="ULN" type="lrnr:MIAPULN"/>
+			<element name="Title" type="lrnr:MIAPName" minOccurs="0"/>
+			<element name="GivenName" type="lrnr:MIAPNameNonEmpty"/>
+			<element name="PreferredGivenName" type="lrnr:MIAPName" minOccurs="0"/>
+			<element name="MiddleOtherName" type="lrnr:MIAPName" minOccurs="0"/>
+			<element name="FamilyName" type="lrnr:MIAPNameNonEmpty"/>
+			<element name="PreviousFamilyName" type="lrnr:MIAPName" minOccurs="0"/>
+			<element name="FamilyNameAtAge16" type="lrnr:MIAPName" minOccurs="0"/>
+			<element name="LastKnownAddressLine1" type="lrnr:MIAPAddress" minOccurs="0"/>
+			<element name="LastKnownAddressLine2" type="lrnr:MIAPAddress" minOccurs="0"/>
+			<element name="LastKnownAddressTown" type="lrnr:MIAPAddress" minOccurs="0"/>
+			<element name="LastKnownAddressCountyOrCity" type="lrnr:MIAPAddress" minOccurs="0"/>
+			<element name="LastKnownPostCode" type="lrnr:MIAPPostCode"/>
+			<element name="DateOfBirth" type="lrnr:MIAPDate"/>
+			<element name="PlaceOfBirth" type="lrnr:MIAPName" minOccurs="0"/>
+			<element name="Gender" type="lrnr:MIAPGender"/>
+			<element name="Nationality" type="lrnr:MIAPNationality" minOccurs="0"/>
+			<element name="EmailAddress" type="lrnr:MIAPEmail" minOccurs="0"/>
+			<element name="SchoolAtAge16" type="lrnr:MIAPSchoolName" minOccurs="0"/>
+			<element name="ScottishCandidateNumber" type="lrnr:MIAPScottishCandidateNumber" minOccurs="0"/>
+			<element name="VerificationType" type="lrnr:MIAPVerificationType" minOccurs="0"/>
+			<element name="OtherVerificationDescription" type="lrnr:MIAPOtherVerificationDescription" minOccurs="0"/>
+			<element name="LearningEvents" type="lrnrrec:MIAPLearningEvents" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="LearnerRecordRqst">
+		<sequence>
+			<element name="OrganisationRef" type="lrnr:MIAPOrganisationRef" nillable="true" minOccurs="0"/>
+			<element name="UKPRN" type="lrnr:MIAPUKPRN" nillable="true" minOccurs="0"/>
+			<element name="OrgPassword" type="lrnr:MIAPOrgPassword" nillable="false"/>
+			<element name="UserName" type="lrnr:MIAPNameNonEmpty" nillable="false"/>
+			<element name="UserType" type="lrnrrec:MIAPUserType" nillable="false"/>
+			<element name="LNRContactType" type="lrnrrec:MIAPContactType" nillable="false"/>
+			<element name="ULN" type="lrnr:MIAPULN"/>
+			<element name="FamilyName" type="lrnr:MIAPNameNonEmpty" nillable="false"/>
+			<element name="GivenName" type="lrnr:MIAPNameNonEmpty" nillable="false"/>
+			<element name="DateOfBirth" type="lrnr:MIAPDate" nillable="false"/>
+			<element name="Gender" type="lrnr:MIAPGender" nillable="false"/>
+			<element name="LastKnownPostCode" type="lrnr:MIAPPostCode" nillable="false"/>
+		</sequence>
+	</complexType>
+	<complexType name="LearnerRecordResp">
+		<sequence>
+			<element name="ResponseCode" type="string"/>
+			<element name="IncomingULN" type="lrnr:MIAPULN" minOccurs="0"/>
+			<element name="IncomingFamilyName" type="lrnr:MIAPNameNonEmpty" minOccurs="0"/>
+			<element name="IncomingGivenName" type="lrnr:MIAPNameNonEmpty" minOccurs="0"/>
+			<element name="IncomingDateOfBirth" type="lrnr:MIAPDate" minOccurs="0"/>
+			<element name="IncomingGender" type="lrnr:MIAPGender" minOccurs="0"/>
+			<element name="IncomingLastKnownPostCode" type="lrnr:MIAPPostCode" minOccurs="0"/>
+			<element name="LearnerRecord" type="lrnrrec:MIAPLearnerRecord" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<element name="GetLearnerRecord" type="lrnrrec:LearnerRecordRqst"/>
+	<element name="GetLearnerRecordResp" type="lrnrrec:LearnerRecordResp"/>
+</schema>

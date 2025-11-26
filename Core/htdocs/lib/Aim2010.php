@@ -1,0 +1,76 @@
+<?php
+class Aim2010
+{
+	public $A01;
+	public $A02;
+	public $A03;	
+	public $A04;
+	public $A05;
+	public $A07;
+	public $A08;
+	public $A09;
+	public $A10;
+	public $A11a;
+	public $A11b;
+	public $A12a;
+	public $A12b;
+	public $A13;
+	public $A14;
+	public $A15;
+	public $A16;
+	public $A17;
+	public $A18;
+	public $A19;
+	public $A20;
+	public $A21;
+	public $A22;
+	public $A23;
+	public $A25;
+	public $A26;
+	public $A27;
+	public $A28;
+	public $A29;
+	public $A30;
+	public $A31;
+	public $A32;
+	public $A33;
+	public $A34;
+	public $A35;
+	public $A36;
+	public $A39;
+	public $A40;
+	public $A41;
+	public $A42;
+	public $A44;
+	public $A45;
+	public $A46a;
+	public $A46b;
+	public $A47a;
+	public $A47b;
+	public $A48a;
+	public $A48b;
+	public $A49;
+	public $A50;
+	public $A51a;
+	public $A52;
+	public $A53;
+	public $A54;
+	public $A55;
+	public $A56;	
+	public $A57;
+	public $A58;
+	public $A59;
+	public $A60;
+	public $A61;
+	public $A62;
+	public $A63;
+	public $A64;
+	public $A65;
+	public $A66;
+	public $A67;
+	public $A68;
+	public $A69;
+	public $A70;
+}
+
+?>

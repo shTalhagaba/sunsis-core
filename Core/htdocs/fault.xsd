@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ex="http://api.lrs.miap.gov.uk/exceptions" targetNamespace="http://api.lrs.miap.gov.uk/exceptions">
+
+	<simpleType name="ErrorCode">
+		<restriction base="string"/>
+	</simpleType>
+
+	<simpleType name="ErrorDescription">
+		<restriction base="string"/>
+	</simpleType>
+	
+	<simpleType name="ErrorFurtherDetails">
+		<restriction base="string"/>
+	</simpleType>
+
+	<simpleType name="ErrorActor">
+		<restriction base="string"/>
+	</simpleType>
+
+	<simpleType name="ErrorTimestamp">
+		<restriction base="string"/>
+	</simpleType>
+
+	<complexType name="MIAPAPIException">
+		<sequence>
+			<element name="ErrorCode" type="ex:ErrorCode"/>
+			<element name="ErrorActor" type="ex:ErrorActor"/>
+			<element name="Description" type="ex:ErrorDescription"/>
+			<element name="FurtherDetails" type="ex:ErrorFurtherDetails"/>
+			<element name="ErrorTimestamp" type="ex:ErrorTimestamp"/>
+		</sequence>
+	</complexType>
+	
+	<element name="MIAPAPIException" type="ex:MIAPAPIException"/>
+
+</schema>

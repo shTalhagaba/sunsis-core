@@ -1,0 +1,53 @@
+<?xml version ='1.0' encoding ='ISO-8859-1' ?>
+<definitions name='SunesisService' targetNamespace='https://exg.sunesis.uk.net/' xmlns:tns='https://exg.sunesis.uk.net/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/' xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="https://exg.sunesis.uk.net/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:element name="destinyXML">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:any/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <message name='receiveILRRequest'>
+        <part name='receiveILRRequest_username' type='xsd:string' />
+        <part name='receiveILRRequest_password' type='xsd:string' />
+        <part name='receiveILRRequest_destinyXMLFileName' type='xsd:string' />
+        <part name='receiveILRRequest_destinyXML' type='xsd:string' />
+    </message>
+    <message name='receiveILRResponse'>
+        <part name='receiveILRResponse_Result' type='xsd:string' />
+    </message>
+
+    <portType name='DestinyReceipt'>
+
+        <operation name='acceptEXG'>
+            <input message='tns:receiveILRRequest'/>
+            <output message='tns:receiveILRResponse'/>
+        </operation>
+
+    </portType>
+
+    <binding name='SunesisBinding' type='tns:DestinyReceipt'>
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http' />
+        <operation name='acceptEXG'>
+            <soap:operation soapAction='urn:localhost-catalog#acceptILR'/>
+            <input>
+                <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+            </input>
+            <output>
+                <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+            </output>
+        </operation>
+    </binding>
+
+    <service name='SunesisService'>
+        <port name='SunesisPort' binding='tns:SunesisBinding'>
+            <soap:address location='https://exg.sunesis.uk.net/module_soap/sunesis.php' />
+        </port>
+    </service>
+
+</definitions>

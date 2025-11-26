@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:lrnr="http://api.lrs.miap.gov.uk/learner" xmlns:reportlrnr="http://api.lrs.miap.gov.uk/reportmsg" targetNamespace="http://api.lrs.miap.gov.uk/reportmsg">
+	
+	<import namespace="http://api.lrs.miap.gov.uk/learner" schemaLocation="learner.xsd"/>
+	
+	<complexType name="ULNReportRqst">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="OrganisationRef" nillable="true" type="lrnr:MIAPOrganisationRef"/>
+			<element maxOccurs="1" minOccurs="0" name="UKPRN" nillable="true" type="lrnr:MIAPUKPRN"/>
+			<element maxOccurs="1" minOccurs="1" name="OrgPassword" nillable="false" type="lrnr:MIAPOrgPassword"/>
+			<element maxOccurs="1" minOccurs="1" name="UserName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="FromDate" nillable="false" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="0" name="ToDate" nillable="false" type="lrnr:MIAPDate"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="ULNReportResp">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="ResponseCode" nillable="false" type="string"/>
+			<element maxOccurs="1" minOccurs="1" name="FromDate" nillable="false" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="0" name="ToDate" nillable="false" type="lrnr:MIAPDate"/>
+			<element maxOccurs="1" minOccurs="0" name="ULNReport" nillable="false" type="lrnr:MIAPULNReport"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="RetrieveULNsRqst">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="OrganisationRef" nillable="true" type="lrnr:MIAPOrganisationRef"/>
+			<element maxOccurs="1" minOccurs="0" name="UKPRN" nillable="true" type="lrnr:MIAPUKPRN"/>
+			<element maxOccurs="1" minOccurs="1" name="OrgPassword" nillable="false" type="lrnr:MIAPOrgPassword"/>
+			<element maxOccurs="1" minOccurs="1" name="UserName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="ULNsToRetrieve" nillable="false" type="lrnr:MIAPULNsToRetrieve"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="RetrieveULNsResp">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="RetrievedULNs" nillable="false" type="lrnr:MIAPRetrievedULNs"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="VerifyLearnerRqst">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="OrganisationRef" nillable="true" type="lrnr:MIAPOrganisationRef"/>
+			<element maxOccurs="1" minOccurs="0" name="UKPRN" nillable="true" type="lrnr:MIAPUKPRN"/>
+			<element maxOccurs="1" minOccurs="1" name="OrgPassword" nillable="false" type="lrnr:MIAPOrgPassword"/>
+			<element maxOccurs="1" minOccurs="1" name="UserName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="LearnerToVerify" nillable="false" type="lrnr:MIAPLearnerToVerify"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="VerifyLearnerResp">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="VerifiedLearner" nillable="false" type="lrnr:MIAPVerifiedLearner"/>
+		</sequence>
+	</complexType>
+	
+	<element name="GetMergedUnmergedULNs" type="reportlrnr:ULNReportRqst"/>
+
+	<element name="GetDeletedULNs" type="reportlrnr:ULNReportRqst"/>
+
+	<element name="RetrieveULNs" type="reportlrnr:RetrieveULNsRqst"/>
+
+	<element name="VerifyLearner" type="reportlrnr:VerifyLearnerRqst"/>
+
+	<element name="MergedUnmergedULNsResponse" type="reportlrnr:ULNReportResp"/>
+
+	<element name="DeletedULNsResponse" type="reportlrnr:ULNReportResp"/>
+	
+	<element name="RetrieveULNsResponse" type="reportlrnr:RetrieveULNsResp"/>
+
+	<element name="VerifyLearnerResponse" type="reportlrnr:VerifyLearnerResp"/>
+
+</schema>

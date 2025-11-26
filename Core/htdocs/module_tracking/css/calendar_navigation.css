@@ -1,0 +1,97 @@
+@CHARSET "ISO-8859-1";
+
+div.MonthNavigationTableLabel
+{
+	color: #395690;
+	font-size: 0.9em;
+	font-style: italic;
+	margin-bottom: 2px;
+}
+
+table.MonthNavigation
+{
+	margin-bottom: 15px;
+	-moz-box-shadow: 2px 3px 6px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 2px 3px 6px rgba(0,0,0,0.6);
+	box-shadow: 2px 3px 6px rgba(0,0,0,0.6);
+
+	border-bottom: 1px solid #395690;
+}
+
+table.MonthNavigation td.MonthLabel
+{
+	font-weight: bold;
+	font-size: 1.2em;
+	-moz-border-radius: 4px 4px 0px 0px;
+	-webkit-border-radius: 4px 4px 0px 0px;
+	border-radius: 4px 4px 0px 0px;
+}
+
+table.MonthNavigation td.DayLabel
+{
+	background-color: #A1B5CF;
+	color: white;
+	width: 22px;
+	cursor: pointer;
+}
+
+table.MonthNavigation td.Weekend
+{
+	font-weight: bold;
+	background-color: #395690;
+	color: white;
+}
+
+table.MonthNavigation td.DayValue
+{
+	cursor: pointer;
+	border: 1px solid white;
+	font-size: 1.1em;
+	background-color: white;
+	width: 22px;
+	height: 22px;
+}
+
+table.MonthNavigation td.SelectedDay
+{
+	background-color: orange;
+	border-color: orange;
+}
+
+table.MonthNavigation td.DayValueHover
+{
+	border-color: #FFEDBD;
+	background-color: #FFEDBD;
+}
+
+table.MonthNavigation td.DayLabelHover
+{
+	background-color: #FFEDBD;
+	color: black;
+}
+
+table.MonthNavigation td.Today
+{
+	border: orange 1px solid;
+}
+
+
+
+table.MonthNavigation td.NavigationPrevious
+{
+	font-size:25px;
+	cursor: pointer;
+	width: 12px;
+}
+
+table.MonthNavigation td.NavigationNext
+{
+	font-size:25px;
+	cursor: pointer;
+	width: 12px;
+}
+
+table.MonthNavigation td.NavHover
+{
+	background-color: #FFEDBD;
+}

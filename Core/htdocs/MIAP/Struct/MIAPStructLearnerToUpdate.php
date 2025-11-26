@@ -1,0 +1,108 @@
+<?php
+/**
+ * File for class MIAPStructLearnerToUpdate
+ * @package MIAP
+ * @subpackage Structs
+ * @date 2014-08-05
+ * @author Mikaël DELSOL
+ * @version 1
+ */
+/**
+ * This class stands for MIAPStructLearnerToUpdate originally named LearnerToUpdate
+ * Meta informations extracted from the WSDL
+ * - from schema : {@link http://localhost//learner.xsd}
+ * @package MIAP
+ * @subpackage Structs
+ * @date 2014-08-05
+ * @author Mikaël DELSOL
+ * @version 1
+ */
+class MIAPStructLearnerToUpdate extends MIAPStructLearnerToRegister
+{
+    /**
+     * The ULN
+     * Meta informations extracted from the WSDL
+     * - maxOccurs : 1
+     * - minOccurs : 1
+     * - nillable : false
+     * - maxLength : 10
+     * - minLength : 10
+     * - pattern : [1-9][0-9]{9}
+     * @var string
+     */
+    public $ULN;
+    /**
+     * The VersionNumber
+     * Meta informations extracted from the WSDL
+     * - maxOccurs : 1
+     * - minOccurs : 1
+     * - nillable : false
+     * @var int
+     */
+    public $VersionNumber;
+    /**
+     * Constructor method for LearnerToUpdate
+     * @see parent::__construct()
+     * @param string $_uLN
+     * @param int $_versionNumber
+     * @return MIAPStructLearnerToUpdate
+     */
+    public function __construct($_uLN,$_versionNumber)
+    {
+        MIAPWsdlClass::__construct(array('ULN'=>$_uLN,'VersionNumber'=>$_versionNumber),false);
+    }
+    /**
+     * Get ULN value
+     * @return string
+     */
+    public function getULN()
+    {
+        return $this->ULN;
+    }
+    /**
+     * Set ULN value
+     * @param string $_uLN the ULN
+     * @return string
+     */
+    public function setULN($_uLN)
+    {
+        return ($this->ULN = $_uLN);
+    }
+    /**
+     * Get VersionNumber value
+     * @return int
+     */
+    public function getVersionNumber()
+    {
+        return $this->VersionNumber;
+    }
+    /**
+     * Set VersionNumber value
+     * @param int $_versionNumber the VersionNumber
+     * @return int
+     */
+    public function setVersionNumber($_versionNumber)
+    {
+        return ($this->VersionNumber = $_versionNumber);
+    }
+    /**
+     * Method called when an object has been exported with var_export() functions
+     * It allows to return an object instantiated with the values
+     * @see MIAPWsdlClass::__set_state()
+     * @uses MIAPWsdlClass::__set_state()
+     * @param array $_array the exported values
+     * @return MIAPStructLearnerToUpdate
+     */
+    public static function __set_state(array $_array,$_className = __CLASS__)
+    {
+        return parent::__set_state($_array,$_className);
+    }
+    /**
+     * Method returning the class name
+     * @return string __CLASS__
+     */
+    public function __toString()
+    {
+        return __CLASS__;
+    }
+}

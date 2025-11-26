@@ -1,0 +1,70 @@
+<?php
+class LearnerInformation
+{
+	public $L01;
+	public $L02;
+	public $L03;
+	public $L04;
+	public $L05;
+	public $L06;
+	public $L07;
+	public $L08;
+	public $L09;
+	public $L10;
+	public $L11;
+	public $L12;
+	public $L13;
+	public $L14;
+	public $L15;
+	public $L16;
+	public $L17;
+	public $L18;
+	public $L19;
+	public $L20;
+	public $L21;
+	public $L22;
+	public $L23;
+	public $L24;
+	public $L25;
+	public $L26;
+	public $L27;
+	public $L28;
+	public $L28a;
+	public $L28b;
+	public $L29;
+	public $L30;
+	public $L31;
+	public $L32;
+	public $L33;
+	public $L34a;
+	public $L34b;
+	public $L34c;
+	public $L34d;
+	public $L35;
+	public $L36;
+	public $L37;
+	public $L38;
+	public $L39;
+	public $L40a;
+	public $L40b;
+	public $L41a;
+	public $L41b;
+	public $L42a;
+	public $L42b;
+	public $L43;
+	public $L44;
+	public $L45;
+	public $L46;
+	public $L47;
+	public $L48;
+	public $L49a;
+	public $L49b;
+	public $L49c;
+	public $L49d;
+	public $L51;
+	public $L52;
+	public $subaims;
+}
+
+
+?>

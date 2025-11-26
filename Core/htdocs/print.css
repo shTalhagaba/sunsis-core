@@ -1,0 +1,103 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+	font-family: serif;
+	font-size: 8pt;
+}
+
+h3
+{
+	font-size:14pt;
+}
+
+div.banner
+{
+	height: auto;
+
+	background-color: white;
+	color: black;
+	border: silver;
+	border-width:3px;
+	border-style: double;
+
+	padding: 5px;
+	margin-bottom: 20px;
+
+	font-family: serif;
+	font-size: 15pt;
+}
+
+button
+{
+	display:none;
+}
+
+div.viewNavigator
+{
+	font-size:1.1em;
+	font-weight:bold;
+	margin: 5px;
+}
+
+div.viewNavigator a
+{
+	text-decoration:none;
+	color: black;
+}
+
+
+td.fieldLabel
+{
+	font-weight:normal;
+	font-size:inherit;
+	color: black;
+}
+
+td.fieldValue
+{
+	border: 1px solid #DDDDDD;
+	font-style: italic;
+}
+
+
+table.resultset
+{
+	border-width:0px 0px 0px 1px;
+	border-color:#CCCCCC;
+	border-style:dotted;
+}	
+
+table.resultset td
+{
+	border-width:0px 1px 1px 0px;
+	border-color:#CCCCCC;
+	border-style:dotted;
+}
+
+th
+{
+	background-color:#EEEEEE;
+	border-width:1px 1px 1px 0px;
+	border-top-style:solid;
+	border-right-style:dotted;
+	border-bottom-style:solid;
+	border-color:silver;
+}
+
+
+.filterCrumb, .smallLink
+{
+	background-color:#EEEEEE;
+	border-width: 1px 1px 1px 3px;
+	border-style:solid;
+	border-color:#CCCCCC;
+	font-size:8pt;
+	font-family: sans-serif;
+	color:black;
+	margin: 0px 3px 0px 3px;
+	padding: 1px;
+}
+
+/*****************************************************************************/
+

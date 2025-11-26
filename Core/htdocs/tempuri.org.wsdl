@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:tns="http://tempuri.org/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="LearnerServiceR9Proxy" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="./tempuri.org.xsd" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="./api.lrs.qcf.gov.uk.faults.xsd" namespace="http://api.lrs.qcf.gov.uk/faults" />
+      <xsd:import schemaLocation="./microsoft.serialization.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="./Amor.Qcf.Common.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" />
+      <xsd:import schemaLocation="./api.lrs.qcf.gov.uk.model.xsd" namespace="http://api.lrs.qcf.gov.uk/model" />
+      <xsd:import schemaLocation="./microsoft.serialization.arrays.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="./Amor.Qcf.Model.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Model" />
+      <xsd:import schemaLocation="./Amor.Qcf.MIAPModel.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel" />
+      <xsd:import schemaLocation="./Amor.Qcf.MIAPModel.Entities.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel.Entities" />
+      <xsd:import schemaLocation="./Amor.Qcf.Service.Interface.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" />
+      <xsd:import schemaLocation="./Amor.Qcf.ModelCommon.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.ModelCommon" />
+      <xsd:import schemaLocation="./api.lrs.qcf.gov.uk.services.xsd" namespace="http://api.lrs.qcf.gov.uk/services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILearnerServiceR9_ExecuteRtaQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteRtaQuery" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ExecuteRtaQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteRtaQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ExecuteRtaQuery_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q1:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_SaveRtaQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRtaQuery" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_SaveRtaQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRtaQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_SaveRtaQuery_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q2:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListSavedRtaQueries_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListSavedRtaQueries" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListSavedRtaQueries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListSavedRtaQueriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListSavedRtaQueries_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q3:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteSavedRtaQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSavedRtaQuery" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteSavedRtaQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSavedRtaQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteSavedRtaQuery_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q4:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ExecuteRoCQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteRoCQuery" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ExecuteRoCQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteRoCQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ExecuteRoCQuery_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q5:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_LearnerByUln_InputMessage">
+    <wsdl:part name="parameters" element="tns:LearnerByUln" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_LearnerByUln_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LearnerByUlnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_LearnerByUln_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q6:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_FindLearnerByUlnKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindLearnerByUlnKey" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_FindLearnerByUlnKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindLearnerByUlnKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_FindLearnerByUlnKey_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q7:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetLearnerLearningEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearnerLearningEvents" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetLearnerLearningEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearnerLearningEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetLearnerLearningEvents_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q8:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetLearnerRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearnerRecord" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetLearnerRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLearnerRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetLearnerRecord_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q9:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetMyLearningEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyLearningEvents" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetMyLearningEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMyLearningEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetMyLearningEvents_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q10:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearnerSubsetFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLearnerSubsetFields" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearnerSubsetFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLearnerSubsetFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearnerSubsetFields_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q11:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearner_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLearner" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLearnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearner_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q12:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearnerByUlnKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLearnerByUlnKey" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearnerByUlnKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLearnerByUlnKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_UpdateLearnerByUlnKey_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q13:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_CreateDataChallenge_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDataChallenge" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_CreateDataChallenge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDataChallengeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_CreateDataChallenge_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q14:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListDataChallenge_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListDataChallenge" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListDataChallenge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListDataChallengeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListDataChallenge_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q15:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteDataChallenge_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataChallenge" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteDataChallenge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDataChallengeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteDataChallenge_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q16:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ViewAudit_InputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAudit" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ViewAudit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ViewAuditResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ViewAudit_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q17:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_StoreLearnerKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:StoreLearnerKey" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_StoreLearnerKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StoreLearnerKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_StoreLearnerKey_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q18:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_RemoveLearnerKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveLearnerKey" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_RemoveLearnerKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveLearnerKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_RemoveLearnerKey_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q19:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_SetNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotification" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_SetNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_SetNotification_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q20:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListNotificationStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListNotificationStatus" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListNotificationStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListNotificationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListNotificationStatus_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q21:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_CreateOrModifySnapshot_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrModifySnapshot" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_CreateOrModifySnapshot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrModifySnapshotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_CreateOrModifySnapshot_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q22:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListSnapshots_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListSnapshots" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListSnapshots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListSnapshotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_ListSnapshots_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q23:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteSnapshot_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSnapshot" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteSnapshot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSnapshotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_DeleteSnapshot_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q24:DomainFault" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetOrganisation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisation" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetOrganisation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganisationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILearnerServiceR9_GetOrganisation_DomainFaultFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://api.lrs.qcf.gov.uk/faults" name="detail" element="q25:DomainFault" />
+  </wsdl:message>
+  <wsdl:portType name="ILearnerServiceR9">
+    <wsdl:operation name="ExecuteRtaQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ExecuteRtaQuery" message="tns:ILearnerServiceR9_ExecuteRtaQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ExecuteRtaQueryResponse" message="tns:ILearnerServiceR9_ExecuteRtaQuery_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ExecuteRtaQueryDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ExecuteRtaQuery_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRtaQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/SaveRtaQuery" message="tns:ILearnerServiceR9_SaveRtaQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/SaveRtaQueryResponse" message="tns:ILearnerServiceR9_SaveRtaQuery_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/SaveRtaQueryDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_SaveRtaQuery_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSavedRtaQueries">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListSavedRtaQueries" message="tns:ILearnerServiceR9_ListSavedRtaQueries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListSavedRtaQueriesResponse" message="tns:ILearnerServiceR9_ListSavedRtaQueries_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListSavedRtaQueriesDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ListSavedRtaQueries_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSavedRtaQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteSavedRtaQuery" message="tns:ILearnerServiceR9_DeleteSavedRtaQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteSavedRtaQueryResponse" message="tns:ILearnerServiceR9_DeleteSavedRtaQuery_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteSavedRtaQueryDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_DeleteSavedRtaQuery_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteRoCQuery">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ExecuteRoCQuery" message="tns:ILearnerServiceR9_ExecuteRoCQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ExecuteRoCQueryResponse" message="tns:ILearnerServiceR9_ExecuteRoCQuery_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ExecuteRoCQueryDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ExecuteRoCQuery_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LearnerByUln">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/LearnerByUln" message="tns:ILearnerServiceR9_LearnerByUln_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/LearnerByUlnResponse" message="tns:ILearnerServiceR9_LearnerByUln_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/LearnerByUlnDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_LearnerByUln_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindLearnerByUlnKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/FindLearnerByUlnKey" message="tns:ILearnerServiceR9_FindLearnerByUlnKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/FindLearnerByUlnKeyResponse" message="tns:ILearnerServiceR9_FindLearnerByUlnKey_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/FindLearnerByUlnKeyDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_FindLearnerByUlnKey_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLearnerLearningEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEvents" message="tns:ILearnerServiceR9_GetLearnerLearningEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEventsResponse" message="tns:ILearnerServiceR9_GetLearnerLearningEvents_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEventsDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_GetLearnerLearningEvents_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLearnerRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerRecord" message="tns:ILearnerServiceR9_GetLearnerRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerRecordResponse" message="tns:ILearnerServiceR9_GetLearnerRecord_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerRecordDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_GetLearnerRecord_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyLearningEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetMyLearningEvents" message="tns:ILearnerServiceR9_GetMyLearningEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetMyLearningEventsResponse" message="tns:ILearnerServiceR9_GetMyLearningEvents_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetMyLearningEventsDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_GetMyLearningEvents_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLearnerSubsetFields">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFields" message="tns:ILearnerServiceR9_UpdateLearnerSubsetFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFieldsResponse" message="tns:ILearnerServiceR9_UpdateLearnerSubsetFields_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFieldsDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_UpdateLearnerSubsetFields_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLearner">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearner" message="tns:ILearnerServiceR9_UpdateLearner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerResponse" message="tns:ILearnerServiceR9_UpdateLearner_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_UpdateLearner_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLearnerByUlnKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerByUlnKey" message="tns:ILearnerServiceR9_UpdateLearnerByUlnKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerByUlnKeyResponse" message="tns:ILearnerServiceR9_UpdateLearnerByUlnKey_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerByUlnKeyDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_UpdateLearnerByUlnKey_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDataChallenge">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/CreateDataChallenge" message="tns:ILearnerServiceR9_CreateDataChallenge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/CreateDataChallengeResponse" message="tns:ILearnerServiceR9_CreateDataChallenge_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/CreateDataChallengeDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_CreateDataChallenge_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListDataChallenge">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListDataChallenge" message="tns:ILearnerServiceR9_ListDataChallenge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListDataChallengeResponse" message="tns:ILearnerServiceR9_ListDataChallenge_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListDataChallengeDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ListDataChallenge_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataChallenge">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteDataChallenge" message="tns:ILearnerServiceR9_DeleteDataChallenge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteDataChallengeResponse" message="tns:ILearnerServiceR9_DeleteDataChallenge_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteDataChallengeDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_DeleteDataChallenge_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ViewAudit">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ViewAudit" message="tns:ILearnerServiceR9_ViewAudit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ViewAuditResponse" message="tns:ILearnerServiceR9_ViewAudit_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ViewAuditDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ViewAudit_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreLearnerKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/StoreLearnerKey" message="tns:ILearnerServiceR9_StoreLearnerKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/StoreLearnerKeyResponse" message="tns:ILearnerServiceR9_StoreLearnerKey_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/StoreLearnerKeyDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_StoreLearnerKey_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLearnerKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/RemoveLearnerKey" message="tns:ILearnerServiceR9_RemoveLearnerKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/RemoveLearnerKeyResponse" message="tns:ILearnerServiceR9_RemoveLearnerKey_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/RemoveLearnerKeyDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_RemoveLearnerKey_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/SetNotification" message="tns:ILearnerServiceR9_SetNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/SetNotificationResponse" message="tns:ILearnerServiceR9_SetNotification_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/SetNotificationDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_SetNotification_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListNotificationStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListNotificationStatus" message="tns:ILearnerServiceR9_ListNotificationStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListNotificationStatusResponse" message="tns:ILearnerServiceR9_ListNotificationStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListNotificationStatusDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ListNotificationStatus_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrModifySnapshot">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/CreateOrModifySnapshot" message="tns:ILearnerServiceR9_CreateOrModifySnapshot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/CreateOrModifySnapshotResponse" message="tns:ILearnerServiceR9_CreateOrModifySnapshot_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/CreateOrModifySnapshotDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_CreateOrModifySnapshot_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListSnapshots">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListSnapshots" message="tns:ILearnerServiceR9_ListSnapshots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListSnapshotsResponse" message="tns:ILearnerServiceR9_ListSnapshots_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ListSnapshotsDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ListSnapshots_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSnapshot">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteSnapshot" message="tns:ILearnerServiceR9_DeleteSnapshot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteSnapshotResponse" message="tns:ILearnerServiceR9_DeleteSnapshot_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/DeleteSnapshotDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_DeleteSnapshot_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetOrganisation" message="tns:ILearnerServiceR9_GetOrganisation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetOrganisationResponse" message="tns:ILearnerServiceR9_GetOrganisation_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetOrganisationDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_GetOrganisation_DomainFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILearnerServiceR9" type="tns:ILearnerServiceR9">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExecuteRtaQuery">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ExecuteRtaQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRtaQuery">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/SaveRtaQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListSavedRtaQueries">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ListSavedRtaQueries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSavedRtaQuery">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/DeleteSavedRtaQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteRoCQuery">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ExecuteRoCQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LearnerByUln">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/LearnerByUln" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindLearnerByUlnKey">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/FindLearnerByUlnKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLearnerLearningEvents">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLearnerRecord">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/GetLearnerRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyLearningEvents">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/GetMyLearningEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLearnerSubsetFields">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLearner">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/UpdateLearner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLearnerByUlnKey">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/UpdateLearnerByUlnKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateDataChallenge">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/CreateDataChallenge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListDataChallenge">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ListDataChallenge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDataChallenge">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/DeleteDataChallenge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ViewAudit">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ViewAudit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="StoreLearnerKey">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/StoreLearnerKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveLearnerKey">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/RemoveLearnerKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetNotification">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/SetNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListNotificationStatus">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ListNotificationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrModifySnapshot">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/CreateOrModifySnapshot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListSnapshots">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ListSnapshots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSnapshot">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/DeleteSnapshot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisation">
+      <soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/GetOrganisation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DomainFaultFault">
+        <soap:fault use="literal" name="DomainFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LearnerServiceR9Proxy">
+    <wsdl:port name="BasicHttpBinding_ILearnerServiceR9" binding="tns:BasicHttpBinding_ILearnerServiceR9">
+      <soap:address location="https://ws.lrs.education.gov.uk/learnerserviceR9.svc?wsdl" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

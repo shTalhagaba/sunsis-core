@@ -1,0 +1,313 @@
+html {
+	background: url(images/right-ribbon.png) top right no-repeat;	
+}
+
+html, body { 
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+h1,h2,h3,h4 {
+	border-bottom: 1px solid #92AC60;
+	color: #92AC60;
+	margin: 2px 0;	
+}
+
+h1 {
+	font-size: 16pt;
+}
+
+p {
+	text-align: left;
+}
+
+table {
+	width: 100%;
+}
+
+td {
+	padding-top: 10px;	
+}
+
+ol {
+	font-size: 0.9em;	
+}
+
+#main {
+	background-color: #fff;
+	margin: auto; 
+	width: 960px;	
+}
+
+#userlogin #main {
+	display: none;	
+}
+
+#disclaimer {
+	font-size: 0.75em;
+	margin: 100px auto;
+	width: 500px;
+}
+
+#support {
+	font-size: 0.75em;
+	margin-top: 5px;	
+}
+
+#firstform {
+	font-size: 0.75em;
+	text-align: center;
+	border: none;
+	clear: left; 
+	margin: auto; 
+	width: 300px;
+}
+
+.message {
+	color: red;
+	font-family: arial,sans-serif;
+	font-style: italic;
+	width: 300px;
+}
+
+.loginBox {
+/**
+*	-moz-border-radius: 12px;
+*	border-color:rgb(96,142,28);
+*	border-width:2px;
+*	border-style:solid;
+*	background-color:#FAFAFA;
+*/
+	color: #92AC60;
+	width: 300px;
+	padding: 20px 5px;
+	text-align: right;
+}
+
+.loginBox span {
+	display: block;
+	padding: 5px 0;
+}
+
+div.caveat {
+	font-family: sans-serif;
+	font-size: 8pt;
+	color: gray;
+	width: 300px;
+	margin: 5px;
+	text-align: center;
+}
+
+div.hostname {
+	position:absolute;
+	float: right;
+	top: 10px;
+	left: 10px;
+	font-family: 'arial black', sans-serif;
+	font-size: 20pt;
+	color: #EEEEEE;
+}
+
+#divMessages {
+	color: #92AC60;
+	font-style:italic;
+	font-weight: bold;
+	font-size:1.2em;
+	height:60px;
+	overflow: hidden;
+	text-align:center;
+	margin: auto;	
+	z-index: 2;
+}
+
+#divWarnings {
+	position:absolute;
+	bottom:10px;
+	left:25%;
+	padding: 5px;
+	text-align:justify;
+	font-family: sans-serif;
+	color: #444444;
+	font-size:10pt;
+}
+
+#divGetFirefox {
+	position:absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+#customerlogo {
+	/* 
+	* #137 - error messaging
+	* float: left; 
+	*/
+	margin: 10px 0px 0px 10px;
+}
+
+
+.maintenance {
+    -moz-border-radius-bottomleft:12px;
+    -moz-border-radius-bottomright:12px;
+    -moz-border-radius-topleft:12px;
+    -moz-border-radius-topright:12px;
+    background-color:#FAFAFA;
+    border:1px solid #FF0000;
+    color:#002D62;
+    padding:5px;
+    text-align:center;
+    width:500px;
+}
+
+/**
+* Registration Page stuff
+*/
+
+#registration {
+	/** margin-top: 100px; */
+}
+
+#registration #main {
+	background-color: transparent;
+	width: 550px;
+	text-align: left;
+}
+
+#registration .navigation {
+	height: 60px;
+	width: 550px;
+	padding-top: 10px;
+	text-align: right;
+}
+
+#registration p {
+	font-size: 0.9em;	
+}
+
+#registration h1, #registration h2, #registration h3, #registration h4 {
+	background-color: transparent;
+	border: none;	
+}
+
+#registration table {
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #92AC60;
+	border-top: 1px solid #92AC60;
+}
+
+#registration td, #registration th {
+	font-size: 0.9em;
+	padding: 2px;
+	vertical-align: top;
+}
+
+#registration .formentry {
+	width: 700px;
+	position: relative;
+}
+
+#registration #divMessages {
+	color: #92AC60;
+	font-style: normal;
+	font-weight: normal;
+	font-size:1em;
+	height:60px;
+	overflow: hidden;
+	text-align:center;
+	margin: auto;	
+	z-index: 2;
+}
+
+#status {
+	color: #F6B035;
+	display:block;
+	font-size: 0.7em;
+	list-style-type: none;
+	width: 700px;
+	margin: auto;
+}
+
+
+
+#status li {
+	float: left;
+	text-align: center;
+	padding: 5px 0px 5px 15px;
+	margin: 0 10px;
+	/* width: 100px; */
+}
+
+#status .active {
+	background: url(images/link-arrow.gif) no-repeat left center;
+	color: #92AC60;	
+}
+
+#registration .formentry a {
+	font-size: 0.9em;
+	text-align: right;
+}
+
+/*****
+* Employer Address Entry 
+*/
+#registration_3 {
+	background-color: #f9f9f9;
+}
+
+#registration_3 h1 {
+	background-color: #fff;
+	border-bottom: 1px solid #92AC60;
+}
+
+fieldset.bs7666 {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+fieldset.bs7666 legend {
+	color: #92AC60;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+#registration_3 table {
+	border-bottom: none;
+	border-top: none;	
+}
+
+#registration_3 .navigation {
+	background-color: #fff;
+	border-top: 1px solid #92AC60;	
+}
+
+div.envelope {
+	background: url("/images/postage-stamp.png") 98% 5% no-repeat #fff;
+	border: 1px solid #92AC60;
+	display: table-cell;
+	font-size: 0.9em;
+	height: 160px;
+	width: 280px;
+	padding: 40px 10px 0 0;
+	text-align: right;
+	vertical-align: middle;
+}
+
+div.bs7666 {
+	font-size: 0.9em;
+	padding: 5px;	
+}
+
+span.cellText {
+	font-size: 0.7em;	
+}
+
+td.examples {
+	border: 1px solid #f1f1f1;
+	background-color: #fff;	
+	color: #9f9f9f;
+	font-size: 0.7em!important;
+	line-height: 0.8em!important;
+}

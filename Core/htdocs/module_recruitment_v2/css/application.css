@@ -1,0 +1,202 @@
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+#wrapper {
+	width: 1296px;
+	margin: 0px auto;
+}
+
+#headerwrap {
+	width: 100%;
+	float: left;
+}
+
+#header {
+	height: 75px;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+
+#navigationwrap {
+	width: 100%;
+	float: left;
+}
+
+#navigation {
+	border-radius: 10px;
+
+}
+
+#contentwrap {
+	width: 100%;
+	float: left;
+}
+
+#content {
+	min-height: 500px;
+	padding: 5px;
+}
+
+#footerwrap {
+	width: 1296px;
+	margin:0px auto;
+}
+
+#footer {
+	width: 860px;
+	float: left;
+	padding: 20px 0px;
+}
+
+#logo { float: left; padding: 10px 0 25px 10px;}
+#logo2 { float: right; padding: 25px 0 25px 10px; }
+
+@media only screen and (max-width: 767px) {
+	#logo, #logo2 { float: none; text-align: center; }
+}
+
+progress {
+	width: 100%;
+	height: 25px;
+	border: 0px none;
+	background-color: #E5E5E5;
+	border-radius: 10px;
+	padding: 4px 5px 5px 5px;
+}
+progress::-webkit-progress-bar {
+	background-color: #E5E5E5;
+	border-radius: 50px;
+	padding: 2px;
+	box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+progress::-webkit-progress-value {
+	border-radius: 50px;
+	background:
+		-webkit-linear-gradient(135deg, transparent, transparent 20%, rgba(0, 0, 0, 0.1) 33%, #45B565 50%, transparent 10%),
+		-webkit-linear-gradient(top, #81CE97, #81CE97),
+		-webkit-linear-gradient(left, #ba7448, #c4672d);
+	background-size: 25px 14px, 100% 100%, 100% 100%;
+	-webkit-animation: move 5s linear 0 infinite;
+
+}
+@-webkit-keyframes move {
+0% {background-position: 0px 0px, 0 0, 0 0}
+100% {background-position:100px 0px, 0 0, 0 0}
+}
+.progress-value{
+	color: #444;
+	margin-left: 50%;
+	margin-top: -20px;
+}
+
+.progressDiv {
+	width: 100%;
+	background: #fcfcfc;
+	border: 1px solid #ccc;
+	position: relative;
+	left: 7%;
+	top: 5px;
+	display: inline-block;
+	border-radius: 2px;
+	box-shadow: 0px 1px 1px 1px #ccc;
+}
+
+.selected {
+	border:5px solid #008000;
+	border-radius:30px;
+	-webkit-border-radius:30px;
+	-moz-border-radius:30px;
+}
+
+.tr_answers {
+	cursor: pointer;
+}
+
+#main {
+	position: relative;
+	width: 1024px;
+	height: 600px;
+	margin: 50px auto 0 auto;
+	text-align: center;
+}
+
+.txtContent
+{
+	width: 1000px;
+	font-family:Arial; font-size:18px; color:#000;
+	border:2px solid #3171ad;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding:10px;
+	color:#3c556c; resize: none;
+	overflow:hidden;
+}
+
+.txtContent:focus{outline-width:0;}
+
+/*
+li {
+	list-style: none;
+}
+*/
+
+#messageBox{
+	position: absolute;
+	top: 35%;
+	left: 35%;
+	margin-top: -50px;
+	margin-left: -50px;
+}
+
+div.panel
+{
+
+	border-width: 1px;
+	border-style: solid;
+	border-color: #E3E3E3 #BFBFBF #BFBFBF #E3E3E3;
+	padding: 8px!important;
+	margin-bottom: 1.5em;
+	margin-left: 1.5em;
+	word-wrap: break-word;
+	width: 80%!important;
+	/* To enable gradients in IE < 9 */
+	zoom: 1;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-moz-box-shadow: 3px 3px 5px rgba(127,108,56,0.4);
+	-webkit-box-shadow: 3px 3px 5px rgba(127,108,56,0.4);
+	box-shadow: 3px 3px 5px rgba(127,108,56,0.4);
+	/* http://www.colorzilla.com/gradient-editor/ */
+	background: rgb(255,255,255); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNmY2ZjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(246,246,246,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-8 */
+}
+
+div.submit_resume
+{
+	background-image: url('/images/submit_resume_button.png');
+	background-size: 350px 100px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.clearDiv
+{
+	clear:both;
+}
+
+h3
+{
+	/*font-size: smaller;*/
+}

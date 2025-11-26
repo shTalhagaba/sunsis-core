@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="LearnerServiceR9Proxy" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<wsp:Policy wsu:Id="BasicHttpBinding_ILearnerServiceR9_policy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+					<wsp:Policy>
+						<sp:TransportToken>
+							<wsp:Policy>
+								<sp:HttpsToken RequireClientCertificate="false"/>
+							</wsp:Policy>
+						</sp:TransportToken>
+						<sp:AlgorithmSuite>
+							<wsp:Policy>
+								<sp:Basic256/>
+							</wsp:Policy>
+						</sp:AlgorithmSuite>
+						<sp:Layout>
+							<wsp:Policy>
+								<sp:Strict/>
+							</wsp:Policy>
+						</sp:Layout>
+					</wsp:Policy>
+				</sp:TransportBinding>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+	<wsdl:types>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xs:import namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common"/>
+			<xs:import namespace="http://api.lrs.qcf.gov.uk/model"/>
+			<xs:import namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface"/>
+			<xs:element name="LearnerByUln">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="invokingOrganisation" nillable="true" type="q1:InvokingOrganisation" xmlns:q1="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common"/>
+						<xs:element minOccurs="1" name="userType" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="vendorId" type="xs:int"/>
+						<xs:element minOccurs="1" name="language" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="uln" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="findType" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LearnerByUlnResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="LearnerByUlnResult" nillable="true" type="q2:LearnerByUlnResponse" xmlns:q2="http://api.lrs.qcf.gov.uk/model"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetLearnerLearningEvents">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="invokingOrganisation" nillable="true" type="q3:InvokingOrganisationR10" xmlns:q3="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface"/>
+						<xs:element minOccurs="1" name="userType" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="vendorID" type="xs:int"/>
+						<xs:element minOccurs="1" name="language" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="uln" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="gender" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="getType" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetLearnerLearningEventsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="GetLearnerLearningEventsResult" nillable="true" type="q4:GetLearnerLearningEventsResponse" xmlns:q4="http://api.lrs.qcf.gov.uk/model"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UpdateLearnerSubsetFields">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="invokingOrganisation" nillable="true" type="q5:InvokingOrganisation" xmlns:q5="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common"/>
+						<xs:element minOccurs="1" name="userType" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="vendorId" type="xs:int"/>
+						<xs:element minOccurs="1" name="language" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="uln" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="versionNumber" type="xs:int"/>
+						<xs:element minOccurs="1" name="emailAddress" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="telephoneNumber" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="abilityToShare" type="q6:AbilityToShare" xmlns:q6="http://api.lrs.qcf.gov.uk/model"/>
+						<xs:element minOccurs="1" name="schoolAtAge16" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="preferredGivenName" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="UpdateLearnerSubsetFieldsResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="UpdateLearnerSubsetFieldsResult" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ViewAudit">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="invokingOrganisation" nillable="true" type="q7:InvokingOrganisation" xmlns:q7="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common"/>
+						<xs:element minOccurs="1" name="userType" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="vendorId" type="xs:int"/>
+						<xs:element minOccurs="1" name="language" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="learnerUln" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="learnerGivenName" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="learnerFamilyName" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="page" type="xs:int"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ViewAuditResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="ViewAuditResult" nillable="true" type="q8:PagedListOfPlrAccessEntryResponseN4dIIFC_S" xmlns:q8="http://api.lrs.qcf.gov.uk/model"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetOrganisation">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="invokingOrganisation" nillable="true" type="q9:InvokingOrganisation" xmlns:q9="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common"/>
+						<xs:element minOccurs="1" name="userType" type="q10:UserType" xmlns:q10="http://api.lrs.qcf.gov.uk/model"/>
+						<xs:element minOccurs="1" name="vendorId" type="xs:int"/>
+						<xs:element minOccurs="1" name="language" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="ukPrn" nillable="true" type="xs:string"/>
+						<xs:element minOccurs="1" name="orgRef" nillable="true" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GetOrganisationResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="0" name="GetOrganisationResult" nillable="true" type="q11:GetOrganisationResponse" xmlns:q11="http://api.lrs.qcf.gov.uk/model"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+		<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+			<xs:element name="anyType" nillable="true" type="xs:anyType"/>
+			<xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+			<xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+			<xs:element name="boolean" nillable="true" type="xs:boolean"/>
+			<xs:element name="byte" nillable="true" type="xs:byte"/>
+			<xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+			<xs:element name="decimal" nillable="true" type="xs:decimal"/>
+			<xs:element name="double" nillable="true" type="xs:double"/>
+			<xs:element name="float" nillable="true" type="xs:float"/>
+			<xs:element name="int" nillable="true" type="xs:int"/>
+			<xs:element name="long" nillable="true" type="xs:long"/>
+			<xs:element name="QName" nillable="true" type="xs:QName"/>
+			<xs:element name="short" nillable="true" type="xs:short"/>
+			<xs:element name="string" nillable="true" type="xs:string"/>
+			<xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+			<xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+			<xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+			<xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+			<xs:element name="char" nillable="true" type="tns:char"/>
+			<xs:simpleType name="char">
+				<xs:restriction base="xs:int"/>
+			</xs:simpleType>
+			<xs:element name="duration" nillable="true" type="tns:duration"/>
+			<xs:simpleType name="duration">
+				<xs:restriction base="xs:duration">
+					<xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+					<xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+					<xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="guid" nillable="true" type="tns:guid"/>
+			<xs:simpleType name="guid">
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:attribute name="FactoryType" type="xs:QName"/>
+			<xs:attribute name="Id" type="xs:ID"/>
+			<xs:attribute name="Ref" type="xs:IDREF"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common">
+			<xs:import namespace="http://api.lrs.qcf.gov.uk/model"/>
+			<xs:complexType name="InvokingOrganisation">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="ChannelCode" type="q1:ChannelCode" xmlns:q1="http://api.lrs.qcf.gov.uk/model"/>
+					<xs:element minOccurs="0" name="Estab" nillable="true" type="xs:int"/>
+					<xs:element minOccurs="0" name="LaNumber" nillable="true" type="xs:int"/>
+					<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Ukprn" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Username" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="InvokingOrganisation" nillable="true" type="tns:InvokingOrganisation"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.qcf.gov.uk/model" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.qcf.gov.uk/model">
+			<xs:import namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel"/>
+			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+			<xs:simpleType name="ChannelCode">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="None"/>
+					<xs:enumeration value="Batch"/>
+					<xs:enumeration value="Portal"/>
+					<xs:enumeration value="WebServices"/>
+					<xs:enumeration value="LegacyAPI"/>
+					<xs:enumeration value="Legacy"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="ChannelCode" nillable="true" type="tns:ChannelCode"/>
+			<xs:complexType name="LearnerByUlnResponse">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ServiceResponseR9">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="GivenName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Learner" nillable="true" type="q1:Learner" xmlns:q1="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+							<xs:element minOccurs="0" name="Uln" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="LearnerByUlnResponse" nillable="true" type="tns:LearnerByUlnResponse"/>
+			<xs:complexType name="ServiceResponseR9">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="ResponseCode" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ServiceResponseR9" nillable="true" type="tns:ServiceResponseR9"/>
+			<xs:complexType name="GetLearnerLearningEventsResponse">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ServiceResponseR9">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="FoundULN" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="IncomingULN" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LearnerRecord" nillable="true" type="tns:ArrayOfLearningEvent">
+								<xs:annotation>
+									<xs:appinfo>
+										<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+									</xs:appinfo>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="GetLearnerLearningEventsResponse" nillable="true" type="tns:GetLearnerLearningEventsResponse"/>
+			<xs:complexType name="ArrayOfLearningEvent">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="LearningEvent" nillable="true" type="tns:LearningEvent"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfLearningEvent" nillable="true" type="tns:ArrayOfLearningEvent"/>
+			<xs:complexType name="LearningEvent">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="AchievementAwardDate" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="AchievementProviderName" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="AchievementProviderUkprn" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="AwardingOrganisationName" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="AwardingOrganisationUkprn" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="CollectionType" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Credits" type="xs:long"/>
+					<xs:element minOccurs="0" name="DateLoaded" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Grade" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ID" type="xs:int"/>
+					<xs:element minOccurs="0" name="LanguageForAssessment" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Level" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ParticipationEndDate" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="ParticipationStartDate" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="QualificationType" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Restriction" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="ReturnNumber" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Source" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element minOccurs="0" name="Subject" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="SubjectCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="UnderDataChallenge" nillable="true" type="xs:string">
+						<xs:annotation>
+							<xs:appinfo>
+								<DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="LearningEvent" nillable="true" type="tns:LearningEvent"/>
+			<xs:simpleType name="AbilityToShare">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="NotProvided">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="FPNNotSeen">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+					<xs:enumeration value="FPNSeenShareData">
+						<xs:annotation>
+							<xs:appinfo>
+								<EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:enumeration>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="AbilityToShare" nillable="true" type="tns:AbilityToShare"/>
+			<xs:complexType name="PagedListOfPlrAccessEntryResponseN4dIIFC_S">
+				<xs:annotation>
+					<xs:appinfo>
+						<GenericType Name="PagedListOf{0}{#}" Namespace="http://api.lrs.qcf.gov.uk/model" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+							<GenericParameter Name="PlrAccessEntryResponse" Namespace="http://api.lrs.qcf.gov.uk/model"/>
+						</GenericType>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:sequence>
+					<xs:element minOccurs="0" name="List" nillable="true" type="tns:ArrayOfPlrAccessEntryResponse"/>
+					<xs:element minOccurs="0" name="PageCount" type="xs:int"/>
+					<xs:element minOccurs="0" name="PageIndex" type="xs:int"/>
+					<xs:element minOccurs="0" name="PageSize" type="xs:int"/>
+					<xs:element minOccurs="0" name="SortIndex" type="xs:int"/>
+					<xs:element minOccurs="0" name="SortOrder" type="xs:int"/>
+					<xs:element minOccurs="0" name="TotalItems" type="xs:int"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="PagedListOfPlrAccessEntryResponseN4dIIFC_S" nillable="true" type="tns:PagedListOfPlrAccessEntryResponseN4dIIFC_S"/>
+			<xs:complexType name="ArrayOfPlrAccessEntryResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="PlrAccessEntryResponse" nillable="true" type="tns:PlrAccessEntryResponse"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfPlrAccessEntryResponse" nillable="true" type="tns:ArrayOfPlrAccessEntryResponse"/>
+			<xs:complexType name="PlrAccessEntryResponse">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="Action" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="DateTime" type="xs:dateTime"/>
+					<xs:element minOccurs="0" name="Organisation" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="PlrAccessEntryResponse" nillable="true" type="tns:PlrAccessEntryResponse"/>
+			<xs:simpleType name="UserType">
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Unknown"/>
+					<xs:enumeration value="LNR"/>
+					<xs:enumeration value="ORG"/>
+					<xs:enumeration value="SER"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:element name="UserType" nillable="true" type="tns:UserType"/>
+			<xs:complexType name="GetOrganisationResponse">
+				<xs:complexContent mixed="false">
+					<xs:extension base="tns:ServiceResponseR9">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OrgRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Status" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Ukprn" nillable="true" type="xs:string"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="GetOrganisationResponse" nillable="true" type="tns:GetOrganisationResponse"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel">
+			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+			<xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+			<xs:import namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel.Entities"/>
+			<xs:complexType name="Learner">
+				<xs:complexContent mixed="false">
+					<xs:extension base="q1:BusinessObject" xmlns:q1="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel.Entities">
+						<xs:sequence>
+							<xs:element minOccurs="0" name="AbilityToShare" type="xs:int"/>
+							<xs:element minOccurs="0" name="AtsLearnerPreference" nillable="true" type="ser:char"/>
+							<xs:element minOccurs="0" name="BirthDateVerification" type="xs:int"/>
+							<xs:element minOccurs="0" name="CountryOfAddress" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="CountryOfBirth" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="CountryOfDomicle" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="CountryOfLastKnownAddress" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="CreatedViaChannel" type="xs:int"/>
+							<xs:element minOccurs="0" name="DateOfAddressCapture" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="DateOfDeath" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="DeathDateVerification" type="xs:int"/>
+							<xs:element minOccurs="0" name="Deceased" type="xs:int"/>
+							<xs:element minOccurs="0" name="DeceasedDate" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="DisabilityCode" type="xs:int"/>
+							<xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="EthnicityCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="EthnicityVerification" type="xs:int"/>
+							<xs:element minOccurs="0" name="EtlLoadId" nillable="true" type="xs:int"/>
+							<xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="FamilyNameAt16" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="FamilyNameFirst" nillable="true" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="FirstEstablismentId" type="xs:int"/>
+							<xs:element minOccurs="0" name="Gender" type="xs:int"/>
+							<xs:element minOccurs="0" name="GivenName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="InReceiptOfDsa" type="xs:int"/>
+							<xs:element minOccurs="0" name="Initials" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastCompiledLearnerPlanReport" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="LastCompiledLearnerRecordReport" nillable="true" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="LastKnownAddressChanged" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="LastKnownAddressCountyOrCity" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastKnownAddressLine1" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastKnownAddressLine2" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastKnownAddressQualififer" type="xs:int"/>
+							<xs:element minOccurs="0" name="LastKnownAddressTown" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastKnownGender" type="xs:int"/>
+							<xs:element minOccurs="0" name="LastKnownPostCode" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastUpdatedAction" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastUpdatedDate" type="xs:dateTime"/>
+							<xs:element minOccurs="0" name="LastUpdatedLrbUsername" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastUpdatedLrsUsername" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="LastUpdatedSearchKey" nillable="true" type="xs:int"/>
+							<xs:element minOccurs="0" name="LastUpdatedViaChannel" type="xs:int"/>
+							<xs:element minOccurs="0" name="LearningDifficultyCode" type="xs:int"/>
+							<xs:element minOccurs="0" name="LinkedUlns" nillable="true" type="q2:ArrayOfstring" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+							<xs:element minOccurs="0" name="ManualUpdate" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="MaritalStatus" type="xs:int"/>
+							<xs:element minOccurs="0" name="MaritalStatusVerification" type="xs:int"/>
+							<xs:element minOccurs="0" name="MasterUln" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="MiddleOtherName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NameSuffix" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NationalInsuranceNumber" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NextDataChallengeNo" nillable="true" type="xs:int"/>
+							<xs:element minOccurs="0" name="NormalisedFamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NormalisedGivenName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NormalisedOtherNames" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NormalisedPerferredGivenName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="NormalisedPreviousFamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="OtherVerificationDescription" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PlaceOfBirth" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PotentialDuplicateSearchKey" nillable="true" type="xs:int"/>
+							<xs:element minOccurs="0" name="PreferredFamilyFirstNameFirst" nillable="true" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="PreferredFamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PreferredGivenName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="PreviousFamilyName" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ReasonForDeletion" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="RecordStatus" type="xs:int"/>
+							<xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="RegisteredByOrganisationRef" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="RestrictedUse" nillable="true" type="xs:boolean"/>
+							<xs:element minOccurs="0" name="SchoolAtAge16" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="ScottishCandidateNumber" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SecretQuestionId" nillable="true" type="xs:int"/>
+							<xs:element minOccurs="0" name="SecurityAnswer" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="SenType" type="xs:int"/>
+							<xs:element minOccurs="0" name="SequentialVersionNumber" type="xs:int"/>
+							<xs:element minOccurs="0" name="TelephoneNumber" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="TierLevel" type="xs:int"/>
+							<xs:element minOccurs="0" name="Title" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="Uln" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="UniqueCandidateIdentifier" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="UniquePupilNumber" nillable="true" type="xs:string"/>
+							<xs:element minOccurs="0" name="VerificationType" type="xs:int"/>
+							<xs:element minOccurs="0" name="VersionNumber" type="xs:int"/>
+						</xs:sequence>
+					</xs:extension>
+				</xs:complexContent>
+			</xs:complexType>
+			<xs:element name="Learner" nillable="true" type="tns:Learner"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel.Entities">
+			<xs:complexType name="BusinessObject">
+				<xs:sequence/>
+			</xs:complexType>
+			<xs:element name="BusinessObject" nillable="true" type="tns:BusinessObject"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+			<xs:complexType name="ArrayOfstring">
+				<xs:sequence>
+					<xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://api.lrs.qcf.gov.uk/faults" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://api.lrs.qcf.gov.uk/faults">
+			<xs:complexType name="DomainFault">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="ErrorDetail" nillable="true" type="xs:base64Binary"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="DomainFault" nillable="true" type="tns:DomainFault"/>
+		</xs:schema>
+		<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface">
+			<xs:complexType name="InvokingOrganisationR10">
+				<xs:sequence>
+					<xs:element minOccurs="0" name="OrganisationRef" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Ukprn" nillable="true" type="xs:string"/>
+					<xs:element minOccurs="0" name="Username" nillable="true" type="xs:string"/>
+				</xs:sequence>
+			</xs:complexType>
+			<xs:element name="InvokingOrganisationR10" nillable="true" type="tns:InvokingOrganisationR10"/>
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="ILearnerServiceR9_LearnerByUln_InputMessage">
+		<wsdl:part name="parameters" element="tns:LearnerByUln"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_LearnerByUln_OutputMessage">
+		<wsdl:part name="parameters" element="tns:LearnerByUlnResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_LearnerByUln_DomainFaultFault_FaultMessage">
+		<wsdl:part name="detail" element="q1:DomainFault" xmlns:q1="http://api.lrs.qcf.gov.uk/faults"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_GetLearnerLearningEvents_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetLearnerLearningEvents"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_GetLearnerLearningEvents_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetLearnerLearningEventsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_GetLearnerLearningEvents_DomainFaultFault_FaultMessage">
+		<wsdl:part name="detail" element="q2:DomainFault" xmlns:q2="http://api.lrs.qcf.gov.uk/faults"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_UpdateLearnerSubsetFields_InputMessage">
+		<wsdl:part name="parameters" element="tns:UpdateLearnerSubsetFields"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_UpdateLearnerSubsetFields_OutputMessage">
+		<wsdl:part name="parameters" element="tns:UpdateLearnerSubsetFieldsResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_UpdateLearnerSubsetFields_DomainFaultFault_FaultMessage">
+		<wsdl:part name="detail" element="q3:DomainFault" xmlns:q3="http://api.lrs.qcf.gov.uk/faults"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_ViewAudit_InputMessage">
+		<wsdl:part name="parameters" element="tns:ViewAudit"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_ViewAudit_OutputMessage">
+		<wsdl:part name="parameters" element="tns:ViewAuditResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_ViewAudit_DomainFaultFault_FaultMessage">
+		<wsdl:part name="detail" element="q4:DomainFault" xmlns:q4="http://api.lrs.qcf.gov.uk/faults"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_GetOrganisation_InputMessage">
+		<wsdl:part name="parameters" element="tns:GetOrganisation"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_GetOrganisation_OutputMessage">
+		<wsdl:part name="parameters" element="tns:GetOrganisationResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ILearnerServiceR9_GetOrganisation_DomainFaultFault_FaultMessage">
+		<wsdl:part name="detail" element="q5:DomainFault" xmlns:q5="http://api.lrs.qcf.gov.uk/faults"/>
+	</wsdl:message>
+	<wsdl:portType name="ILearnerServiceR9">
+		<wsdl:operation name="LearnerByUln">
+			<wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/LearnerByUln" message="tns:ILearnerServiceR9_LearnerByUln_InputMessage"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/LearnerByUlnResponse" message="tns:ILearnerServiceR9_LearnerByUln_OutputMessage"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/LearnerByUlnDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_LearnerByUln_DomainFaultFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetLearnerLearningEvents">
+			<wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEvents" message="tns:ILearnerServiceR9_GetLearnerLearningEvents_InputMessage"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEventsResponse" message="tns:ILearnerServiceR9_GetLearnerLearningEvents_OutputMessage"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEventsDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_GetLearnerLearningEvents_DomainFaultFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateLearnerSubsetFields">
+			<wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFields" message="tns:ILearnerServiceR9_UpdateLearnerSubsetFields_InputMessage"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFieldsResponse" message="tns:ILearnerServiceR9_UpdateLearnerSubsetFields_OutputMessage"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFieldsDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_UpdateLearnerSubsetFields_DomainFaultFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="ViewAudit">
+			<wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/ViewAudit" message="tns:ILearnerServiceR9_ViewAudit_InputMessage"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/ViewAuditResponse" message="tns:ILearnerServiceR9_ViewAudit_OutputMessage"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/ViewAuditDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_ViewAudit_DomainFaultFault_FaultMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetOrganisation">
+			<wsdl:input wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetOrganisation" message="tns:ILearnerServiceR9_GetOrganisation_InputMessage"/>
+			<wsdl:output wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetOrganisationResponse" message="tns:ILearnerServiceR9_GetOrganisation_OutputMessage"/>
+			<wsdl:fault wsaw:Action="http://tempuri.org/ILearnerServiceR9/GetOrganisationDomainFaultFault" name="DomainFaultFault" message="tns:ILearnerServiceR9_GetOrganisation_DomainFaultFault_FaultMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="BasicHttpBinding_ILearnerServiceR9" type="tns:ILearnerServiceR9">
+		<wsp:PolicyReference URI="#BasicHttpBinding_ILearnerServiceR9_policy"/>
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="LearnerByUln">
+			<soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/LearnerByUln" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DomainFaultFault">
+				<soap:fault use="literal" name="DomainFaultFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetLearnerLearningEvents">
+			<soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/GetLearnerLearningEvents" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DomainFaultFault">
+				<soap:fault use="literal" name="DomainFaultFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="UpdateLearnerSubsetFields">
+			<soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/UpdateLearnerSubsetFields" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DomainFaultFault">
+				<soap:fault use="literal" name="DomainFaultFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="ViewAudit">
+			<soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/ViewAudit" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DomainFaultFault">
+				<soap:fault use="literal" name="DomainFaultFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetOrganisation">
+			<soap:operation soapAction="http://tempuri.org/ILearnerServiceR9/GetOrganisation" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="DomainFaultFault">
+				<soap:fault use="literal" name="DomainFaultFault" namespace=""/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="LearnerServiceR9Proxy">
+		<wsdl:port name="BasicHttpBinding_ILearnerServiceR9" binding="tns:BasicHttpBinding_ILearnerServiceR9">
+			<!-- <soap:address location="https://ws.lrs.education.gov.uk/LearnerServiceR9.svc?singleWsdl"/> -->
+			<soap:address location="https://ws.lrs.education.gov.uk/LearnerServiceR9.svc?singleWsdl"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

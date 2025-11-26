@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="./schemas.microsoft.com.2003.10.Serialization.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="./schemas.microsoft.com.2003.10.Serialization.Arrays.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="./Amor.Qcf.MIAPModel.Entities.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel.Entities" />
+  <xs:complexType name="Learner">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Amor.Qcf.MIAPModel.Entities" base="q1:BusinessObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AbilityToShare" type="xs:int" />
+          <xs:element minOccurs="0" name="AtsLearnerPreference" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="BirthDateVerification" type="xs:int" />
+          <xs:element minOccurs="0" name="CountryOfAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryOfBirth" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryOfDomicle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CountryOfLastKnownAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreatedViaChannel" type="xs:int" />
+          <xs:element minOccurs="0" name="DateOfAddressCapture" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DateOfDeath" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeathDateVerification" type="xs:int" />
+          <xs:element minOccurs="0" name="Deceased" type="xs:int" />
+          <xs:element minOccurs="0" name="DeceasedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DisabilityCode" type="xs:int" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EthnicityCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EthnicityVerification" type="xs:int" />
+          <xs:element minOccurs="0" name="EtlLoadId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FamilyNameAt16" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FamilyNameFirst" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FirstEstablismentId" type="xs:int" />
+          <xs:element minOccurs="0" name="Gender" type="xs:int" />
+          <xs:element minOccurs="0" name="GivenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InReceiptOfDsa" type="xs:int" />
+          <xs:element minOccurs="0" name="Initials" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastCompiledLearnerPlanReport" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastCompiledLearnerRecordReport" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastKnownAddressChanged" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastKnownAddressCountyOrCity" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastKnownAddressLine1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastKnownAddressLine2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastKnownAddressQualififer" type="xs:int" />
+          <xs:element minOccurs="0" name="LastKnownAddressTown" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastKnownGender" type="xs:int" />
+          <xs:element minOccurs="0" name="LastKnownPostCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedAction" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastUpdatedLrbUsername" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedLrsUsername" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdatedSearchKey" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LastUpdatedViaChannel" type="xs:int" />
+          <xs:element minOccurs="0" name="LearningDifficultyCode" type="xs:int" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LinkedUlns" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="ManualUpdate" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MaritalStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="MaritalStatusVerification" type="xs:int" />
+          <xs:element minOccurs="0" name="MasterUln" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleOtherName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameSuffix" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NationalInsuranceNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NextDataChallengeNo" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="NormalisedFamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NormalisedGivenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NormalisedPerferredGivenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NormalisedPreviousFamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OtherVerificationDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PlaceOfBirth" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PotentialDuplicateSearchKey" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PreferredFamilyFirstNameFirst" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PreferredFamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreferredGivenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PreviousFamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReasonForDeletion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RecordStatus" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RegisteredByOrganisationRef" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RestrictedUse" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SchoolAtAge16" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScottishCandidateNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecretQuestionId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="SecurityAnswer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SenType" type="xs:int" />
+          <xs:element minOccurs="0" name="SequentialVersionNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="TelephoneNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TierLevel" type="xs:int" />
+          <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Uln" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VerificationType" type="xs:int" />
+          <xs:element minOccurs="0" name="VersionNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Learner" nillable="true" type="tns:Learner" />
+</xs:schema>

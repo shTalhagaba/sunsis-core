@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://learner.webservice.miap.gov.uk" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:batchlrnr="http://api.lrs.miap.gov.uk/batchmsg" xmlns:ex="http://api.lrs.miap.gov.uk/exceptions" xmlns:findlrnr="http://api.lrs.miap.gov.uk/findmsg" xmlns:impl="http://learner.webservice.miap.gov.uk" xmlns:lrnr="http://api.lrs.miap.gov.uk/learner" xmlns:lrnrrec="http://api.lrs.miap.gov.uk/learnerrec" xmlns:reglrnr="http://api.lrs.miap.gov.uk/regmsg" xmlns:reportlrnr="http://api.lrs.miap.gov.uk/reportmsg" xmlns:vldlrnr="http://api.lrs.miap.gov.uk/vldmsg" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://api.lrs.miap.gov.uk/findmsg" schemaLocation="./findlearner.xsd"/>
+			<import namespace="http://api.lrs.miap.gov.uk/regmsg" schemaLocation="./registerlearner.xsd"/>
+			<import namespace="http://api.lrs.miap.gov.uk/batchmsg" schemaLocation="./batchlearner.xsd"/>
+			<import namespace="http://api.lrs.miap.gov.uk/vldmsg" schemaLocation="./verifybatchlearner.xsd"/>
+			<import namespace="http://api.lrs.miap.gov.uk/reportmsg" schemaLocation="./learnerreport.xsd"/>
+			<import namespace="http://api.lrs.miap.gov.uk/learnerrec" schemaLocation="./learnerrecord.xsd"/>
+			<import namespace="http://api.lrs.miap.gov.uk/exceptions" schemaLocation="./fault.xsd"/>
+
+		</schema>
+	</wsdl:types>
+
+	<wsdl:message name="learnerByULNRequest">
+		<wsdl:part element="findlrnr:FindLearnerByULN" name="learnerByULN"/>
+	</wsdl:message>
+
+	<wsdl:message name="findLearnerByULNResponse">
+		<wsdl:part element="findlrnr:FindLearnerResponse" name="findLearnerResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="learnerByDemographicsRequest">
+		<wsdl:part element="findlrnr:FindLearnerByDemographics" name="learnerByDemographics"/>
+	</wsdl:message>
+
+	<wsdl:message name="findLearnerByDemographicsResponse">
+		<wsdl:part element="findlrnr:FindLearnerResponse" name="findLearnerResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="registerSingleLearnerRequest">
+		<wsdl:part element="reglrnr:RegisterLearner" name="registerSingleLearner"/>
+	</wsdl:message>
+
+	<wsdl:message name="registerSingleLearnerResponse">
+		<wsdl:part element="reglrnr:RegisterLearnerResponse" name="registerSingleLearnerResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="updateSingleLearnerRequest">
+		<wsdl:part element="reglrnr:UpdateLearner" name="updateSingleLearner"/>
+	</wsdl:message>
+
+	<wsdl:message name="updateLearnerResponse">
+		<wsdl:part element="reglrnr:UpdateLearnerResponse" name="updateSingleLearnerResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="submitBatchRequest">
+		<wsdl:part element="batchlrnr:SubmitBatch" name="submitBatch"/>
+	</wsdl:message>
+
+	<wsdl:message name="submitBatchResponse">
+		<wsdl:part element="batchlrnr:SubmitBatchResponse" name="submitBatchResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="batchOutputRequest">
+		<wsdl:part element="batchlrnr:GetSubmitBatchOutput" name="batchOutput"/>
+	</wsdl:message>
+
+	<wsdl:message name="batchOutputResponse">
+		<wsdl:part element="batchlrnr:GetSubmitBatchOutputResponse" name="batchOutputResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="submitVerifyBatchRequest">
+		<wsdl:part element="vldlrnr:SubmitVerifyBatch" name="submitVerifyBatch"/>
+	</wsdl:message>
+
+	<wsdl:message name="submitVerifyBatchResponse">
+		<wsdl:part element="vldlrnr:SubmitVerifyBatchResponse" name="submitVerifyBatchResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="verifyBatchOutputRequest">
+		<wsdl:part element="vldlrnr:GetVerifyBatchOutput" name="verifyBatchOutput"/>
+	</wsdl:message>
+
+	<wsdl:message name="verifyBatchOutputResponse">
+		<wsdl:part element="vldlrnr:GetVerifyBatchOutputResponse" name="verifyBatchOutputResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="mergedUnmergedULNsReportRequest">
+		<wsdl:part element="reportlrnr:GetMergedUnmergedULNs" name="mergedUnmergedULNsReportRqst"/>
+	</wsdl:message>
+
+	<wsdl:message name="mergedUnmergedULNsReportResponse">
+		<wsdl:part element="reportlrnr:MergedUnmergedULNsResponse" name="mergedUnmergedULNsReportResp"/>
+	</wsdl:message>
+
+	<wsdl:message name="deletedULNsReportRequest">
+		<wsdl:part element="reportlrnr:GetDeletedULNs" name="deletedULNsReportRqst"/>
+	</wsdl:message>
+
+	<wsdl:message name="deletedULNsReportResponse">
+		<wsdl:part element="reportlrnr:DeletedULNsResponse" name="deletedULNsReportResp"/>
+	</wsdl:message>
+
+	<wsdl:message name="retrieveULNsRequest">
+		<wsdl:part element="reportlrnr:RetrieveULNs" name="retrieveULNsRqst"/>
+	</wsdl:message>
+
+	<wsdl:message name="retrieveULNsResponse">
+		<wsdl:part element="reportlrnr:RetrieveULNsResponse" name="retrieveULNsResp"/>
+	</wsdl:message>
+
+	<wsdl:message name="verifyLearnerRequest">
+		<wsdl:part element="reportlrnr:VerifyLearner" name="verifyLearnerRqst"/>
+	</wsdl:message>
+
+	<wsdl:message name="verifyLearnerResponse">
+		<wsdl:part element="reportlrnr:VerifyLearnerResponse" name="verifyLearnerResp"/>
+	</wsdl:message>
+
+	<wsdl:message name="learnerRecordRequest">
+		<wsdl:part element="lrnrrec:GetLearnerRecord" name="getLearnerRecord"/>
+	</wsdl:message>
+
+	<wsdl:message name="learnerRecordResponse">
+		<wsdl:part element="lrnrrec:GetLearnerRecordResp" name="learnerRecordResponse"/>
+	</wsdl:message>
+
+	<wsdl:message name="MIAPAPIFault">
+		<wsdl:part element="ex:MIAPAPIException" name="MIAPAPIFault"/>
+	</wsdl:message>
+
+	<wsdl:portType name="LearnerPortType">
+		<wsdl:operation name="learnerByULN">
+			<wsdl:input message="impl:learnerByULNRequest" name="learnerByULNRequest"/>
+			<wsdl:output message="impl:findLearnerByULNResponse" name="findLearnerByULNResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="learnerByDemographics">
+			<wsdl:input message="impl:learnerByDemographicsRequest" name="learnerByDemographicsRequest"/>
+			<wsdl:output message="impl:findLearnerByDemographicsResponse" name="findLearnerByDemographicsResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="registerSingleLearner">
+			<wsdl:input message="impl:registerSingleLearnerRequest" name="registerSingleLearnerRequest"/>
+			<wsdl:output message="impl:registerSingleLearnerResponse" name="registerSingleLearnerResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateSingleLearner">
+			<wsdl:input message="impl:updateSingleLearnerRequest" name="updateLearnerRequest"/>
+			<wsdl:output message="impl:updateLearnerResponse" name="updateLearnerResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="submitBatchRegistration">
+			<wsdl:input message="impl:submitBatchRequest" name="submitBatchRequest"/>
+			<wsdl:output message="impl:submitBatchResponse" name="submitBatchResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="getBatchRegistrationOutput">
+			<wsdl:input message="impl:batchOutputRequest" name="batchOutputRequest"/>
+			<wsdl:output message="impl:batchOutputResponse" name="batchOutputResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="submitVerifyBatch">
+			<wsdl:input message="impl:submitVerifyBatchRequest" name="submitVerifyBatchRequest"/>
+			<wsdl:output message="impl:submitVerifyBatchResponse" name="submitVerifyBatchResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="getVerifyBatchOutput">
+			<wsdl:input message="impl:verifyBatchOutputRequest" name="verifyBatchOutputRequest"/>
+			<wsdl:output message="impl:verifyBatchOutputResponse" name="verifyBatchOutputResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="getMergedUnmergedULNsReport">
+			<wsdl:input message="impl:mergedUnmergedULNsReportRequest" name="mergedUnmergedULNsReportRequest"/>
+			<wsdl:output message="impl:mergedUnmergedULNsReportResponse" name="mergedUnmergedULNsReportResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="getDeletedULNsReport">
+			<wsdl:input message="impl:deletedULNsReportRequest" name="deletedULNsReportRequest"/>
+			<wsdl:output message="impl:deletedULNsReportResponse" name="deletedULNsReportResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveULNs">
+			<wsdl:input message="impl:retrieveULNsRequest" name="retrieveULNsRequest"/>
+			<wsdl:output message="impl:retrieveULNsResponse" name="retrieveULNsResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="verifyLearner">
+			<wsdl:input message="impl:verifyLearnerRequest" name="verifyLearnerRequest"/>
+			<wsdl:output message="impl:verifyLearnerResponse" name="verifyLearnerResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+		<wsdl:operation name="getLearnerRecord">
+			<wsdl:input message="impl:learnerRecordRequest" name="getLearnerRecordRequest"/>
+			<wsdl:output message="impl:learnerRecordResponse" name="getLearnerRecordResponse"/>
+			<wsdl:fault message="impl:MIAPAPIFault" name="exception"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="LearnerBinding" type="impl:LearnerPortType">
+		<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="learnerByULN">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="learnerByULNRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findLearnerByULNResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="learnerByDemographics">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="learnerByDemographicsRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="findLearnerByDemographicsResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="registerSingleLearner">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="registerSingleLearnerRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="registerSingleLearnerResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="updateSingleLearner">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="updateLearnerRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="updateLearnerResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="submitBatchRegistration">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="submitBatchRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="submitBatchResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getBatchRegistrationOutput">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="batchOutputRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="batchOutputResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="submitVerifyBatch">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="submitVerifyBatchRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="submitVerifyBatchResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getVerifyBatchOutput">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="verifyBatchOutputRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="verifyBatchOutputResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getMergedUnmergedULNsReport">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="mergedUnmergedULNsReportRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="mergedUnmergedULNsReportResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getDeletedULNsReport">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="deletedULNsReportRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="deletedULNsReportResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveULNs">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="retrieveULNsRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="retrieveULNsResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="verifyLearner">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="verifyLearnerRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="verifyLearnerResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="getLearnerRecord">
+			<wsdlsoap:operation soapAction=""/>
+			<wsdl:input name="getLearnerRecordRequest">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output name="getLearnerRecordResponse">
+				<wsdlsoap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="exception">
+				<wsdlsoap:fault name="exception" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="LearnerService">
+		<wsdl:port binding="impl:LearnerBinding" name="LearnerService">
+			<wsdlsoap:address location="https://ws.lrs.education.gov.uk/LearnerService.svc?wsdl"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

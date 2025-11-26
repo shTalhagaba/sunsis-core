@@ -1,0 +1,114 @@
+.zInput{
+	display:inline-block;
+	width: 100px;
+	height:35px;
+	background-color: white;
+	margin:4px;
+	padding: 5px;
+	text-align:center;
+	cursor:pointer;
+	color: #336600;
+	border: #336600 1px solid;
+	border-radius:5px;
+	font-size: 18px;
+	overflow:hidden;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+
+.zCheckbox{
+	color: #000099;
+	border: #000099 1px solid;
+}
+
+.zSelected{
+	color: white;
+	background-color:#00a65a;
+}
+
+.zSelected.zCheckbox{
+	background-color: #000099;
+
+}
+
+
+.yo-button-range-slider{
+
+}
+.yo-btn {
+	padding: 4px 16px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background: #fff;
+	white-space: nowrap;
+	border: #336600 1px solid;
+	border-radius:5px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+}
+
+
+.yo-btn:last-child {
+	border-right: 1px solid #336600;
+}
+
+.touch .yo-btn{
+	white-space: normal;
+}
+
+
+@media screen and (max-width: 767px) {
+	.yo-btn {
+		font-size: 12px;
+	}
+}
+
+.yo-range-btn.active{
+	color: white;
+	background-color:#00a65a;
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+}
+.yo-range-btn:focus,
+.yo-range-btn.active{
+	box-shadow: none;
+	outline: 0 none !important;
+}
+
+#radioBtn .notActive{
+	color: #3276b1;
+	background-color: #fff;
+}
+p { margin:1px }

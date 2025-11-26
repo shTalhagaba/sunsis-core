@@ -1,0 +1,39 @@
+<VirtualHost *:80>
+    ServerName sunesis.test
+    DocumentRoot "C:/Users/Inaam Azmat/workspace/perspective/sunesis_core/htdocs"
+    
+    DirectoryIndex index.php
+    
+    Options none
+
+    SetEnv PERSPECTIVE_DB_HOST localhost
+    SetEnv PERSPECTIVE_DB_HOST localhost
+    SetEnv PERSPECTIVE_DB_USER root
+    SetEnv PERSPECTIVE_DB_PASSWORD 
+    SetEnv PERSPECTIVE_DB_NAME am_ela
+    SetEnv PERSPECTIVE_DATA_ROOT "C:/Apps/sunesis-data"
+
+    RewriteEngine On
+	
+	# Skip rewrites for API URLs
+	RewriteRule ^/api/v1/. /api/v1/index.php
+
+    RewriteRule ^/([A-Za-z_]+)/([A-Za-z_]+)/?$ /do.php?_action=$1&subaction=$2 [QSA,R]
+    RewriteRule ^/([A-Za-z_]+)$ /do.php?_action=$1 [QSA,R]
+
+    <Directory "C:/Users/Inaam Azmat/workspace/perspective/sunesis_core/htdocs">
+        AllowOverride FileInfo
+        Require all granted
+    </Directory>
+    
+    Alias /yui C:/Apps/yui
+    
+    <Directory "C:/Apps/yui/">
+        Require all granted
+    </Directory>
+    
+    <Files phpinfo.php>
+        Require host 127.0.0.1 217.10.129.18 80.195.116.88 84.12.57.179
+    </Files>
+    
+</VirtualHost>

@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation="./Amor.Qcf.Common.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" />
+  <xs:import schemaLocation="./api.lrs.qcf.gov.uk.model.xsd" namespace="http://api.lrs.qcf.gov.uk/model" />
+  <xs:import schemaLocation="./microsoft.serialization.arrays.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="./Amor.Qcf.Service.Interface.xsd" namespace="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" />
+  <xs:import schemaLocation="./microsoft.serialization.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="ExecuteRtaQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q1:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q2="http://api.lrs.qcf.gov.uk/model" minOccurs="1" name="gender" type="q2:Gender" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="lastKnownPostcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="accreditationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="level" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="targetPostCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="1" name="extraUnitsForCreditTowards" nillable="true" type="q3:ArrayOfstring" />
+        <xs:element minOccurs="1" name="includeLearnerUnits" type="xs:boolean" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="1" name="ssas" nillable="true" type="q4:ArrayOfstring" />
+        <xs:element minOccurs="1" name="computeCreditsTowards" type="xs:boolean" />
+        <xs:element minOccurs="1" name="offeredInEngland" type="xs:boolean" />
+        <xs:element minOccurs="1" name="offeredInNorthernIreland" type="xs:boolean" />
+        <xs:element minOccurs="1" name="offeredInWales" type="xs:boolean" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="1" name="structureMustContain" nillable="true" type="q5:ArrayOfstring" />
+        <xs:element minOccurs="1" name="size" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteRtaQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="ExecuteRtaQueryResult" nillable="true" type="q6:ExecuteRtaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRtaQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q7:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="lastKnownPostcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="saveName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="accreditationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="level" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="targetPostCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="1" name="extraUnitsForCreditTowards" nillable="true" type="q8:ArrayOfstring" />
+        <xs:element minOccurs="1" name="includeLearnerUnits" type="xs:boolean" />
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="1" name="ssas" nillable="true" type="q9:ArrayOfstring" />
+        <xs:element minOccurs="1" name="computeCreditsTowards" type="xs:boolean" />
+        <xs:element minOccurs="1" name="offeredInEngland" type="xs:boolean" />
+        <xs:element minOccurs="1" name="offeredInNorthernIreland" type="xs:boolean" />
+        <xs:element minOccurs="1" name="offeredInWales" type="xs:boolean" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="1" name="structureMustContain" nillable="true" type="q10:ArrayOfstring" />
+        <xs:element minOccurs="1" name="size" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveRtaQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SaveRtaQueryResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSavedRtaQueries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q11:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="saveName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSavedRtaQueriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="ListSavedRtaQueriesResult" nillable="true" type="q12:RtaListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSavedRtaQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q13:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="saveName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSavedRtaQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSavedRtaQueryResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteRoCQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q14:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="accreditationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="lastKnownPostcode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="1" name="extraUnits" nillable="true" type="q15:ArrayOfstring" />
+        <xs:element minOccurs="1" name="includeLearnerUnits" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteRoCQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="ExecuteRoCQueryResult" nillable="true" type="q16:ExecuteRoCQueryResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LearnerByUln">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q17:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="findType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LearnerByUlnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="LearnerByUlnResult" nillable="true" type="q18:LearnerByUlnResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindLearnerByUlnKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" minOccurs="1" name="invokingOrganisation" nillable="true" type="q19:InvokingOrganisationR10" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorID" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="findType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindLearnerByUlnKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="FindLearnerByUlnKeyResult" nillable="true" type="q20:LearnerByUlnKeyResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLearnerLearningEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" minOccurs="1" name="invokingOrganisation" nillable="true" type="q21:InvokingOrganisationR10" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorID" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="getType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLearnerLearningEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="GetLearnerLearningEventsResult" nillable="true" type="q22:GetLearnerLearningEventsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLearnerRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q23:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="contactType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:int" />
+        <xs:element minOccurs="1" name="postcode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLearnerRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="GetLearnerRecordResult" nillable="true" type="q24:GetLearnerRecordResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyLearningEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" minOccurs="1" name="invokingOrganisation" nillable="true" type="q25:InvokingOrganisationR10" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorID" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="getType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyLearningEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="GetMyLearningEventsResult" nillable="true" type="q26:GetMyLearningEventsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLearnerSubsetFields">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q27:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="versionNumber" type="xs:int" />
+        <xs:element minOccurs="1" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="telephoneNumber" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://api.lrs.qcf.gov.uk/model" minOccurs="1" name="abilityToShare" type="q28:AbilityToShare" />
+        <xs:element minOccurs="1" name="schoolAtAge16" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="preferredGivenName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLearnerSubsetFieldsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateLearnerSubsetFieldsResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLearner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q29:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="versionNumber" type="xs:int" />
+        <xs:element minOccurs="1" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="middleOtherName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="preferredGivenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="previousFamilyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyNameAtSixteen" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="schoolAtAge16" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressLineOne" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressLineTwo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressTown" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressCountyOrCity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownPostCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfAddressCapture" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="dateOfBirth" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="placeOfBirth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="gender" type="xs:int" />
+        <xs:element minOccurs="1" name="nationality" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="scottishCandidateNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="verificationType" type="xs:int" />
+        <xs:element minOccurs="1" name="otherVerificationDescription" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://api.lrs.qcf.gov.uk/model" minOccurs="1" name="abilityToShare" type="q30:AbilityToShare" />
+        <xs:element minOccurs="1" name="notes" nillable="true" type="xs:string" />
+        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="1" name="atsLearnerPreference" nillable="true" type="q31:char" />
+        <xs:element minOccurs="1" name="lastUpdatedSearchKey" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLearnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="UpdateLearnerResult" nillable="true" type="q32:ArrayOfUpdateLearnerResponseItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLearnerByUlnKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" minOccurs="1" name="invokingOrganisation" nillable="true" type="q33:InvokingOrganisationR10" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorID" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="versionNumber" type="xs:int" />
+        <xs:element minOccurs="1" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="middleOtherName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="preferredGivenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="previousFamilyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyNameAtSixteen" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="schoolAtAgeSixteen" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressLineOne" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressLineTwo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressTown" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownAddressCountyOrCity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="lastKnownPostcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfAddressCapture" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="placeOfBirth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="nationality" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="scottishCandidateNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="verificationType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="otherVerificationDescription" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="abilityToShare" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLearnerByUlnKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="UpdateLearnerByUlnKeyResult" nillable="true" type="q34:ArrayOfUpdateLearnerResponseItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDataChallenge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q35:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="challengeType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="contactName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="telephone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="additionalInformation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="learningEvent1Id" type="xs:int" />
+        <xs:element minOccurs="1" name="source1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalAccreditationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalAwardingBody" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalQualificationLevel" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalAimTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalAchievedDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="originalAchievedGrade" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalTotalCredits" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalCreditValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalLanguageForAssessment" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalProvider" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="originalStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="originalEndDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="learningEvent2Id" type="xs:int" />
+        <xs:element minOccurs="1" name="source2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedAccreditationNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedAwardingBody" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedAimTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedAchievedDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="suppliedAchievedGrade" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedTotalCredits" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedCreditValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedLanguageForAssessment" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedProvider" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedQualificationLevel" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="suppliedStartDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="suppliedEndDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateDataChallengeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="CreateDataChallengeResult" nillable="true" type="q36:CreateDataChallengeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListDataChallenge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q37:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateCreatedStart" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="dateCreatedEnd" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListDataChallengeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="ListDataChallengeResult" nillable="true" type="q38:ListDataChallengeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDataChallenge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q39:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="referenceNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDataChallengeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="DeleteDataChallengeResult" nillable="true" type="q40:DeleteDataChallengeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewAudit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q41:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="learnerUln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="learnerGivenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="learnerFamilyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="page" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ViewAuditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="ViewAuditResult" nillable="true" type="q42:PagedListOfPlrAccessEntryResponseN4dIIFC_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreLearnerKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" minOccurs="1" name="invokingOrganisation" nillable="true" type="q43:InvokingOrganisationR10" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorID" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreLearnerKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="StoreLearnerKeyResult" nillable="true" type="q44:CreateLearnerKeyResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveLearnerKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Amor.Qcf.Service.Interface" minOccurs="1" name="invokingOrganisation" nillable="true" type="q45:InvokingOrganisationR10" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorID" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="keyValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveLearnerKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="RemoveLearnerKeyResult" nillable="true" type="q46:DeleteLearnerKeyResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q47:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="emailAddress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="smsPhoneNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="notificationPreference" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetNotificationResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListNotificationStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q48:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="uln" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListNotificationStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="ListNotificationStatusResult" nillable="true" type="q49:ListNotificationStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrModifySnapshot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q50:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="learnerUln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="givenName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="familyName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="gender" nillable="true" type="xs:int" />
+        <xs:element minOccurs="1" name="dateOfBirth" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q51="http://api.lrs.qcf.gov.uk/model" minOccurs="1" name="events" nillable="true" type="q51:ArrayOfPlrSnapshotEvent" />
+        <xs:element minOccurs="1" name="includeAllEvents" type="xs:boolean" />
+        <xs:element minOccurs="1" name="targetEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="pinCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="userReference" nillable="true" type="xs:string" />
+        <xs:element xmlns:q52="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="1" name="guid" type="q52:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOrModifySnapshotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="CreateOrModifySnapshotResult" nillable="true" type="q53:CreateOrModifySnapshotResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSnapshots">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q54:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="learnerUln" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="dateCreatedStart" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="1" name="dateCreatedEnd" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q55="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="1" name="guid" type="q55:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListSnapshotsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="ListSnapshotsResult" nillable="true" type="q56:ListSnapshotResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSnapshot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q57:InvokingOrganisation" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="userType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="learnerUln" nillable="true" type="xs:string" />
+        <xs:element xmlns:q58="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="1" name="guid" type="q58:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSnapshotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="DeleteSnapshotResult" nillable="true" type="q59:DeleteSnapshotResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Amor.Qcf.Common" minOccurs="1" name="invokingOrganisation" nillable="true" type="q60:InvokingOrganisation" />
+        <xs:element xmlns:q61="http://api.lrs.qcf.gov.uk/model" minOccurs="1" name="userType" type="q61:UserType" />
+        <xs:element minOccurs="1" name="vendorId" type="xs:int" />
+        <xs:element minOccurs="1" name="language" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="ukPrn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="orgRef" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrganisationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://api.lrs.qcf.gov.uk/model" minOccurs="0" name="GetOrganisationResult" nillable="true" type="q62:GetOrganisationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

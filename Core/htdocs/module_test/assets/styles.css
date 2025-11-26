@@ -1,0 +1,812 @@
+ body {
+	margin: 0;
+	padding: 0;
+ }
+ 
+ #background 
+{ 
+	 left: 0px; 
+	 top: 0px; 
+	 position: relative; 
+	 margin-left: auto; 
+	 margin-right: auto; 
+	 width: 1500px;
+	 height: 2100px;
+	 overflow: hidden;
+	 z-index:0;
+	} 
+
+ #Footerbackground 
+{ 
+	 left: -1px; 
+	 top: 1562px; 
+	 position: absolute; 
+	 width: 1506px;
+	 height: 149px;
+	 z-index:1;
+} 
+
+ #Footerbox 
+{ 
+	 left: 393px; 
+	 top: 1602px; 
+	 position: absolute; 
+	 width: 707px;
+	 height: 69px;
+	 z-index:2;
+} 
+
+ #Footer 
+{ 
+	 left: 685px; 
+	 top: 1800px;
+	 position: absolute; 
+	 width: 500px;
+	 height: 33px;
+	 z-index:3;
+} 
+
+ #Heroimage 
+{ 
+	 left: -5px; 
+	 top: -170px; 
+	 position: absolute; 
+	 width: 1505px;
+	 height: 1004px;
+	 z-index:4;
+} 
+
+ #Overlaybox 
+{ 
+	 left: 139px; 
+	 top: 323px; 
+	 position: absolute; 
+	 width: 300px;
+	 height: 61px;
+	 z-index:5;
+} 
+
+ #NegotiationSkills 
+{ 
+	 left: 159px; 
+	 top: 338px; 
+	 position: absolute; 
+	 width: 261px;
+	 height: 36px;
+	 z-index:6;
+} 
+
+ #Overlaybox_0 
+{ 
+	 left: 139px; 
+	 top: 391px; 
+	 position: absolute; 
+	 width: 612px;
+	 height: 39px;
+	 z-index:7;
+} 
+
+ #Negotiationisauseful 
+{ 
+	 left: 157px; 
+	 top: 402px; 
+	 position: absolute; 
+	 width: 578px;
+	 height: 18px;
+	 z-index:8;
+} 
+
+ #layer_9 
+{ 
+	 left: 144px; 
+	 top: 449px; 
+	 position: absolute; 
+	 width: 288px;
+	 height: 14px;
+	 z-index:9;
+} 
+
+ #Container 
+{ 
+	 left: 0px; 
+	 top: 776px; 
+	 position: absolute; 
+	 width: 1500px;
+	 height: 605px;
+	 z-index:10;
+} 
+
+ #Selectacardbelowandc 
+{ 
+	 left: 158px; 
+	 top: 850px;
+	 position: absolute; 
+	 height: 13px;
+	 z-index:11;
+} 
+
+ #Elearning 
+{ 
+	 left: 157px; 
+	 top: 809px; 
+	 position: absolute; 
+	 height: 22px;
+	 z-index:12;
+} 
+
+ #Layer2 
+{ 
+	 left: 157px; 
+	 top: 890px;
+	 position: absolute; 
+	 width: 257px;
+	 height: 171px;
+	 z-index:13;
+} 
+
+ #Rectangle1 
+{ 
+	 left: 156px; 
+	 top: 1041px; 
+	 position: absolute; 
+	 width: 259px;
+	 height: 125px;
+	 z-index:14;
+} 
+
+ #RoundedRectangle1 
+{ 
+	 left: 163px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 119px;
+	 height: 27px;
+	 z-index:15;
+} 
+
+ #Viewmodule 
+{ 
+	 left: 175px; 
+	 top: 1165px; 
+	 position: absolute; 
+	 width: 67px;
+	 height: 9px;
+	 z-index:16;
+} 
+
+ #Rectangle 
+{ 
+	 left: 251px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 31px;
+	 height: 27px;
+	 z-index:17;
+} 
+
+ #Polygon1 
+{ 
+	 left: 261px; 
+	 top: 1136px; 
+	 position: absolute; 
+	 width: 12px;
+	 height: 14px;
+	 z-index:18;
+} 
+
+ #Negotiationtactics 
+{ 
+	 left: 165px; 
+	 top: 1060px; 
+	 position: absolute; 
+	 height: 17px;
+	 z-index:19;
+} 
+
+ #Donecauctormauriseut 
+{ 
+	 left: 164px; 
+	 top: 1095px; 
+	 position: absolute; 
+	 width: 241px;
+	 height: 42px;
+	 z-index:20;
+} 
+
+ #Handshake 
+{ 
+	 left: 466px; 
+	 top: 890px;
+	 position: absolute; 
+	 width: 255px;
+	 height: 168px;
+	 z-index:21;
+} 
+
+ #Rectangle1_0 
+{ 
+	 left: 464px; 
+	 top: 1041px; 
+	 position: absolute; 
+	 width: 259px;
+	 height: 125px;
+	 z-index:22;
+} 
+
+ #RoundedRectangle1_0 
+{ 
+	 left: 471px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 119px;
+	 height: 27px;
+	 z-index:23;
+} 
+
+ #Viewmodule_0 
+{ 
+	 left: 483px; 
+	 top: 1165px; 
+	 position: absolute; 
+	 width: 67px;
+	 height: 9px;
+	 z-index:24;
+} 
+
+ #Rectangle_0 
+{ 
+	 left: 559px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 31px;
+	 height: 27px;
+	 z-index:25;
+} 
+
+ #Polygon1_0 
+{ 
+	 left: 569px; 
+	 top: 1136px; 
+	 position: absolute; 
+	 width: 12px;
+	 height: 14px;
+	 z-index:26;
+} 
+
+ #Negotiationtactics_0 
+{ 
+	 left: 473px; 
+	 top: 1060px; 
+	 position: absolute; 
+	 height: 17px;
+	 z-index:27;
+} 
+
+ #Donecauctormauriseut_0 
+{ 
+	 left: 472px; 
+	 top: 1095px; 
+	 position: absolute; 
+	 width: 240px;
+	 height: 42px;
+	 z-index:28;
+} 
+
+ #Desk 
+{ 
+	 left: 776px; 
+	 top: 890px;
+	 position: absolute; 
+	 width: 255px;
+	 height: 168px;
+	 z-index:29;
+} 
+
+ #Rectangle1_1 
+{ 
+	 left: 774px; 
+	 top: 1041px; 
+	 position: absolute; 
+	 width: 259px;
+	 height: 125px;
+	 z-index:30;
+} 
+
+ #RoundedRectangle1_1 
+{ 
+	 left: 781px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 119px;
+	 height: 27px;
+	 z-index:31;
+} 
+
+ #Viewmodule_1 
+{ 
+	 left: 793px; 
+	 top: 1165px; 
+	 position: absolute; 
+	 width: 67px;
+	 height: 9px;
+	 z-index:32;
+} 
+
+ #Rectangle_1 
+{ 
+	 left: 869px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 31px;
+	 height: 27px;
+	 z-index:33;
+} 
+
+ #Polygon1_1 
+{ 
+	 left: 879px; 
+	 top: 1136px; 
+	 position: absolute; 
+	 width: 12px;
+	 height: 14px;
+	 z-index:34;
+} 
+
+ #Negotiationtactics_1 
+{ 
+	 left: 783px; 
+	 top: 1060px; 
+	 position: absolute; 
+	 height: 17px;
+	 z-index:35;
+} 
+
+ #Donecauctormauriseut_1 
+{ 
+	 left: 782px; 
+	 top: 1095px; 
+	 position: absolute; 
+	 width: 241px;
+	 height: 42px;
+	 z-index:36;
+} 
+
+ #Layer2_0 
+{ 
+	 left: 1082px; 
+	 top: 890px;
+	 position: absolute; 
+	 width: 257px;
+	 height: 171px;
+	 z-index:37;
+} 
+
+ #Rectangle1_2 
+{ 
+	 left: 1081px; 
+	 top: 1041px; 
+	 position: absolute; 
+	 width: 259px;
+	 height: 125px;
+	 z-index:38;
+} 
+
+ #RoundedRectangle1_2 
+{ 
+	 left: 1088px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 119px;
+	 height: 27px;
+	 z-index:39;
+} 
+
+ #Viewmodule_2 
+{ 
+	 left: 1100px; 
+	 top: 1165px; 
+	 position: absolute; 
+	 width: 67px;
+	 height: 9px;
+	 z-index:40;
+} 
+
+ #Rectangle_2 
+{ 
+	 left: 1176px; 
+	 top: 1129px; 
+	 position: absolute; 
+	 width: 31px;
+	 height: 27px;
+	 z-index:41;
+} 
+
+ #Polygon1_2 
+{ 
+	 left: 1186px; 
+	 top: 1136px; 
+	 position: absolute; 
+	 width: 12px;
+	 height: 14px;
+	 z-index:42;
+} 
+
+ #Negotiationtactics_2 
+{ 
+	 left: 1095px; 
+	 top: 1060px; 
+	 position: absolute; 
+	 height: 17px;
+	 z-index:43;
+} 
+
+ #Donecauctormauriseut_2 
+{ 
+	 left: 1089px; 
+	 top: 1095px; 
+	 position: absolute; 
+	 width: 241px;
+	 height: 42px;
+	 z-index:44;
+} 
+
+ #Whitebackground 
+{ 
+	 left: -1px; 
+	 top: 1204px; 
+	 position: absolute; 
+	 width: 1504px;
+	 height: 361px;
+	 z-index:45;
+} 
+
+ #Negotiationskills 
+{ 
+	 left: 159px; 
+	 top: 1227px; 
+	 position: absolute; 
+	 width: 174px;
+	 height: 23px;
+	 z-index:46;
+} 
+
+ #1Theimportanceofnego 
+{ 
+	 left: 159px; 
+	 top: 1268px; 
+	 position: absolute; 
+	 width: 325px;
+	 height: 18px;
+	 z-index:47;
+} 
+
+ #Loremipsumdolorsitam 
+{ 
+	 left: 158px; 
+	 top: 1306px; 
+	 position: absolute; 
+	 width: 550px;
+	 height: 237px;
+	 z-index:48;
+} 
+
+ #Layer3 
+{ 
+	 left: 850px; 
+	 top: 1267px; 
+	 position: absolute; 
+	 width: 489px;
+	 height: 186px;
+	 z-index:49;
+} 
+
+ #Container_0 
+{ 
+	 left: 0px; 
+	 top: 531px; 
+	 position: absolute; 
+	 width: 1500px;
+	 height: 258px;
+	 z-index:50;
+} 
+
+ #Introduction 
+{ 
+	 left: 157px; 
+	 top: 578px; 
+	 position: absolute; 
+	 width: 124px;
+	 height: 17px;
+	 z-index:51;
+} 
+
+ #CandG3 
+{ 
+	 left: 807px; 
+	 top: 581px; 
+	 position: absolute; 
+	 width: 140px;
+	 height: 151px;
+	 z-index:52;
+} 
+
+ #Loremipsumdolorsitam_0 
+{ 
+	 left: 157px; 
+	 top: 650px;
+	 position: absolute; 
+	 width: 587px;
+	 height: 147px;
+	 z-index:53;
+} 
+
+ #Rightbox 
+{ 
+	 left: 1006px; 
+	 top: 557px; 
+	 position: absolute; 
+	 width: 498px;
+	 height: 233px;
+	 z-index:54;
+} 
+
+ #RoundedRectangle1_3 
+{ 
+	 left: 1023px; 
+	 top: 610px; 
+	 position: absolute; 
+	 width: 357px;
+	 height: 27px;
+	 z-index:55;
+} 
+
+ #RoundedRectangle1cop 
+{ 
+	 left: 1023px; 
+	 top: 610px; 
+	 position: absolute; 
+	 width: 31px;
+	 height: 27px;
+	 z-index:56;
+} 
+
+ #Messageyourassessor 
+{ 
+	 left: 1058px; 
+	 top: 618px; 
+	 position: absolute; 
+	 width: 115px;
+	 height: 12px;
+	 z-index:57;
+} 
+
+ #Envelope 
+{ 
+	 left: 1028px; 
+	 top: 616px; 
+	 position: absolute; 
+	 width: 20px;
+	 height: 15px;
+	 z-index:58;
+} 
+
+ #Layer1 
+{ 
+	 left: 1029px; 
+	 top: 615px; 
+	 position: absolute; 
+	 width: 20px;
+	 height: 17px;
+	 z-index:59;
+} 
+
+ #Relatedmessages 
+{ 
+	 left: 1025px;
+	 top: 550px;
+	 position: absolute;
+	 width: 200px;
+	 height: 23px;
+	 z-index:60;
+} 
+
+ #Viewallmessages 
+{ 
+	 left: 1024px; 
+	 top: 765px; 
+	 position: absolute; 
+	 width: 100px;
+	 height: 12px;
+	 z-index:61;
+} 
+
+ #KineoAssessor16thJun 
+{ 
+	 left: 1055px; 
+	 top: 650px; 
+	 position: absolute; 
+	 width: 103px;
+	 height: 25px;
+	 z-index:62;
+} 
+
+ #DescriptionElement12 
+{ 
+	 left: 1025px; 
+	 top: 682px; 
+	 position: absolute; 
+	 width: 144px;
+	 height: 25px;
+	 z-index:63;
+} 
+
+ #ActionsLoremipsumdol 
+{ 
+	 left: 1024px; 
+	 top: 715px; 
+	 position: absolute; 
+	 width: 324px;
+	 height: 38px;
+	 z-index:64;
+} 
+
+ #Icon 
+{ 
+	 left: 1025px; 
+	 top: 649px; 
+	 position: absolute; 
+	 width: 24px;
+	 height: 19px;
+	 z-index:65;
+} 
+
+ #Overhang 
+{ 
+	 left: 139px; 
+	 top: 488px; 
+	 position: absolute; 
+	 width: 179px;
+	 height: 50px;
+	 z-index:66;
+} 
+
+ #Complete 
+{ 
+	 left: 188px; 
+	 top: 502px; 
+	 position: absolute; 
+	 width: 75px;
+	 height: 18px;
+	 z-index:67;
+} 
+
+ #Ellipse1 
+{ 
+	 left: 156px; 
+	 top: 497px; 
+	 position: absolute; 
+	 width: 24px;
+	 height: 24px;
+	 z-index:68;
+} 
+
+ #layer_69 
+{ 
+	 left: 160px; 
+	 top: 503px; 
+	 position: absolute; 
+	 width: 17px;
+	 height: 14px;
+	 z-index:69;
+} 
+
+ #Bar 
+{ 
+	 left: -11px; 
+	 top: 522px; 
+	 position: absolute; 
+	 width: 1514px;
+	 height: 38px;
+	 z-index:70;
+} 
+
+ #3of3 
+{ 
+	 left: 869px; 
+	 top: 536px; 
+	 position: absolute; 
+	 width: 31px;
+	 height: 11px;
+	 z-index:71;
+} 
+
+ #Activitycompletion 
+{ 
+	 left: 748px; 
+	 top: 536px; 
+	 position: absolute; 
+	 width: 115px;
+	 height: 14px;
+	 z-index:72;
+} 
+
+ #17thJune2018 
+{ 
+	 left: 529px; 
+	 top: 536px; 
+	 position: absolute; 
+	 width: 78px;
+	 height: 14px;
+	 z-index:73;
+} 
+
+ #Completed 
+{ 
+	 left: 454px; 
+	 top: 536px; 
+	 position: absolute; 
+	 width: 66px;
+	 height: 14px;
+	 z-index:74;
+} 
+
+ #26thJune2018 
+{ 
+	 left: 220px; 
+	 top: 536px; 
+	 position: absolute; 
+	 width: 80px;
+	 height: 14px;
+	 z-index:75;
+} 
+
+ #Duedate 
+{ 
+	 left: 158px; 
+	 top: 536px; 
+	 position: absolute; 
+	 width: 200px;
+	 height: 10px;
+	 z-index:76;
+} 
+
+ #Navbackground 
+{ 
+	 left: -3px; 
+	 top: -1px; 
+	 position: absolute; 
+	 width: 1506px;
+	 height: 113px;
+	 z-index:77;
+} 
+
+ #WaponiHR 
+{ 
+	 left: 144px; 
+	 top: 14px; 
+	 position: absolute; 
+	 width: 243px;
+	 height: 72px;
+	 z-index:78;
+} 
+
+ #Navbox 
+{ 
+	 left: 653px; 
+	 top: 18px; 
+	 position: absolute; 
+	 width: 707px;
+	 height: 68px;
+	 z-index:79;
+} 
+
+ #Navigation 
+{ 
+	 left: 910px; 
+	 top: 34px; 
+	 position: absolute; 
+	 width: 195px;
+	 height: 43px;
+	 z-index:80;
+}
+

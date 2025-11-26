@@ -1,0 +1,359 @@
+html, body {
+	font-family:Arial, Helvetica, sans-serif; 
+	color:#000000;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	padding: 5px;	
+}
+
+a, a:visited {
+	color: #FF8500;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FF8500;
+	text-decoration: underline;
+}
+
+/**
+* relmes - flatten off all common.css to work out what does where.
+*/
+
+a img { }
+.noleftmargin { }
+form { }
+optgroup { }
+
+h3 { 
+ 	margin: 0;
+ 	padding: 5px;
+}
+
+#banner h3 {
+	height: 200px;
+	text-align: center;
+	width: 300px;
+}
+
+#noscript {
+	background-color: #BCCDA0;
+	font-size: 0.8em;
+	padding-top: 10px;
+	line-height: 20px;
+	height: 80px;	
+}
+
+h3.introduction { }
+h4 { }	
+p.introduction { }
+p.body { }
+div.banner { }
+div.banner *.Timestamp { }
+div.banner button { }
+div.viewNavigator { }
+div.viewNavigator a { }
+.sectionDescription { }
+li.sectionDescription { }
+div.viewNavigator { }
+div.viewNavigator a:hover { }
+/* The dotted line above the percentage in attendance summary cells */
+span.AttendancePercentage, div.AttendancePercentage { }
+input.compulsory, select.compulsory { }
+input.optional, select.optional { }
+input[type="text"], input[type="password"], textarea { }
+/* Firefox only */
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus { }
+.fieldLabel { }
+.fieldLabel_compulsory { }
+.fieldLabel_optional { }
+.fieldValue { }
+
+table.resultset
+{
+
+}	
+
+table.resultset td
+{
+
+}
+
+table.resultset th
+{
+
+}
+
+tr.topRow th, tr.bottomRow td, tr.topRow td
+{
+
+}
+tr.bottomRow td { }
+
+tr.middleRow th
+{
+
+}
+
+tr.bottomRow th
+{
+
+}
+
+
+.filterCrumbs
+{
+
+}
+
+.filterCrumb
+{
+
+}
+
+.filterCrumb:hover
+{
+
+}
+
+
+.button {
+	background: url(images/big-button.jpg) top center no-repeat #f6b035;
+	border: 1px solid #e7e7e7;
+	height: 30px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background: #f6b035;
+	border: 1px solid #e7e7e7;
+	height: 30px;
+}
+
+/*****************************************************************************/
+
+table.bs7666 span.cellText
+{
+
+}
+
+table.bs7666 td.examples
+{
+
+}
+
+table.bs7666 span.fieldLabel
+{
+
+}
+
+div.bs7666
+{
+
+}
+
+div.bs7666 span.fieldLabel
+{
+
+}
+
+fieldset.bs7666
+{
+
+}
+
+fieldset.bs7666 legend
+{
+
+}
+
+div.envelope
+{
+
+}
+
+/*******************************************************************************/
+
+div.note
+{
+
+}
+
+div.note .header
+{
+
+}
+
+div.note .author
+{
+
+	
+}
+
+div.note p
+{
+
+}
+
+/******************************************************************************/
+
+tr.aclSubheading { }
+tr.aclRowSelected { }
+tr.aclRowUnselected { }
+p.aclEntry { }
+
+
+#breadcrumbs {
+	background-color: #d4dec2;
+	float: left;
+	font-size: 0.8em;
+	padding: 2px 5px;
+	width: 500px;
+		
+}
+
+#breadcrumbs ol {
+	margin-left: 0;
+	padding-left: 0;
+	display: inline;
+} 
+			
+#breadcrumbs li.breadcrumb {
+
+}
+			
+#breadcrumbs ol li {
+	margin-left: 0;
+	padding-left: 2px;
+	border: none;
+	list-style: none;
+	display: inline;
+	text-transform:lowercase;
+}
+			
+			#breadcrumbs ol li a {
+
+			}
+			
+			#breadcrumbs ol li a:hover {
+
+			}
+
+#savedFilterBox { }
+#savedFilterBox p, #savedFilterBox label { }
+#savedFilterBox .selectWrapper { }
+#savedFilterBox a.help { }
+.kpi_sublinks { }
+.kpi_sublinks a { }
+#applyFilter { }
+
+#dataMatrix .header { }
+#dataMatrix .headerSortUp { }
+#dataMatrix .headerSortDown { }
+
+#filterBox { }
+#filterBox h2 { }
+#filterBox fieldset { }
+#filterBox fieldset.float { }
+#filterbox fieldset.newrow { }
+#filterBox div.field { }
+#filterBox div.field.float { }
+#filterBox div.field.newrow { }
+#filterBox div.field label { }
+#filterBox fieldset legend { }
+#filterBox a.close { }
+
+/* fix for filter pages that haven't been given new styling yet */
+#div_filters table { }
+#applyFilters { }
+
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0;
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+
+
+/* ################ calendar ############## */
+.calendar-monthly { }
+.calendar-monthly td, .calendar-monthly th { }
+.calendar-monthly th { }
+.calendar-monthly td { }
+.calendar-monthly td.before { }
+.calendar-monthly td.after { }
+.calendar-monthly td.today { }
+.calendar-monthly td a { }
+.calendar-monthly td a:hover { }
+.calendar-monthly td a.daylink { }
+
+.calendar-monthly ul, .calendar-daily ul, .calendar-weekly ul { }
+.calendar-monthly li, .calendar-weekly li { }
+.calendar-monthly li a, .calendar-weekly li a, .calendar-daily li a { }
+.calendar-monthly li span, .calendar-daily li span { }
+.calendar-weekly li span { }
+
+a.goleft { }
+a.goright { }
+
+.calendar-weekly { }
+.calendar-weekly td, .calendar-weekly th { }
+.calendar-weekly th { }
+.calendar-weekly td { }
+.calendar-weekly td.before { }
+.calendar-weekly td.after { }
+.calendar-weekly td.today { }
+.calendar-weekly td a { }
+.calendar-weekly td a:hover { }
+.calendar-weekly td a.daylink { }
+
+.calendar-weekly th span { }
+
+.calendar-daily { }
+.calendar-daily td, .calendar-daily th { }
+.calendar-daily th { }
+.calendar-daily td { }
+.calendar-daily td.before { }
+.calendar-daily td.after { }
+.calendar-daily td.today { }
+.calendar-daily td a { }
+.calendar-daily td a:hover { }
+.calendar-daily td a.daylink { }
+.calendar-daily td.daylabel { }
+.calendar-daily li { }
+.calendar-daily li p.description { }
+
+table.formtable { }
+table.formtable td { }
+table.formtable input.width1, table.formtable textarea.width1 { }
+table.formtable input.width2, table.formtable textarea.width2 { }
+table.formtable select option { }
+table.formtable span.required { }
+table.formtable td.errors { }
+
+dl,dt,dd { }
+
+ul.formlist { }
+
+ul.formlist li { }
+
+ul.formlist li.el { }
+ul.formlist li.fa { }
+ul.formlist li.la { }
+ul.formlist li.sla { }
+ul.formlist li.tl { }
+ul.formlist li.ufl { }
+
+ul.formlist li a { }
+
+.funding-box { }
+.funding-box td { }
+.funding-box h3 { }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:batchlrnr="http://api.lrs.miap.gov.uk/batchmsg" xmlns:lrnr="http://api.lrs.miap.gov.uk/learner" targetNamespace="http://api.lrs.miap.gov.uk/batchmsg">
+	
+	<import namespace="http://api.lrs.miap.gov.uk/learner" schemaLocation="learner.xsd"/>
+	
+	<complexType name="BatchRegistrationRqst">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="OrganisationRef" nillable="true" type="lrnr:MIAPOrganisationRef"/>
+			<element maxOccurs="1" minOccurs="0" name="UKPRN" nillable="true" type="lrnr:MIAPUKPRN"/>
+			<element maxOccurs="1" minOccurs="1" name="OrgPassword" nillable="false" type="lrnr:MIAPOrgPassword"/>
+			<element maxOccurs="1" minOccurs="1" name="UserName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="JobType" nillable="false" type="lrnr:MIAPBatchJobType"/>
+			<element maxOccurs="1" minOccurs="1" name="LearnerRecordCount" nillable="false" type="lrnr:MIAPLearnerRecordCount"/>
+			<element maxOccurs="200" minOccurs="1" name="Learner" nillable="false" type="lrnr:BatchLearner"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="BatchOutputRqst">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="OrganisationRef" nillable="true" type="lrnr:MIAPOrganisationRef"/>
+			<element maxOccurs="1" minOccurs="0" name="UKPRN" nillable="true" type="lrnr:MIAPUKPRN"/>
+			<element maxOccurs="1" minOccurs="1" name="OrgPassword" nillable="false" type="lrnr:MIAPOrgPassword"/>
+			<element maxOccurs="1" minOccurs="1" name="UserName" nillable="false" type="lrnr:MIAPNameNonEmpty"/>
+			<element maxOccurs="1" minOccurs="1" name="JobID" nillable="false" type="long"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="BatchRegistrationResp">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="ResponseCode" nillable="false" type="string"/>
+			<element maxOccurs="1" minOccurs="1" name="JobID" nillable="false" type="long"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="BatchOutputResp">
+		<sequence>
+			<element maxOccurs="1" minOccurs="1" name="ResponseCode" nillable="false" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="JobStatus" type="string"/>
+			<element maxOccurs="1" minOccurs="0" name="NewLearnersCount" type="int"/>
+			<element maxOccurs="1" minOccurs="0" name="ExistsUpdatedLearnersCount" type="int"/>
+			<element maxOccurs="1" minOccurs="0" name="PossibleMatchLearnersCount" type="int"/>
+			<element maxOccurs="1" minOccurs="0" name="LearnersNotFoundCount" type="int"/>
+			<element maxOccurs="1" minOccurs="0" name="RejectedLearnersCount" type="int"/>
+			<element maxOccurs="1" minOccurs="1" name="JobStartedDateTime" type="lrnr:MIAPDateTime"/>
+			<element maxOccurs="1" minOccurs="1" name="JobFinishedDateTime" type="lrnr:MIAPDateTime"/>
+			<element maxOccurs="200" minOccurs="0" name="Learner" type="lrnr:OutputBatchLearner"/>
+		</sequence>
+	</complexType>
+
+	<element name="SubmitBatch" type="batchlrnr:BatchRegistrationRqst"/>
+
+	<element name="SubmitBatchResponse" type="batchlrnr:BatchRegistrationResp"/>
+
+	<element name="GetSubmitBatchOutput" type="batchlrnr:BatchOutputRqst"/>
+
+	<element name="GetSubmitBatchOutputResponse" type="batchlrnr:BatchOutputResp"/>
+	
+	<element name="BatchLearner" type="lrnr:BatchLearner"/>
+
+</schema>

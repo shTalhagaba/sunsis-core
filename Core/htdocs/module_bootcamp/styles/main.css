@@ -1,0 +1,95 @@
+
+@media (min-width: 768px) {
+	.navbar-custom {
+		padding: 15px 0;
+		-webkit-transition: padding 0.3s;
+		-moz-transition: padding 0.3s;
+		transition: padding 0.3s;
+	}
+	.navbar-custom.affix {
+		padding: 0;
+	}
+}
+
+
+.nts-secondary-teaser-gradient {
+	padding: 0.5px;
+	background: #50bebe;
+	background: -moz-linear-gradient(left, #50bebe 0, #41aaaa 50%, #0099cb 100%);
+	background: -webkit-linear-gradient(left, #50bebe 0, #41aaaa 50%, #0099cb 100%);
+	background: linear-gradient(to right, #50bebe 0, #41aaaa 50%, #0099cb 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#50bebe', endColorstr = '#0099cb', GradientType = 1);
+	color: white;
+}
+
+
+.ui-datepicker .ui-datepicker-title select {
+	color: #000;
+}
+
+.sigbox {
+    border-radius: 15px;
+    border: 1px solid #EEE;
+    cursor: pointer;
+}
+
+.sigboxselected {
+    border-radius: 25px;
+    border: 2px solid #EEE;
+    cursor: pointer;
+    background-color: #d3d3d3;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+#stepList {
+    display: block;
+}
+
+#stepButtons {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #stepList {
+        display: none;
+    }
+
+    #stepButtons {
+        display: block;
+    }
+
+    .navbar-brand img {
+        max-width: 100px;
+        max-height: 50px;
+    }
+}
+
+#home_postcode,
+#ni,
+#workplace_postcode {
+    text-transform: uppercase
+}
+
+.ui-datepicker .ui-datepicker-title select {
+    color: #000;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+input[type=checkbox] {
+    transform: scale(1.4);
+}
+
+input[type=radio] {
+    transform: scale(1.4);
+}

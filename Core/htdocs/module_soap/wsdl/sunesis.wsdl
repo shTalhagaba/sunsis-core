@@ -1,0 +1,314 @@
+<?xml version ='1.0' encoding ='UTF-8' ?> 
+<definitions name='SunesisService' 
+  targetNamespace='http://relmes.perspective-uk.com/soap' 
+  xmlns:tns='http://relmes.perspective-uk.com/soap' 
+  xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' 
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema/' 
+  xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/' 
+  xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' 
+  xmlns='http://schemas.xmlsoap.org/wsdl/' > 
+  
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://relmes.perspective-uk.com/soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="destinyXML">
+        <xsd:complexType name="mimeXmlType" use="required">
+          <xsd:sequence>
+            <xsd:any/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+
+
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://relmes.perspective-uk.com/soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+    <xsd:element name="FWSolutions">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:restriction base="xsd:anyType">
+                    <xsd:sequence>
+                        <xsd:element name="Header" type="tns:FWHeader" />
+                        <xsd:element name="LearnerAgreement" type="tns:FWLearnerAgreement" />
+                    </xsd:sequence>
+                </xsd:restriction>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="FWHeader">
+        <xsd:complexType>
+            <xsd:all>
+                <xsd:element name="FormRef" type="xsd:int" />
+                <xsd:element name="PageAddress" type="xsd:string" />
+                <xsd:element name="PenId" type="xsd:string"  />
+                <xsd:element name="Forename" type="xsd:string" />
+                <xsd:element name="Surname" type="xsd:string" />
+                <xsd:element name="MobileNumber" type="xsd:string" />
+                <xsd:element name="FirstPenStroke" type="xsd:datetime" minOccurs="0" />
+                <xsd:element name="LastPenStroke" type="xsd:datetime" minOccurs="0" />
+            </xsd:all>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="FWLearnerAgreement">
+        <xsd:complexType>
+          <xsd:all>
+        <xsd:element name="ConfirmAttend" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="DoNotComply" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="Title" type="xsd:string" minOccurs="0" />
+        <xsd:element name="Other" type="xsd:string" minOccurs="0" />
+        <xsd:element name="FirstName" type="xsd:string" minOccurs="0" />
+        <xsd:element name="Surname" type="xsd:string" minOccurs="0" />
+        <xsd:element name="DOB" type="xsd:date" minOccurs="0" />
+        <xsd:element name="NINumber" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HomeAddress_1" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HomeAddress_2" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HomeAddress_3" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HomeAddress_4" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HomePostCode" type="xsd:string" minOccurs="0" />
+        <xsd:element name="LengthAddressYears" type="xsd:int" minOccurs="0" />
+        <xsd:element name="LengthAddressMonths" type="xsd:int" minOccurs="0" />
+        <xsd:element name="HomeTelNumber" type="xsd:int" minOccurs="0" />
+        <xsd:element name="HomeEmail" type="xsd:string" minOccurs="0" />
+        <xsd:element name="JobRole" type="xsd:string" minOccurs="0" />
+        <xsd:element name="CompanyName" type="xsd:string" minOccurs="0" />
+        <xsd:element name="SiteName" type="xsd:string" minOccurs="0" />
+        <xsd:element name="SiteAddress_1" type="xsd:string" minOccurs="0" />
+        <xsd:element name="SiteAddress_2" type="xsd:string" minOccurs="0" />
+        <xsd:element name="SiteAddress_3" type="xsd:string" minOccurs="0" />
+        <xsd:element name="SiteAddress_4" type="xsd:string" minOccurs="0" />
+        <xsd:element name="SitePostCode" type="xsd:string" minOccurs="0" />
+        <xsd:element name="LengthEmployedYears" type="xsd:int" minOccurs="0" />
+        <xsd:element name="LengthEmployedMonths" type="xsd:int" minOccurs="0" />
+        <xsd:element name="SiteContact" type="xsd:string" minOccurs="0" />
+        <xsd:element name="SiteTelNumber" type="xsd:int" minOccurs="0" />
+        <xsd:element name="SiteEmail" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NoneOfBelow" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="GCSE5" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="OLevel5" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="CSEG15" type="xsd:int" default="0" minOccurs="0" />
+
+        <xsd:element name="BECGeneralSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BECGeneral" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="BECDiplomalSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BECDiploma" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="BTECDiplomalSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BTECDiploma" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="CityGuildHigherSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="CityGuildsHigher" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="LCClSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="LCCI" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="PEIStage2Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="PEIStage2" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="PitmansL2Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="PitmansL2" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="RSADiplomaSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="RSADiploma" type="xsd:string" minOccurs="0" />
+        <xsd:element name="GNVQInterSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="GNVQInter" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="NVQL2Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NVQL2" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ASLevels" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ASLevelsTotal" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ASLevelsChildcare" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ALevels" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ALevelsTotal" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ALevelsChildcare" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="AVECDoubleSubject" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="AVECDouble" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="BECNationalOSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BECNationalO" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="BTECNationalOSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BTECNationalO" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="CityGuildsAdvancedSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="CityGuildsAdvanced" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="GNVQAdvancedSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="GNVQAdvanced" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="LCCIDiplomaSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="LCCIDiploma" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="NVQL3Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NVQL3" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="PitmansL3Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="PitmansL3" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="RSAStage3Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="RSAStage3" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="TECCertDipSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="TECCertDip" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="AccessToHESubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="AccessToHE" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ESOLForeignSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ESOLForeign" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="TeachingQualSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="TeachingQual" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="DegreeSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="Degree" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="BECNationalHSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BECNationalH" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="BTECNationalHSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BTECNationalH" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="HECertificateSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HECertificate" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="HEDiplomaSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HEDiploma" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="LCCIAdvancedSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="LCCIAdvanced" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="NVQL4Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NVQL4" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="NursingSRNSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NursingSRN" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="RSAAdvancedSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="RSAAdvanced" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="RSAHigherSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="RSAHigher" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="HigherDegreeSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="HigherDegree" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ContinuingEdDipSubject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ContinuingEdDip" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="NVQL5Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NVQL5" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="OtherL5Subject" type="xsd:string" minOccurs="0" />
+        <xsd:element name="OtherL5" type="xsd:int" default="0" minOccurs="0" />
+
+        <xsd:element name="Citizen" type="xsd:string" minOccurs="0" />
+        <xsd:element name="Aged" type="xsd:string" minOccurs="0" />
+        <xsd:element name="StudiedFW" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="ContractEmployer" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="HoursPerWeek" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="OtherGovtFunding" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="IllegibleGovtFunded" type="xsd:int" default="0" minOccurs="0" />
+
+        <xsd:element name="IllegibleGovtFundedWhy" type="xsd:string" minOccurs="0" />
+   
+        <xsd:element name="PrivateFunding" type="xsd:int" default="0" minOccurs="0" />
+        <xsd:element name="AuthorisingName" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NumberEmployees" type="xsd:int" minOccurs="0" />
+        <xsd:element name="EligibleFor" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BCDoc" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BCNumber" type="xsd:int" minOccurs="0" />
+        <xsd:element name="BCIssued" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BCFWMember" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BCDateIssued" type="xsd:date" minOccurs="0" />
+        <xsd:element name="BCDateSigned" type="xsd:date" minOccurs="0" />
+        <xsd:element name="EUDoc" type="xsd:string" minOccurs="0" />
+        <xsd:element name="EUNumber" type="xsd:string" minOccurs="0" />
+        <xsd:element name="EUIssued" type="xsd:string" minOccurs="0" />
+        <xsd:element name="EUFWMember" type="xsd:string" minOccurs="0" />
+        <xsd:element name="EUDateIssued" type="xsd:date" minOccurs="0" />
+        <xsd:element name="EUDateSigned" type="xsd:date" minOccurs="0" />
+        <xsd:element name="NonEUDoc" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NonEUNumberL1" type="xsd:int" minOccurs="0" />
+        <xsd:element name="NonEUDateL1" type="xsd:date" minOccurs="0" />
+        <xsd:element name="NonEUNumberL2" type="xsd:int" minOccurs="0" />
+        <xsd:element name="NonEUDateL2" type="xsd:date" minOccurs="0" />
+        <xsd:element name="NonEUNumberL3" type="xsd:int" minOccurs="0" />
+        <xsd:element name="NonEUDateL3" type="xsd:date" minOccurs="0" />
+        <xsd:element name="NonEUFWMember" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NonEUIssued" type="xsd:string" minOccurs="0" />
+        <xsd:element name="NonEUDateSigned" type="xsd:date" minOccurs="0" />
+        <xsd:element name="CofCDoc" type="xsd:string" minOccurs="0" />
+        <xsd:element name="CofCNumber" type="xsd:int" minOccurs="0" />
+        <xsd:element name="CofCIssued" type="xsd:string" minOccurs="0" />
+        <xsd:element name="CofCMember" type="xsd:string" minOccurs="0" />
+        <xsd:element name="CofCDateIssued" type="xsd:date" minOccurs="0" />
+          <xsd:element name="CofCDateSigned" type="xsd:date" minOccurs="0" />
+          <xsd:element name="LearnerDateSigned" type="xsd:date" minOccurs="0" />
+          <xsd:element name="ProviderDateSigned" type="xsd:date" minOccurs="0" />
+          </xsd:all>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+
+<message name='connectionRequest'>
+  <part name='username' type='xsd:string' />
+  <part name='password' type='xsd:string' /> 
+  <part name='location' type='xsd:string' />
+</message>
+<message name='connectionResponse'>
+  <part name='Result' type='xsd:int' default="0" />
+</message>
+
+
+<message name='receiveXMLRequest'> 
+  <part name='destinyXML' type='mimeXmlType' />
+</message> 
+<message name='receiveXMLResponse'> 
+  <part name='Result' type='xsd:string' /> 
+</message> 
+
+<message name='getDestinyRequest'>
+  <part name='header' element='tns:FWHeader' />	
+  <part name='learner_agreement' element='tns:FWLearnerAgreement' />
+</message>
+<message name='getDestinyResponse'>
+  <part name='answer_back' element='xsd:string' />
+</message>
+
+<portType name='DestinyReceipt'> 
+  <operation name='validateConnection'>
+    <input message='tns:connectionRequest'/>
+    <output message='tns:connectionResponse'/>
+  </operation>
+  <operation name='acceptILRXML'> 
+    <input message='tns:receiveXMLRequest'/> 
+    <output message='tns:receiveXMLResponse'/> 
+  </operation> 
+  <operation name='acceptLearnerAgreementXML'>
+    <input message='tns:receiveXMLRequest'/>
+    <output message='tns:receiveXMLResponse'/>
+  </operation>
+  <operation name='acceptLearnerAgreement'>
+    <input message='tns:getDestinyRequest'/>
+    <output message='tns:getDestinyResponse'/>
+  </operation>
+</portType> 
+
+<binding name='SunesisBinding' type='tns:DestinyReceipt'> 
+  <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http' /> 
+  <operation name='validateConnection'>
+    <soap:operation soapAction='urn:localhost-catalog#avalidateConnection'/>
+    <input>
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+    </output>
+  </operation>
+  <operation name='acceptILRXML'> 
+    <soap:operation soapAction='urn:localhost-catalog#acceptILRXML'/> 
+    <input> 
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' /> 
+    </input> 
+    <output> 
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' /> 
+    </output> 
+  </operation> 
+  <operation name='acceptLearnerAgreementXML'>
+    <soap:operation soapAction='urn:localhost-catalog#acceptLearnerAgreementXML'/>
+    <input>
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+    </output>
+  </operation>
+  <operation name='acceptLearnerAgreement'>
+    <soap:operation soapAction='urn:localhost-catalog#acceptLearnerAgreement'/>
+    <input>
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+    </input>
+    <output>
+      <soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+    </output>
+  </operation> 
+</binding> 
+
+<service name='SunesisService'> 
+  <port name='SunesisPort' binding='SunesisBinding'> 
+    <soap:address location='http://relmes.perspective-uk.com/soap/sunesis.php' /> 
+  </port> 
+</service>
+</definitions>

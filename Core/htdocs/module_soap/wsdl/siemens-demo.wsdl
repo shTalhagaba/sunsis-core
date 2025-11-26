@@ -1,0 +1,53 @@
+<?xml version ='1.0' encoding ='ISO-8859-1' ?>
+<definitions name='SunesisUploadFileService'
+             targetNamespace='https://siemens-demo.sunesis.uk.net/'
+             xmlns:tns='https://siemens-demo.sunesis.uk.net/'
+             xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+             xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:SOAP-ENC='http://schemas.xmlsoap.org/soap/encoding/'
+             xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'
+             xmlns='http://schemas.xmlsoap.org/wsdl/'
+             xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<wsdl:types>
+	</wsdl:types>
+
+	<message name='receiveCSVRequest'>
+		<part name='receiveCSVRequest_username' type='xsd:string' />
+		<part name='receiveCSVRequest_password' type='xsd:string' />
+		<part name='receiveCSVRequest_APIKey' type='xsd:string' />
+		<part name='receiveCSVRequest_CSVFileName' type='xsd:string' />
+		<part name='receiveCSVRequest_CSVFileVersion' type='xsd:string' />
+		<part name='receiveCSVRequest_CSV' type='xsd:string' />
+	</message>
+	<message name='receiveCSVResponse'>
+		<part name='receiveCSVResponse_Result' type='xsd:string' />
+	</message>
+
+	<portType name='SunesisReceipt'>
+		<operation name='acceptCSVFile'>
+			<input message='tns:receiveCSVRequest'/>
+			<output message='tns:receiveCSVResponse'/>
+		</operation>
+	</portType>
+
+	<binding name='SunesisBinding' type='tns:SunesisReceipt'>
+		<soap:binding transport='http://schemas.xmlsoap.org/soap/http' />
+		<operation name='acceptCSVFile'>
+			<soap:operation soapAction='urn:localhost-catalog#acceptCSVFile'/>
+			<input>
+				<soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+			</input>
+			<output>
+				<soap:body use='encoded' namespace='urn:localhost-catalog' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+			</output>
+		</operation>
+	</binding>
+
+	<service name='SunesisUploadFileService'>
+		<port name='SunesisPort' binding='tns:SunesisBinding'>
+			<soap:address location='https://siemens-demo.sunesis.uk.net/module_soap/siemens-demo.php' />
+		</port>
+	</service>
+
+</definitions>

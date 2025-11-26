@@ -1,0 +1,429 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-image: url(images/back-texture-tile.jpg);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#main {
+	width: 917px;
+	margin: 0 auto;
+	height: 600px;
+}
+
+#main-header {
+	width: 917px;
+	height: 93px;
+	background: url(images/body-top-bg1.png) no-repeat 0 0;
+}
+
+#header-message {
+	color: #2b131c;
+	font-size: 22px;
+	font-weight: normal;
+	float: left;
+}
+
+#main-header a.contact {
+	float: right;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #2b131c;
+	text-decoration: none;
+	margin: 20px 25px 0 0;
+}
+
+#main-header a.contact:hover {
+	color: #e4003b;
+	text-decoration: underline;
+}
+	
+
+#main-body {
+	width: 901px;
+	background-image: url(images/body-bg1.png);
+	padding: 10px 8px 0 8px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+#main-body a {
+	color: #fff;
+}
+
+#main-body a:hover {
+	text-decoration: none;
+}
+
+
+#main-body a.signupbtn {
+	background: url(images/sign-up-btn.png) no-repeat 0 0;
+	width: 120px;
+	height: 34px;
+	display: block;
+}
+
+#main-body a.signupbtn:hover {
+	background-position: 0 -34px;
+}
+
+#main-body a.signupbtn2 {
+	background: url(images/sign-up-btn2.png) no-repeat 0 0;
+	width: 120px;
+	height: 34px;
+	display: block;
+}
+
+#main-body a.signupbtn2:hover {
+	background-position: 0 -34px;
+}
+
+#main-links {
+	width: 223px;
+	float: left;
+	margin-right: 2px;
+}
+
+#main-links ul {
+	margin: 0;
+	padding: 0;
+}
+
+#main-links ul li {
+	list-style: none;
+	margin-bottom: 1px;
+}
+
+#main-links ul li a {
+	background: url(images/btn-main-bg.png) no-repeat 0 0;
+	width: 212px;
+	height: 22px;
+	padding: 7px 0 0 11px;
+	display: block;
+	color: #2b131c;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+#main-links ul li a:hover {
+	background-position: 0 -29px;
+}
+
+#middleColumn {
+	width: 448px;
+	float: left;
+	margin-right: 2px;
+}
+
+#middleContent {
+	width: 428px;
+	padding: 10px;
+	background-color: #fff;
+	margin-bottom: 3px;
+	color: #666666;
+}
+
+#middleContent h1 {
+	padding-top: 0;
+	margin-top: 0;
+	color: #2b131c;
+	font-size: 18px;
+}
+
+#middleContent a {
+	color: #bf1b4f;
+	text-decoration: underline;
+}
+
+#middleContent a:hover {
+	text-decoration: none;
+}
+
+#middleContent ul.providers {
+	color: #670336;
+	font-size: 13px;
+	padding-left: 14px;
+	margin-top: 4px;
+}
+
+#middleContent ul.employers {
+	color: #bf1b4f;
+	font-size: 13px;
+	padding-left: 14px;
+	margin-top: 4px;
+}
+
+#sidebarRight {
+	width: 225px;
+	float: left;
+	color: #666;
+	font-size: 13px;
+}
+
+#sidebarRight h1 {
+	padding-top: 0;
+	margin-top: 0;
+	color: #333333;
+	font-size: 18px;
+}
+
+#sidebarRight p.small {
+	font-size: 10px;
+	padding: 0;
+	margin: 0;
+}
+
+div.rightContainer {
+	background-color: #fff;
+	width: 205px;
+	padding: 10px;
+	margin-bottom: 2px;
+}
+
+#headBox {
+	margin-bottom: 2px;
+}
+
+#employers-block-home {
+	background: url(images/employers-block.jpg) no-repeat 0 0;
+	width: 164px;
+	height: 212px;
+	float: left;
+	margin-right: 2px;
+	padding: 24px 30px 14px 30px;
+	color: #fff;
+}
+
+#learners-block-home {
+	background: url(images/learners-block.jpg) no-repeat 0 0;
+	width: 164px;
+	height: 212px;
+	float: left;
+	margin-right: 2px;
+	padding: 24px 30px 14px 30px;
+	color: #fff;
+}
+
+#providers-block-home {
+	background: url(images/providers-block.jpg) no-repeat 0 0;
+	width: 164px;
+	height: 212px;
+	float: left;
+	padding: 24px 30px 14px 30px;
+	color: #fff;
+}
+
+h1.colorblock {
+	margin: 0;
+	padding: 0;
+	font-family: DINNextLTProCondensed;
+	font-size: 36px;
+	font-weight: normal;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+#associationBox {
+	margin-top: 10px;
+	margin-bottom: 2px;
+	background-color: #fff;
+	width: 890px;
+	color: #666;
+	font-size: 10px;
+	padding: 7px 0 0 11px;
+}
+
+div.infoBlock {
+	background: url(images/info-block-bg.png) no-repeat 0 0;
+	width: 278px;
+	height: 150px;
+	float: left;
+	margin-right: 2px;
+	padding: 12px 10px;
+	font-size: 13px;
+	color: #666;
+}
+
+p.small {
+	font-size: 9px;
+	margin: 0;
+	padding: 0;
+}
+
+a.infoblock {
+	color: #666 !important;
+}
+
+a.infoblock:hover {
+	text-decoration: none;
+}
+
+a.email {
+	color: #bf1b4f !important;
+}
+
+a.email:hover {
+	text-decoration: none;
+}
+
+h1.infoblock {
+	color: #333333;
+	font-weight: normal;
+	font-size: 17px;
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+#main-footer {
+	width: 100%;
+	height: 7px;
+	background-image: url(images/body-bottom-bg1.png);
+}
+
+#footer {
+	background: url(images/footer.png) no-repeat 0 0;
+	width: 860px;
+	height: 34px;
+	color: #4d4d4d;
+	font-size: 12px;
+	padding: 12px 46px 0 11px;
+}
+
+#footerLeft {
+	float: left;
+}
+
+#footerLeft a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #2b131c;
+	text-decoration: none;
+}
+
+#footerLeft a:hover {
+	color: #e4003b;
+	text-decoration: underline;
+}
+
+#footerRight {
+	float: right;
+}
+
+img {
+	border: none;
+}
+
+/* ------------------------------------------------------  Form Styles  -------------------------------------------------- */
+
+#form {
+	background: url(images/form-bg.png) no-repeat 0 0;
+	width: 428px;
+	padding: 10px;
+	background-color: #fff;
+	color: #666;
+}
+
+#form h1 {
+	padding-top: 0;
+	margin-top: 0;
+	color: #333333;
+	font-size: 17px;
+	font-weight: normal;
+}
+
+td.label {
+	width: 50%;
+	text-align: left;
+}
+
+td.input {
+	width: 50%;
+	text-align: right;
+}
+
+input {
+	color: #4d4d4d;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	width: 250px;
+}
+
+select {
+	color: #4d4d4d;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	width: 252px;
+}
+
+textarea {
+	color: #4d4d4d;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	width: 250px;
+	height: 80px;
+}
+
+/* ------------------------------------------------------  Image Links  -------------------------------------------------- */
+
+#sidebarRight a.providerHeadBox {
+	background: url(images/provider-sign-up-link.png) no-repeat 0 0;
+	width: 225px;
+	height: 55px;
+	display: block;
+}
+
+#sidebarRight a.providerHeadBox:hover {
+	background-position: 0 -55px;
+}
+
+#sidebarRight a.employerHeadBox {
+	background: url(images/employers-sign-up-link.png) no-repeat 0 0;
+	width: 225px;
+	height: 55px;
+	display: block;
+}
+
+#sidebarRight a.employerHeadBox:hover {
+	background-position: 0 -55px;
+}
+
+#sidebarRight a.learnerHeadBox {
+	background: url(images/learners-sign-up-link.png) no-repeat 0 0;
+	width: 225px;
+	height: 55px;
+	display: block;
+}
+
+#sidebarRight a.learnerHeadBox:hover {
+	background-position: 0 -55px;
+}
+
+a.formSubmit {
+	background: url(images/submit-btn.png) no-repeat 0 0;
+	width: 61px;
+	height: 23px;
+	display: block;
+	float: right;
+}
+
+a.formSubmit:hover {
+	background-position: 0 -23px;
+}
+
+/* ------------------------------------------------------  Form Validation  -------------------------------------------------- */
+
+#nameDiv {
+	color: #BF1B4F;
+	font-size: 10px;
+}
+
+#emailDiv {
+	color: #BF1B4F;
+	font-size: 10px;
+}
+
+#numberDiv {
+	color: #BF1B4F;
+	font-size: 10px;
+}

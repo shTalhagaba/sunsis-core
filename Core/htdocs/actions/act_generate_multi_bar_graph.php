@@ -1,0 +1,546 @@
+<?php
+class generate_multi_bar_graph implements IAction
+{
+	public function execute(PDO $link)
+	{
+		$d = isset($_GET['data']) ? $_GET['data'] : '';
+		$titles = isset($_GET['titles']) ? $_GET['titles'] : '';
+		$first = isset($_GET['first']) ? $_GET['first'] : '';
+		$second = isset($_GET['second']) ? $_GET['second'] : '';
+		$filename = isset($_GET['filename']) ? $_GET['filename'] : '';
+
+		// Jumble pallete
+		//shuffle($this->colors);
+
+		$gtitle = "Graph by " . ucfirst($second) . " and " . ucfirst($first);
+
+/*		$color = Array();
+		$color[0] = "FF0000";
+		$color[1] = "FFFF00";
+		$color[2] = "00FF00";
+		$color[3] = "00FFFF";
+		$color[4] = "0000FF";
+		$color[5] = "FF00FF";
+		$color[6] = "778899";
+		$color[7] = "B0E0E6";
+		$color[8] = "66CDAA";
+		$color[9] = "808000";
+		$color[10] = "BC8F8F";
+		$color[11] = "FFFFFF";
+		$color[12] = "000000";
+		$color[13] = "DEDEDE";
+		$color[14] = "4D4DFF";
+		$color[15] = "BC8F8F";
+		$color[16] = "FFFFFF";
+		$color[17] = "000000";
+		$color[18] = "DEDEDE";
+		$color[19] = "4D4DFF";
+		$color[20] = "BC8F8F";
+		$color[21] = "FFFFFF";
+		$color[22] = "000000";
+		$color[23] = "DEDEDE";
+		$color[24] = "4D4DFF";
+		$color[25] = "BC8F8F";
+		$color[26] = "FFFFFF";
+		$color[27] = "000000";
+		$color[28] = "DEDEDE";
+		$color[29] = "4D4DFF";
+		$color[30] = "BC8F8F";
+		$color[31] = "FFFFFF";
+		$color[32] = "000000";
+		$color[33] = "DEDEDE";
+		$color[34] = "4D4DFF";
+		$color[35] = "BC8F8F";
+		$color[36] = "FFFFFF";
+		$color[37] = "000000";
+		$color[38] = "DEDEDE";
+		$color[39] = "4D4DFF";*/
+
+		$mygraph = new baaChart(1000);
+		$mygraph->setTitle($gtitle);
+		$mygraph->setXLabels($titles);
+
+		//$xml = new SimpleXMLElement($d);
+		$xml = XML::loadSimpleXML($d);
+		$flag = 0;
+		$series=0;
+		foreach($xml->row as $row)
+		{
+			if($flag==0)
+			{
+				$mygraph->addDataSeries('C',0, $row->data, $row->label);
+				//$mygraph->setSeriesColor($series+1, hexdec(substr($color[$series],0,2)),hexdec(substr($color[$series],2,2)),hexdec(substr($color[$series],4,2)));
+				$mygraph->setSeriesColor($series+1, $this->getSeriesColorRed($series), $this->getSeriesColorGreen($series), $this->getSeriesColorBlue($series));
+				$flag=1;
+			}
+			else
+			{
+				$mygraph->addDataSeries('C',0, $row->data, $row->label);
+				//$mygraph->setSeriesColor($series+1, hexdec(substr($color[$series],0,2)),hexdec(substr($color[$series],2,2)),hexdec(substr($color[$series],4,2)));
+				$mygraph->setSeriesColor($series+1, $this->getSeriesColorRed($series), $this->getSeriesColorGreen($series), $this->getSeriesColorBlue($series));
+			}
+			$series++;
+		}
+
+		$mygraph->setBgColor(0,0,0,1);  //transparent background
+		$mygraph->setChartBgColor(0,0,0,1);  //as background
+		$mygraph->setXAxis(ucfirst($second),1);
+		$mygraph->setYAxis("Learners",0,5,2,1);
+		$mygraph->drawGraph("");
+	}
+
+	private function getSeriesColorRed($intSeries)
+	{
+		return hexdec(substr($this->colors[$intSeries],0,2));
+	}
+
+	private function getSeriesColorGreen($intSeries)
+	{
+		return hexdec(substr($this->colors[$intSeries],2,2));
+	}
+
+	private function getSeriesColorBlue($intSeries)
+	{
+		return hexdec(substr($this->colors[$intSeries],4,2));
+	}
+
+
+
+	private $colors = array(
+		"333300",
+		"CCFF00",
+		"0000CC",
+		"99FFCC",
+		"33CCFF",
+		"6633FF",
+		"339966",
+		"00FF66",
+		"339900",
+		"FF0033",
+		"333333",
+		"66CC00",
+		"33FF00",
+		"9933FF",
+		"CC3366",
+		"00FF99",
+		"FF3366",
+		"996699",
+		"CC00FF",
+		"66FFCC",
+		"003399",
+		"003300",
+		"33CC66",
+		"33CC00",
+		"CC66FF",
+		"CCFF33",
+		"666633",
+		"0099CC",
+		"6699CC",
+		"669999",
+		"66CCFF",
+		"660066",
+		"FF33CC",
+		"CC6633",
+		"660099",
+		"CCCC66",
+		"FFCC66",
+		"33CC33",
+		"333300",
+		"99FF66",
+		"336600",
+		"33CC99",
+		"FFCC33",
+		"993366",
+		"CCFFFF",
+		"00CCFF",
+		"6633CC",
+		"33FFFF",
+		"FF33FF",
+		"3333FF",
+		"6600FF",
+		"6666FF",
+		"CC0066",
+		"009999",
+		"9966CC",
+		"CC9999",
+		"336666",
+		"CC3300",
+		"669900",
+		"CCFF66",
+		"000033",
+		"99FFFF",
+		"00FFFF",
+		"66FF33",
+		"0033CC",
+		"FF00FF",
+		"FF3333",
+		"CC6666",
+		"9999CC",
+		"333399",
+		"CC33FF",
+		"FF0066",
+		"330099",
+		"0000FF",
+		"CC9966",
+		"3300CC",
+		"006600",
+		"336699",
+		"CC3333",
+		"66CC33",
+		"990099",
+		"00FF33",
+		"FFFF66",
+		"CC3399",
+		"339933",
+		"FF6666",
+		"009966",
+		"66FF99",
+		"99CCCC",
+		"996633",
+		"FFFF33",
+		"FF9933",
+		"000000",
+		"990000",
+		"999966",
+		"669966",
+		"330000",
+		"339999",
+		"CC6699",
+		"99FF00",
+		"660000",
+		"99CCFF",
+		"0066CC",
+		"66CC66",
+		"666699",
+		"99FF99",
+		"CCFFCC",
+		"CC0033",
+		"FFFFFF",
+		"006633",
+		"CC0000",
+		"FFCCCC",
+		"336633",
+		"33FF33",
+		"FF3300",
+		"FFCC00",
+		"FF9900",
+		"3399CC",
+		"CCCCCC",
+		"00FFCC",
+		"FFCC33",
+		"999999",
+		"9999FF",
+		"00CCCC",
+		"CC00CC",
+		"FF00CC",
+		"CC33CC",
+		"0033FF",
+		"993399",
+		"3366FF",
+		"6699FF",
+		"999933",
+		"9933CC",
+		"99CC00",
+		"00FF00",
+		"009933",
+		"0099FF",
+		"CC66CC",
+		"9900CC",
+		"CCCC99",
+		"006699",
+		"660033",
+		"3333CC",
+		"66FFFF",
+		"99FF33",
+		"3300FF",
+		"FFCCFF",
+		"003333",
+		"999900",
+		"CC6600",
+		"6600CC",
+		"33FF99",
+		"FF6600",
+		"00CC99",
+		"33FF66",
+		"FFFFCC",
+		"99CC33",
+		"0066FF",
+		"006666",
+		"FF0099",
+		"6666CC",
+		"663333",
+		"00CC00",
+		"993333",
+		"990033",
+		"3366CC",
+		"CC0099",
+		"CC9900",
+		"000066",
+		"3399FF",
+		"666666",
+		"CC99CC",
+		"00CC66",
+		"996600",
+		"663366",
+		"33FFCC",
+		"FFFF00",
+		"66FF00",
+		"000099",
+		"FF3399",
+		"009966",
+		"FF66FF",
+		"FF66CC",
+		"CCCCFF",
+		"FF0000",
+		"669933",
+		"33CCCC",
+		"663300",
+		"330033",
+		"00CC33",
+		"FF99CC",
+		"9966FF",
+		"9900FF",
+		"99CC99",
+		"66CCCC",
+		"996666",
+		"66CC99",
+		"330066",
+		"CC9933",
+		"CC99FF",
+		"FF9999",
+		"009900",
+		"66FF66",
+		"99CC66",
+		"FF9966",
+		"666600",
+		"FFCC99",
+		"CCCC00",
+		"993300",
+		"FF99FF",
+		"FFFF99",
+		"FF6699",
+		"CCFF99",
+		"003366",
+		"663399"
+	);
+
+/*	private $colors = array(
+		"FFFFFF",
+		"FFFFCC",
+		"FFFF99",
+		"FFFF66",
+		"FFFF33",
+		"FFFF00",
+		"CCFFFF",
+		"CCFFCC",
+		"CCFF99",
+		"CCFF66",
+		"CCFF33",
+		"CCFF00",
+		"99FFFF",
+		"99FFCC",
+		"99FF99",
+		"66FFFF",
+		"99FF66",
+		"99FF33",
+		"66FFCC",
+		"FFCCFF",
+		"99FF00",
+		"33FFFF",
+		"FFCCCC",
+		"33FFCC",
+		"00FFFF",
+		"66FF99",
+		"FFCC99",
+		"66FF66",
+		"66FF33",
+		"00FFCC",
+		"66FF00",
+		"33FF99",
+		"FFCC66",
+		"FFCC33",
+		"CCCCFF",
+		"33FF66",
+		"33FF33",
+		"00FF99",
+		"FFCC00",
+		"33FF00",
+		"00FF66",
+		"00FF33",
+		"00FF00",
+		"CCCCCC",
+		"CCCC99",
+		"99CCFF",
+		"CCCC66",
+		"CCCC00",
+		"CCCC33",
+		"99CCCC",
+		"FF99FF",
+		"99CC99",
+		"66CCFF",
+		"FF99CC",
+		"99CC66",
+		"66CCCC",
+		"99CC33",
+		"00CCFF",
+		"33CCFF",
+		"99CC00",
+		"FF9999",
+		"66CC99",
+		"FF9966",
+		"66CC66",
+		"33CCCC",
+		"CC99FF",
+		"00CCCC",
+		"FF9933",
+		"FF9900",
+		"66CC33",
+		"66CC00",
+		"33CC99",
+		"00CC99",
+		"CC99CC",
+		"33CC66",
+		"00CC66",
+		"CC9999",
+		"FF66FF",
+		"33CC33",
+		"33CC00",
+		"CC9966",
+		"00CC33",
+		"9999FF",
+		"00CC00",
+		"CC9933",
+		"CC9900",
+		"FF66CC",
+		"9999CC",
+		"FF6699",
+		"999999",
+		"6699FF",
+		"FF6666",
+		"CC66FF",
+		"999966",
+		"6699CC",
+		"999933",
+		"FFCC33",
+		"FF6600",
+		"FF33FF",
+		"3399FF",
+		"999900",
+		"669999",
+		"CC66CC",
+		"0099FF",
+		"FF33CC",
+		"3399CC",
+		"CC6699",
+		"669966",
+		"FF00FF",
+		"339999",
+		"669933",
+		"669900",
+		"FF3399",
+		"0099CC",
+		"9966FF",
+		"CC6666",
+		"009999",
+		"CC6633",
+		"CC6600",
+		"339966",
+		"FF00CC",
+		"FF3366",
+		"009966",
+		"CC33FF",
+		"FF3333",
+		"339933",
+		"009933",
+		"9966CC",
+		"FF3300",
+		"FF0099",
+		"339900",
+		"009900",
+		"6666FF",
+		"CC33CC",
+		"FF0066",
+		"996699",
+		"FF0033",
+		"FF0000",
+		"CC00FF",
+		"CC3399",
+		"996666",
+		"6666CC",
+		"996633",
+		"996600",
+		"3366FF",
+		"CC3366",
+		"CC00CC",
+		"9933FF",
+		"0066FF",
+		"666699",
+		"CC3333",
+		"CC3300",
+		"3366CC",
+		"CC0099",
+		"9933CC",
+		"666666",
+		"666633",
+		"0066CC",
+		"9900FF",
+		"666600",
+		"CC0066",
+		"336699",
+		"993399",
+		"CC0033",
+		"6633FF",
+		"336666",
+		"006699",
+		"CC0000",
+		"993366",
+		"9900CC",
+		"336633",
+		"006666",
+		"336600",
+		"6633CC",
+		"3333FF",
+		"006633",
+		"993333",
+		"993300",
+		"6600FF",
+		"990099",
+		"006600",
+		"0033FF",
+		"663399",
+		"009966",
+		"3333CC",
+		"663366",
+		"6600CC",
+		"990033",
+		"0033CC",
+		"990000",
+		"3300FF",
+		"663333",
+		"663300",
+		"660099",
+		"0000FF",
+		"333399",
+		"3300CC",
+		"003399",
+		"333300",
+		"660066",
+		"333333",
+		"003366",
+		"0000CC",
+		"660033",
+		"333300",
+		"660000",
+		"330099",
+		"003333",
+		"003300",
+		"000099",
+		"330066",
+		"330033",
+		"000066",
+		"330000",
+		"000033",
+		"000000"
+	);*/
+}
+?>

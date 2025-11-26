@@ -1,0 +1,64 @@
+<?php
+class TROperationsVO extends ValueObject
+{
+	public $tr_id = null;
+	public $week_3_call = null;
+	public $week_3_call_notes = null;
+	public $moc_on_demand_1 = NULL;
+	public $moc_on_demand_2 = NULL;
+	public $additional_support = NULL;
+	public $added_to_lms = NULL;
+	public $added_to_lms_notes = NULL;
+	public $hour_48_call = NULL;
+	public $hour_48_call_notes = NULL;
+	public $preferred_name = NULL;
+	public $crc_alert = NULL;
+	public $welcome_call = NULL;
+	public $welcome_call_notes = NULL;
+	public $main_contact_id = NULL;
+	public $leaver_form = NULL;
+	public $leaver_form_notes = NULL;
+	public $learner_id = NULL;
+	public $learner_id_notes = NULL;
+	public $is_completed = NULL;
+	public $completed_date = NULL;
+	public $additional_info = NULL;
+	public $epa = NULL;
+	public $lar_details = NULL;
+	public $bil_details = NULL;
+	public $leaver_details = NULL;
+	public $last_learning_evidence = NULL;
+	public $on_furlough = NULL;
+	public $epa_owner = NULL;
+	public $learner_status = NULL;
+	public $day_7_call_date = NULL;
+	public $day_7_call_notes = NULL;
+	public $peed_details = NULL;
+	public $ldd = NULL;
+	public $ldd_comments = NULL;
+	public $coordinator_comments = NULL;
+	public $reason_outside_matrix = NULL;
+	public $walled_garden = NULL;
+	public $lras_comments = NULL;
+	public $arm_involved = NULL;
+	public $arm_revisit = NULL;
+	public $lras_details = NULL;
+	public $previous_leaver = NULL;
+	public $reinstatement_date = NULL;
+	public $general_comments = NULL;
+	public $pdp_month9_date = NULL;
+	public $pdp_month9_completed = NULL;
+	public $pdp_month12_date = NULL;
+	public $pdp_month12_completed = NULL;
+	public $pdp_coach_sign = NULL;
+	public $mock_interview_planned_date = NULL;
+	public $mock_interview_actual_date = NULL;
+	public $mock_interview_completed = NULL;
+	public $project_checkin = NULL;
+	public $project_plan = NULL;
+	public $support_conversation = NULL;
+	public $epa_reasonable_adjustment = NULL;
+	public $als_plan = NULL;
+	public $diagnosis_evidence_required = NULL;
+}
+?>
